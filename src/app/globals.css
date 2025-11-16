@@ -218,7 +218,9 @@ a {
   gap: var(--gap-md);
 }
 
-/* tags */
+.tags {
+  padding-top: var(--gap-sm);
+}
 .tag {
   display: inline-block;
   padding: var(--radius-sm);
