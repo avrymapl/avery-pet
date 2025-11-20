@@ -247,6 +247,15 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
+.gallery-grid-three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-grid-four-col {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
 .gallery-grid-auto {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -265,6 +274,27 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.gallery-more-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.gallery-more-text {
+  color: white;
+  font-size: 3rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* lightbox styles */
