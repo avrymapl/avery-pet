@@ -18,7 +18,7 @@ export default function PostHeader({ post }: PostProps) {
             <Link href={`/posts/${slug}`}>{title}</Link>
           </h2>
         </div>
-      <p>{date}</p>
+      <p className="post-date">{date}</p>
     </div>
   );
 }

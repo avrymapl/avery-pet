@@ -440,6 +440,11 @@ a {
     display: none;
   }
 
+  /* hide dates on mobile */
+  .post-date {
+    display: none;
+  }
+
   /* show mobile sidebar content */
   .mobile-sidebar-content {
     display: block;

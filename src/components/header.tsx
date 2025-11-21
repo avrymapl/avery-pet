@@ -53,7 +53,7 @@ export default function Header({
             description && <p>— {description}</p>
           )}
         </div>
-        <p>{date && date}</p>
+        <p className="post-date">{date && date}</p>
       </div>
     </div>
   );
