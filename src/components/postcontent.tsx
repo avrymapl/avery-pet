@@ -9,7 +9,7 @@ export default function PostContent({ post }: PostProps) {
   const { renderedContent, tags } = post;
 
   return (
-    <div>
+    <div className="post-content">
       {renderedContent}
 
       {tags && tags.length > 0 && (
