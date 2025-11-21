@@ -460,4 +460,13 @@ a {
   body {
     padding: 140px var(--gap-md) 0 var(--gap-md);
   }
+
+  /* reduce gallery image heights on mobile */
+  .gallery-item {
+    height: 250px;
+  }
+
+  .lightbox-preview {
+    height: 400px;
+  }
 }
