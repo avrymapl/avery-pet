@@ -49,20 +49,7 @@ export default function Gallery({ images }: GalleryProps) {
       {/* lightbox modal with navigation (only show nav buttons if multiple images) */}
       {lightboxIndex !== null && (
         <div onClick={() => setLightboxIndex(null)} className="lightbox-overlay">
-          {/* previous button - only for multiple images */}
-          {!isSingleImage && lightboxIndex > 0 && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setLightboxIndex(lightboxIndex - 1);
-              }}
-              className="icon-box nav-icon lightbox-nav-button"
-            >
-              <BackIcon className="icon" />
-            </button>
-          )}
-
-          <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+          <div className="lightbox-image-container">
             <Image
               src={images[lightboxIndex].src}
               alt={images[lightboxIndex].alt}
@@ -70,20 +57,33 @@ export default function Gallery({ images }: GalleryProps) {
               style={{ objectFit: 'contain' }}
               sizes="100vw"
             />
-          </div>
 
-          {/* next button - only for multiple images */}
-          {!isSingleImage && lightboxIndex < images.length - 1 && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setLightboxIndex(lightboxIndex + 1);
-              }}
-              className="icon-box nav-icon lightbox-nav-button"
-            >
-              <NextIcon className="icon" />
-            </button>
-          )}
+            {/* previous button - only for multiple images */}
+            {!isSingleImage && lightboxIndex > 0 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex(lightboxIndex - 1);
+                }}
+                className="icon-box nav-icon lightbox-nav-button prev"
+              >
+                <BackIcon className="icon" />
+              </button>
+            )}
+
+            {/* next button - only for multiple images */}
+            {!isSingleImage && lightboxIndex < images.length - 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex(lightboxIndex + 1);
+                }}
+                className="icon-box nav-icon lightbox-nav-button next"
+              >
+                <NextIcon className="icon" />
+              </button>
+            )}
+          </div>
         </div>
       )}
     </>
