@@ -40,7 +40,7 @@ export default async function TagPage({ params }: TagPageProps) {
 
   return (
     <>
-      <MobileHeader currentFeed={null} onSelect={() => {}} page="tag" />
+      <MobileHeader page="tag" />
       <div className="content">
         <Sidebar page="tag" />
         <main>

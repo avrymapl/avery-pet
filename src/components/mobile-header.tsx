@@ -3,14 +3,14 @@
 import { IconData, FeedType, Home } from '@/lib/icons';
 
 interface MobileHeaderProps {
-  currentFeed: FeedType | null;
-  onSelect: (feed: FeedType) => void;
+  currentFeed?: FeedType | null;
+  onSelect?: (feed: FeedType) => void;
   page?: string;
 }
 
 export default function MobileHeader({
   currentFeed = null,
-  onSelect = () => {},
+  onSelect,
   page = 'index',
 }: MobileHeaderProps) {
   const feeds = (Object.keys(IconData) as FeedType[]).map((key) => ({
@@ -29,7 +29,7 @@ export default function MobileHeader({
                 key={key}
                 data-feed={key}
                 className={key === currentFeed ? 'active' : ''}
-                onClick={() => onSelect(key)}
+                onClick={() => onSelect?.(key)}
               >
                 <Icon className="icon" />
               </button>

@@ -36,7 +36,7 @@ export default async function PostPage({ params }: PostProps) {
 
   return (
     <>
-      <MobileHeader currentFeed={null} onSelect={() => {}} page="post" />
+      <MobileHeader page="post" />
       <div className="content">
         <Sidebar page="post" />
         <main>
