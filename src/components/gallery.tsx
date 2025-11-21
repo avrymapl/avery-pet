@@ -8,42 +8,56 @@ interface GalleryProps {
   images: Array<{ src: string; alt: string }>;
 }
 
-const TWO_COLUMN_THRESHOLD = 2;
+const MAX_PREVIEW_IMAGES = 4;
 
 export default function Gallery({ images }: GalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const isSingleImage = images.length === 1;
+  const previewImages = images.slice(0, MAX_PREVIEW_IMAGES);
+  const remainingCount = images.length - MAX_PREVIEW_IMAGES;
 
-  const gridClass = isSingleImage
-    ? 'lightbox-preview'
-    : images.length === TWO_COLUMN_THRESHOLD
-    ? 'gallery-grid gallery-grid-two-col'
-    : 'gallery-grid gallery-grid-auto';
+  const getGridClass = () => {
+    if (isSingleImage) return 'lightbox-preview';
+    if (images.length === 2) return 'gallery-grid gallery-grid-two-col';
+    if (images.length === 3) return 'gallery-grid gallery-grid-three-col';
+    return 'gallery-grid gallery-grid-four-col';
+  };
 
+  const gridClass = getGridClass();
   const PreviewWrapper = isSingleImage ? 'span' : 'div';
 
   return (
     <>
       {/* preview image(s) - single image or grid */}
       <PreviewWrapper className={gridClass}>
-        {images.map((image, index) => (
-          <div
-            key={image.src}
-            onClick={() => setLightboxIndex(index)}
-            className={isSingleImage ? undefined : 'gallery-item'}
-            style={
-              isSingleImage ? { position: 'relative', width: '100%', height: '100%' } : undefined
-            }
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
-            />
-          </div>
-        ))}
+        {previewImages.map((image, index) => {
+          const isLastPreview = index === MAX_PREVIEW_IMAGES - 1;
+          const showMoreOverlay = isLastPreview && remainingCount > 0;
+
+          return (
+            <div
+              key={image.src}
+              onClick={() => setLightboxIndex(index)}
+              className={isSingleImage ? undefined : 'gallery-item'}
+              style={
+                isSingleImage ? { position: 'relative', width: '100%', height: '100%' } : undefined
+              }
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
+              />
+              {showMoreOverlay && (
+                <div className="gallery-more-overlay">
+                  <span className="gallery-more-text">+{remainingCount}</span>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </PreviewWrapper>
 
       {/* lightbox modal with navigation (only show nav buttons if multiple images) */}
