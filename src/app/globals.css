@@ -364,13 +364,13 @@ a {
 
   .mobile-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--gap-sm);
   }
 
   .mobile-nav button {
-    flex: 1;
-    aspect-ratio: 1 / 1;
+    width: 42px;
+    height: 42px;
     border: none;
     cursor: pointer;
     padding: var(--radius-sm);
