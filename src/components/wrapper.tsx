@@ -1,6 +1,8 @@
 'use client';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Sidebar from '@/components/sidebar';
+import MobileHeader from '@/components/mobile-header';
+import SidebarContent from '@/components/sidebar-content';
 import Header from '@/components/header';
 import Post from '@/components/post';
 import { PostData } from '@/lib/posts';
@@ -24,16 +26,22 @@ export default function Wrapper({ posts }: PostProps) {
     currentFeed === 'all' ? posts : posts.filter((post) => post.feed === currentFeed);
 
   return (
-    <div className="content">
-      <Sidebar currentFeed={currentFeed} onSelect={setCurrentFeed} />
-      <main>
-        <Header currentFeed={currentFeed} />
-        <div className="feed">
-          {FilteredPosts.map((post) => (
-            <Post post={post} key={post.slug} />
-          ))}
-        </div>
-      </main>
-    </div>
+    <>
+      <MobileHeader currentFeed={currentFeed} onSelect={setCurrentFeed} />
+      <div className="content">
+        <Sidebar currentFeed={currentFeed} onSelect={setCurrentFeed} />
+        <main>
+          <div className="mobile-sidebar-content box">
+            <SidebarContent />
+          </div>
+          <Header currentFeed={currentFeed} />
+          <div className="feed">
+            {FilteredPosts.map((post) => (
+              <Post post={post} key={post.slug} />
+            ))}
+          </div>
+        </main>
+      </div>
+    </>
   );
 }

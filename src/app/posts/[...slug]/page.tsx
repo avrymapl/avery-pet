@@ -1,5 +1,7 @@
 import { getPostBySlug, getAllPosts, PostData } from '@/lib/posts';
 import Sidebar from '@/components/sidebar';
+import MobileHeader from '@/components/mobile-header';
+import SidebarContent from '@/components/sidebar-content';
 import Header from '@/components/header';
 import PostContent from '@/components/postcontent';
 import { renderPostContent } from '@/lib/renderPost';
@@ -33,20 +35,26 @@ export default async function PostPage({ params }: PostProps) {
   };
 
   return (
-    <div className="content">
-      <Sidebar page="post" />
-      <main>
-        <Header
-          currentFeed={post.feed}
-          title={post.title}
-          description={post.description}
-          date={post.date}
-          page="post"
-        />
-        <div className="post box" data-feed={post.feed}>
-          <PostContent post={postWithContent} />
-        </div>
-      </main>
-    </div>
+    <>
+      <MobileHeader currentFeed={null} onSelect={() => {}} page="post" />
+      <div className="content">
+        <Sidebar page="post" />
+        <main>
+          <div className="mobile-sidebar-content box">
+            <SidebarContent />
+          </div>
+          <Header
+            currentFeed={post.feed}
+            title={post.title}
+            description={post.description}
+            date={post.date}
+            page="post"
+          />
+          <div className="post box" data-feed={post.feed}>
+            <PostContent post={postWithContent} />
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
