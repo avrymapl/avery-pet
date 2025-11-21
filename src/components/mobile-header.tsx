@@ -1,6 +1,7 @@
 'use client';
 
 import { IconData, FeedType, Home } from '@/lib/icons';
+import { FeedData } from '@/lib/feeds';
 
 interface MobileHeaderProps {
   currentFeed?: FeedType | null;
@@ -18,10 +19,15 @@ export default function MobileHeader({
     Icon: IconData[key],
   }));
 
+  const feedTitle = currentFeed && FeedData[currentFeed] ? FeedData[currentFeed].title : 'all';
+
   return (
     <div className="mobile-header">
       <div className="mobile-header-content">
-        <h1>avery.pet</h1>
+        <h1>
+          avery.pet
+          {page === 'index' && <span className="feed-title"> — {feedTitle}</span>}
+        </h1>
         {page === 'index' ? (
           <nav className="mobile-nav">
             {feeds.map(({ key, Icon }) => (

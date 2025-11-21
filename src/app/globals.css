@@ -353,8 +353,13 @@ a {
   }
 
   .mobile-header h1 {
-    text-align: center;
+    text-align: left;
     margin: 0;
+  }
+
+  .mobile-header h1 .feed-title {
+    font-weight: 400;
+    color: var(--text-body);
   }
 
   .mobile-nav {
