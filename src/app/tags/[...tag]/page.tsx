@@ -1,6 +1,8 @@
 import { getAllPosts, getAllTags } from '@/lib/posts';
 import { renderPostContent } from '@/lib/renderPost';
 import Sidebar from '@/components/sidebar';
+import MobileHeader from '@/components/mobile-header';
+import SidebarContent from '@/components/sidebar-content';
 import Header from '@/components/header';
 import Post from '@/components/post';
 import { notFound } from 'next/navigation';
@@ -37,16 +39,22 @@ export default async function TagPage({ params }: TagPageProps) {
   );
 
   return (
-    <div className="content">
-      <Sidebar page="tag" />
-      <main>
-        <Header tag={tag} page="tag" />
-        <div className="feed">
-          {postsWithRenderedContent.map((post) => (
-            <Post post={post} key={post.slug} />
-          ))}
-        </div>
-      </main>
-    </div>
+    <>
+      <MobileHeader page="tag" />
+      <div className="content">
+        <Sidebar page="tag" />
+        <main>
+          <Header tag={tag} page="tag" />
+          <div className="mobile-sidebar-content box">
+            <SidebarContent />
+          </div>
+          <div className="feed">
+            {postsWithRenderedContent.map((post) => (
+              <Post post={post} key={post.slug} />
+            ))}
+          </div>
+        </main>
+      </div>
+    </>
   );
 }

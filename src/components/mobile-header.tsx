@@ -1,52 +1,53 @@
 'use client';
 
-import Link from 'next/link';
-import { IconData, Home, FeedType } from '@/lib/icons';
-import SidebarContent from './sidebar-content';
+import { IconData, FeedType, Home } from '@/lib/icons';
+import { FeedData } from '@/lib/feeds';
 
-interface SidebarProps {
+interface MobileHeaderProps {
   currentFeed?: FeedType | null;
   onSelect?: (feed: FeedType) => void;
-  page?: string | null;
+  page?: string;
 }
 
-export default function Sidebar({
+export default function MobileHeader({
   currentFeed = null,
-  onSelect = () => {},
+  onSelect,
   page = 'index',
-}: SidebarProps) {
+}: MobileHeaderProps) {
   const feeds = (Object.keys(IconData) as FeedType[]).map((key) => ({
     key,
     Icon: IconData[key],
   }));
 
-  return (
-    <div className="sidebar">
-      <div className="box">
-        <h1 style={{ textAlign: 'center' }}>avery.pet</h1>
+  const feedTitle = currentFeed && FeedData[currentFeed] ? FeedData[currentFeed].title : 'all';
 
+  return (
+    <div className="mobile-header">
+      <div className="mobile-header-content">
+        <h1>
+          avery.pet
+          {page === 'index' && <span className="feed-title"> — {feedTitle}</span>}
+        </h1>
         {page === 'index' ? (
-          <nav style={{ justifyContent: 'space-between', display: 'flex' }}>
+          <nav className="mobile-nav">
             {feeds.map(({ key, Icon }) => (
               <button
                 key={key}
                 data-feed={key}
                 className={key === currentFeed ? 'active' : ''}
-                onClick={() => onSelect(key)}
+                onClick={() => onSelect?.(key)}
               >
                 <Icon className="icon" />
               </button>
             ))}
           </nav>
         ) : (
-          <Link className="home-icon" href="/">
+          <a className="home-icon" href="/">
             <button>
               <Home className="icon" />
             </button>
-          </Link>
+          </a>
         )}
-
-        <SidebarContent />
       </div>
     </div>
   );
