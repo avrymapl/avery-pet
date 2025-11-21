@@ -430,6 +430,11 @@ a {
     display: none;
   }
 
+  /* hide category headers on mobile */
+  .header {
+    display: none;
+  }
+
   /* show mobile sidebar content */
   .mobile-sidebar-content {
     display: block;
