@@ -31,10 +31,10 @@ export default function Wrapper({ posts }: PostProps) {
       <div className="content">
         <Sidebar currentFeed={currentFeed} onSelect={setCurrentFeed} />
         <main>
+          <Header currentFeed={currentFeed} />
           <div className="mobile-sidebar-content box">
             <SidebarContent />
           </div>
-          <Header currentFeed={currentFeed} />
           <div className="feed">
             {FilteredPosts.map((post) => (
               <Post post={post} key={post.slug} />

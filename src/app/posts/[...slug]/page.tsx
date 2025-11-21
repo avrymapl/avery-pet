@@ -40,9 +40,6 @@ export default async function PostPage({ params }: PostProps) {
       <div className="content">
         <Sidebar page="post" />
         <main>
-          <div className="mobile-sidebar-content box">
-            <SidebarContent />
-          </div>
           <Header
             currentFeed={post.feed}
             title={post.title}
@@ -50,6 +47,9 @@ export default async function PostPage({ params }: PostProps) {
             date={post.date}
             page="post"
           />
+          <div className="mobile-sidebar-content box">
+            <SidebarContent />
+          </div>
           <div className="post box" data-feed={post.feed}>
             <PostContent post={postWithContent} />
           </div>

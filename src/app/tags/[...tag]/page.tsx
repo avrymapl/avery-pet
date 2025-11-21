@@ -44,10 +44,10 @@ export default async function TagPage({ params }: TagPageProps) {
       <div className="content">
         <Sidebar page="tag" />
         <main>
+          <Header tag={tag} page="tag" />
           <div className="mobile-sidebar-content box">
             <SidebarContent />
           </div>
-          <Header tag={tag} page="tag" />
           <div className="feed">
             {postsWithRenderedContent.map((post) => (
               <Post post={post} key={post.slug} />

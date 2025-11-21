@@ -365,6 +365,7 @@ a {
 
   .mobile-nav button {
     flex: 1;
+    aspect-ratio: 1 / 1;
     border: none;
     cursor: pointer;
     padding: var(--radius-sm);
@@ -441,12 +442,12 @@ a {
   /* adjust content layout */
   .content {
     grid-template-columns: 1fr;
-    padding-top: calc(var(--gap-lg) + 140px); /* account for fixed header height */
+    padding-top: var(--gap-md);
     max-width: 840px;
     width: 100%;
   }
 
   body {
-    padding: 0 var(--gap-md);
+    padding: 140px var(--gap-md) 0 var(--gap-md);
   }
 }
