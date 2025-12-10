@@ -1,1 +1,1 @@
-a personal website create with Next.js :3
+a personal website created with Next.js :3
