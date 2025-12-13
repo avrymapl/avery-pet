@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
 import BookIcon from '@/app/icons/BookIcon';
 import HomeIcon from '@/app/icons/HomeIcon';
+import Header from '@/components/header';
 
 interface DocsSidebarProps {
   items: {
@@ -101,7 +102,7 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
         {/* sidebar */}
         <div className="sidebar">
           <div className="box">
-              <h1 style={{ textAlign: 'center' }}>kawaba</h1>
+              <h1 style={{ textAlign: 'center' }}>avery.pet</h1>
 
             <Link className="home-icon" href="/" style={{ marginBottom: 'var(--gap-md)' }}>
               <button>
@@ -115,6 +116,7 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
 
         {/* main */}
         <main>
+          <Header title="kawaba" description="a priori constructed language" />
           <div className="docs-content box" data-feed="projects">
             {children}
           </div>
