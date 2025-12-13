@@ -43,14 +43,14 @@ export default function Header({
           <h1>{displayTitle}</h1>
 
           {page === 'index' ? (
-            <p> — {Feed?.description ?? ''}</p>
+            <h2> — {Feed?.description ?? ''}</h2>
           ) : page === 'tag' ? (
             <div className="row">
-              <p> — posts tagged with </p>
+              <h2> — posts tagged with </h2>
               <span className="tag">{tag}</span>
             </div>
           ) : (
-            description && <p>— {description}</p>
+            description && <h2>— {description}</h2>
           )}
         </div>
         <p className="post-date">{date && date}</p>

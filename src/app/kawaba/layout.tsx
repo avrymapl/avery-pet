@@ -116,8 +116,8 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
 
         {/* main */}
         <main>
-          <Header title="kawaba" description="a priori constructed language" />
-          <div className="docs-content box" data-feed="projects">
+          <Header title="kawaba" description="the language of parts" page="kawaba"/>
+          <div className="docs-content box">
             {children}
           </div>
         </main>
