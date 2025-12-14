@@ -1,6 +1,7 @@
 import { FeedData } from '@/lib/feeds';
 import { IconData, Tag, FeedType } from '@/lib/icons';
 import KawabaIcon from '@/app/icons/KawabaIcon';
+import { ReactNode } from 'react';
 
 interface HeaderProps {
   currentFeed?: FeedType | null;
@@ -9,6 +10,7 @@ interface HeaderProps {
   tag?: string | null;
   date?: string | null;
   page?: string;
+  search?: ReactNode;
 }
 
 export default function Header({
@@ -18,6 +20,7 @@ export default function Header({
   tag = null,
   date = null,
   page = 'index',
+  search = null,
 }: HeaderProps) {
   const Icon = currentFeed ? IconData[currentFeed] : null;
   const Feed = currentFeed ? FeedData[currentFeed] : null;
@@ -58,7 +61,11 @@ export default function Header({
             description && <h2>— {description}</h2>
           )}
         </div>
-        <p className="post-date">{date && date}</p>
+        {search ? (
+          <div style={{ width: '240px' }}>{search}</div>
+        ) : (
+          <p className="post-date">{date && date}</p>
+        )}
       </div>
     </div>
   );

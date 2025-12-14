@@ -120,12 +120,12 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
 
         {/* main */}
         <main>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 'calc(-1 * (var(--gap-md) + 40px))' }}>
-            <div style={{ width: '240px' }}>
-              <KawabaSearch />
-            </div>
-          </div>
-          <Header title="kawaba" description="the language of parts" page="kawaba"/>
+          <Header
+            title="kawaba"
+            description="the language of parts"
+            page="kawaba"
+            search={<KawabaSearch />}
+          />
           <div className="docs-content box">
             {children}
           </div>
