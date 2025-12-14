@@ -104,14 +104,6 @@ function DictionaryContent() {
           </div>
         ))}
       </div>
-
-      {filteredData.length === 0 && (
-        <div className="box">
-          <p style={{ color: 'var(--text-body)', fontStyle: 'italic', margin: 0 }}>
-            No results found for &quot;{searchTerm}&quot;
-          </p>
-        </div>
-      )}
     </div>
   );
 }
