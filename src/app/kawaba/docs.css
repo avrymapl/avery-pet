@@ -167,3 +167,14 @@
   padding: 0;
   border: none;
 }
+
+/* part of speech labels */
+.pos-label {
+  display: inline-block;
+  padding: var(--radius-sm);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-body);
+  font-size: 0.85em;
+  font-weight: 500;
+}
