@@ -120,7 +120,7 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
 
         {/* main */}
         <main>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 'var(--gap-sm)' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 'calc(-1 * (var(--gap-md) + 40px))' }}>
             <div style={{ width: '240px' }}>
               <KawabaSearch />
             </div>
