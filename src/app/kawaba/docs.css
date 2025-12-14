@@ -145,3 +145,17 @@
 .doc-nav a:hover {
   background-color: rgba(75, 71, 66, 0.25);
 }
+
+/* dictionary page overrides */
+.docs-content.box:has(.dictionary-page) {
+  padding: 0;
+  border: none;
+  background: transparent;
+  gap: 0;
+}
+
+.dictionary-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}

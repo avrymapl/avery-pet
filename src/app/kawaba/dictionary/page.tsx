@@ -80,7 +80,7 @@ function DictionaryContent() {
   }, [searchTerm]);
 
   return (
-    <>
+    <div className="dictionary-page">
       {searchTerm && (
         <div className="box" style={{ marginBottom: 'var(--gap-md)' }}>
           <p style={{ color: 'var(--text-heading)', fontWeight: '500', margin: 0 }}>
@@ -107,7 +107,7 @@ function DictionaryContent() {
           </p>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
