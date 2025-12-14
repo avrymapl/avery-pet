@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useMemo } from 'react';
+import { useMemo, Suspense } from 'react';
 import Link from 'next/link';
 
 // Lexicon data structure
@@ -63,7 +63,7 @@ const lexiconData = [
   { consonant: 'w', vowel: 'u', meaning: 'like', root: 'wu' },
 ];
 
-export default function LexiconPage() {
+function LexiconContent() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get('search') || '';
 
@@ -174,5 +174,13 @@ export default function LexiconPage() {
         <Link href="/kawaba/">→</Link>
       </div>
     </div>
+  );
+}
+
+export default function LexiconPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LexiconContent />
+    </Suspense>
   );
 }
