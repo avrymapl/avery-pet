@@ -10,7 +10,7 @@ export default function KawabaSearch() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      router.push(`/kawaba/lexicon?search=${encodeURIComponent(searchTerm.trim())}`);
+      router.push(`/kawaba/dictionary?search=${encodeURIComponent(searchTerm.trim())}`);
     }
   };
 
@@ -20,7 +20,7 @@ export default function KawabaSearch() {
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        placeholder="search lexicon..."
+        placeholder="search dictionary..."
         className="kawaba-search-input"
         style={{
           width: '100%',

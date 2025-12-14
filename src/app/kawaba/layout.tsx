@@ -68,6 +68,10 @@ const sidebarItems = [
     title: 'lexicon',
     href: '/kawaba/lexicon',
   },
+  {
+    title: 'dictionary',
+    href: '/kawaba/dictionary',
+  },
   /*
   {
     title: 'morphology',
