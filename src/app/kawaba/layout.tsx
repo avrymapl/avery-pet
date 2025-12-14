@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
-import BookIcon from '@/app/icons/BookIcon';
 import HomeIcon from '@/app/icons/HomeIcon';
 import Header from '@/components/header';
+import KawabaSearch from '@/components/kawaba-search';
 
 interface DocsSidebarProps {
   items: {
@@ -68,6 +68,10 @@ const sidebarItems = [
     title: 'lexicon',
     href: '/kawaba/lexicon',
   },
+  {
+    title: 'dictionary',
+    href: '/kawaba/dictionary',
+  },
   /*
   {
     title: 'morphology',
@@ -116,7 +120,12 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
 
         {/* main */}
         <main>
-          <Header title="kawaba" description="the language of parts" page="kawaba"/>
+          <Header
+            title="kawaba"
+            description="the language of parts"
+            page="kawaba"
+            search={<KawabaSearch />}
+          />
           <div className="docs-content box">
             {children}
           </div>

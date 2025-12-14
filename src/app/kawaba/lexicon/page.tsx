@@ -5,20 +5,20 @@ import path from 'path';
 import Link from 'next/link';
 import remarkGfm from 'remark-gfm';
 
-export default async function ConsonantsPage() {
+export default async function LexiconPage() {
   // read mdx file
   const filePath = path.join(
     process.cwd(),
     'src/content/kawaba/phonology/consonants.mdx'
   );
-  
+
   // for now, inline content (or read from file once you create it)
-  const content = fs.existsSync(filePath) 
+  const content = fs.existsSync(filePath)
     ? fs.readFileSync(filePath, 'utf8')
     : `
 # lexicon
 
-*kawaba* has a minimal lexicon of 130 roots words, 110 lexical and 20 grammatical, that are combined agglutinatively to build complex meaning. 
+*kawaba* has a minimal lexicon of 130 roots words, 110 lexical and 20 grammatical, that are combined agglutinatively to build complex meaning.
 
 ## lexical roots
 
@@ -41,18 +41,18 @@ export default async function ConsonantsPage() {
 
   return (
     <div>
-      <MDXRemote 
-        source={content} 
+      <MDXRemote
+        source={content}
         components={docsComponents}
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],
           },
         }}
-      />      
+      />
       <div className="doc-nav">
         <Link href="/kawaba/phonology">← phonology</Link>
-        <Link href="/kawaba/"> →</Link>
+        <Link href="/kawaba/dictionary">dictionary →</Link>
       </div>
     </div>
   );
