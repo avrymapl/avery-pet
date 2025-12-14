@@ -31,6 +31,7 @@ export default function KawabaSearch() {
           color: 'var(--text-body)',
           fontSize: '0.9em',
           outline: 'none',
+          boxSizing: 'border-box',
         }}
       />
     </form>
