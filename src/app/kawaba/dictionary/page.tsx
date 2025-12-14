@@ -2,7 +2,6 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useMemo, Suspense } from 'react';
-import Link from 'next/link';
 
 // Dictionary data structure
 const dictionaryData = [
@@ -82,96 +81,40 @@ function DictionaryContent() {
     });
   }, [searchTerm]);
 
-  // Group filtered data by consonant for table display
-  const consonants = ['b', 'd', 'g', 'j', 'k', 'l', 'm', 'p', 's', 't', 'w'];
-  const vowels = ['a', 'e', 'i', 'o', 'u'];
-
   return (
-    <div>
-      <h1>dictionary</h1>
-      <p>
-        A searchable reference of all <i>kawaba</i> root words and their meanings.
-      </p>
-
+    <>
       {searchTerm && (
-        <div style={{ marginTop: 'var(--gap-md)', marginBottom: 'var(--gap-md)' }}>
-          <p style={{ color: 'var(--text-heading)', fontWeight: '500' }}>
-            Search results for &quot;{searchTerm}&quot; ({filteredData.length} {filteredData.length === 1 ? 'result' : 'results'})
+        <div className="box" style={{ marginBottom: 'var(--gap-md)' }}>
+          <p style={{ color: 'var(--text-heading)', fontWeight: '500', margin: 0 }}>
+            {filteredData.length} {filteredData.length === 1 ? 'result' : 'results'} for &quot;{searchTerm}&quot;
           </p>
         </div>
       )}
 
-      {searchTerm ? (
-        // List view for search results
-        <div style={{ marginTop: 'var(--gap-md)' }}>
-          {filteredData.length > 0 ? (
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-              <thead>
-                <tr style={{ borderBottom: '2px solid var(--bg-secondary)' }}>
-                  <th style={{ textAlign: 'left', padding: '8px', color: 'var(--text-heading)' }}>Root</th>
-                  <th style={{ textAlign: 'left', padding: '8px', color: 'var(--text-heading)' }}>Meaning</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredData.map((entry) => (
-                  <tr key={entry.root} style={{ borderBottom: '1px solid var(--bg-secondary)' }}>
-                    <td style={{ padding: '8px', color: 'var(--text-body)', fontWeight: '500' }}>
-                      {entry.root}
-                    </td>
-                    <td style={{ padding: '8px', color: 'var(--text-body)' }}>
-                      {entry.meaning}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p style={{ color: 'var(--text-body)', fontStyle: 'italic' }}>
-              No results found for &quot;{searchTerm}&quot;
-            </p>
-          )}
-        </div>
-      ) : (
-        // Table view for all entries
-        <div style={{ marginTop: 'var(--gap-md)' }}>
-          <h2>all roots</h2>
-          <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 'var(--gap-md)' }}>
-            <thead>
-              <tr style={{ borderBottom: '2px solid var(--bg-secondary)' }}>
-                <th style={{ textAlign: 'left', padding: '8px', color: 'var(--text-heading)' }}></th>
-                {vowels.map((v) => (
-                  <th key={v} style={{ textAlign: 'left', padding: '8px', color: 'var(--text-heading)' }}>
-                    -{v}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {consonants.map((c) => (
-                <tr key={c} style={{ borderBottom: '1px solid var(--bg-secondary)' }}>
-                  <td style={{ padding: '8px', color: 'var(--text-heading)', fontWeight: '500' }}>
-                    {c}-
-                  </td>
-                  {vowels.map((v) => {
-                    const entry = dictionaryData.find((e) => e.consonant === c && e.vowel === v);
-                    return (
-                      <td key={`${c}${v}`} style={{ padding: '8px', color: 'var(--text-body)' }}>
-                        {entry?.meaning || ''}
-                      </td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="feed">
+        {filteredData.map((entry) => (
+          <div key={entry.root} className="post box">
+            <div className="row" style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+              <h2 style={{ margin: 0 }}>{entry.root}</h2>
+              <p style={{ margin: 0, color: 'var(--text-body)', fontSize: '0.9em' }}>
+                {entry.consonant}-{entry.vowel}
+              </p>
+            </div>
+            <div className="post-content">
+              <p>{entry.meaning}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {filteredData.length === 0 && (
+        <div className="box">
+          <p style={{ color: 'var(--text-body)', fontStyle: 'italic', margin: 0 }}>
+            No results found for &quot;{searchTerm}&quot;
+          </p>
         </div>
       )}
-
-      <div className="doc-nav" style={{ marginTop: 'var(--gap-md)' }}>
-        <Link href="/kawaba/lexicon">← lexicon</Link>
-        <Link href="/kawaba/">→</Link>
-      </div>
-    </div>
+    </>
   );
 }
 
