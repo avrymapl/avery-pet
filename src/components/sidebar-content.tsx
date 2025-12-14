@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import KawabaIcon from '@/app/icons/KawabaIcon';
+import Link from 'next/link';
 
 export default function SidebarContent() {
   return (
@@ -28,6 +30,14 @@ export default function SidebarContent() {
         about my life in general. i don&apos;t expect many visitors, but at least it&apos;s proof
         that i exist — thanks for stopping by! :3
       </p>
+      <div className="kawaba row" style={{ alignItems: 'center', gap: '12px' }}>
+        <Link href="/kawaba">
+          <button>
+              <KawabaIcon className="icon"/>
+          </button>
+        </Link>
+        <p>check my conlang <i>kawaba!</i></p>
+      </div>
     </>
   );
 }

@@ -138,6 +138,9 @@ a {
 .nav-icon {
   --color: 75, 71, 66;
 }
+.kawaba {
+  --color: var(--blue);
+}
 
 .sidebar .box {
   position: sticky;
@@ -184,6 +187,15 @@ a {
   width: var(--icon-size);
   height: var(--icon-size);
   fill: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kawaba .icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  fill: rgb(var(--yellow));
   display: flex;
   justify-content: center;
   align-items: center;

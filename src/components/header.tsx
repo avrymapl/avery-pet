@@ -1,5 +1,6 @@
 import { FeedData } from '@/lib/feeds';
 import { IconData, Tag, FeedType } from '@/lib/icons';
+import KawabaIcon from '@/app/icons/KawabaIcon';
 
 interface HeaderProps {
   currentFeed?: FeedType | null;
@@ -31,6 +32,10 @@ export default function Header({
           {page === 'tag' ? (
             <div className="icon-box tag-icon">
               <Tag className="icon" />
+            </div>
+          ) : page === 'kawaba' ? (
+            <div className="icon-box kawaba">
+              <KawabaIcon className="icon" />
             </div>
           ) : (
             Icon && (

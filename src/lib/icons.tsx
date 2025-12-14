@@ -7,6 +7,7 @@ import BookmarkIcon from '@/app/icons/BookmarkIcon';
 
 import HomeIcon from '@/app/icons/HomeIcon';
 import TagIcon from '@/app/icons/TagIcon';
+import KawabaIcon from '@/app/icons/KawabaIcon';
 
 export const IconData = {
   all: PawIcon,
@@ -19,6 +20,6 @@ export const IconData = {
 
 export type FeedType = keyof typeof IconData;
 
-// export the components directly, not wrapped in objects
 export const Home = HomeIcon;
 export const Tag = TagIcon;
+export const Kawaba = KawabaIcon;

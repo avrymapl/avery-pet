@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function KawabaHome() {
   const content = `
-# kawaba reference grammar
+# introduction
 
 welcome to the complete grammar reference for *kawaba* – the language of parts. *kawaba* is a minimal oligosynthetic constructed language i began working on in 2022 that uses a limited set of 130 root words to build meaning.
 this reference grammar assumes some familiarity with linguistic terminology – for an introduction to the language written for a general audience, please read the *kawaba* lessons instead.
