@@ -95,10 +95,10 @@ function DictionaryContent() {
             <h2 style={{ margin: 0 }}>{entry.root}</h2>
             <div className="post-content">
               {entry.definitions.map((def, idx) => (
-                <div key={idx} style={{ marginBottom: idx < entry.definitions.length - 1 ? 'var(--gap-sm)' : 0 }}>
+                <p key={idx} style={{ marginBottom: idx < entry.definitions.length - 1 ? 'var(--gap-sm)' : 0 }}>
                   <span className="pos-label">{def.pos}</span>
-                  <p style={{ marginTop: 'var(--radius-sm)' }}>{def.meaning}</p>
-                </div>
+                  {def.meaning}
+                </p>
               ))}
             </div>
           </div>
