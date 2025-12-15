@@ -139,25 +139,23 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
               onClick={() => setIsNavOpen(!isNavOpen)}
               style={{
                 width: '100%',
-                padding: 'var(--gap-sm)',
+                padding: '0',
                 background: 'transparent',
                 border: 'none',
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                fontSize: '1em',
-                color: 'var(--text-heading)',
               }}
             >
-              <span>{currentPageTitle}</span>
-              <span style={{ transform: isNavOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+              <h3 className="mobile-nav-title">{currentPageTitle}</h3>
+              <span style={{ transform: isNavOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s', color: 'var(--text-heading)' }}>
                 ▼
               </span>
             </button>
 
             {isNavOpen && (
-              <nav style={{ padding: '0 var(--gap-sm) var(--gap-sm)', borderTop: '1px solid var(--border)', paddingTop: 'var(--gap-sm)' }}>
+              <nav style={{ borderTop: '1px solid var(--border)', paddingTop: 'var(--gap-sm)' }}>
                 <div className="column" style={{ gap: 'var(--gap-sm)' }}>
                   {sidebarItems.map((item) => (
                     <Link
@@ -168,7 +166,6 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
                         fontWeight: pathname === item.href ? '600' : '400',
                         color: pathname === item.href ? 'var(--text-heading)' : 'var(--text-body)',
                         textDecoration: 'none',
-                        padding: 'var(--gap-xs) 0',
                       }}
                     >
                       {item.title}

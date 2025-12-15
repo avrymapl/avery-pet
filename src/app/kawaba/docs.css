@@ -184,6 +184,13 @@
   display: none;
 }
 
+.mobile-nav-title {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 1.25rem;
+}
+
 @media (max-width: 768px) {
   .mobile-nav-menu {
     display: block;
