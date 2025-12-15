@@ -195,4 +195,11 @@
   .mobile-nav-menu {
     display: block;
   }
+
+  /* make tables horizontally scrollable on mobile */
+  .docs-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
