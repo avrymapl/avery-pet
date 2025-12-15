@@ -197,25 +197,12 @@
   }
 
   /* make tables horizontally scrollable on mobile */
-  .docs-content table {
-    display: block;
+  .docs-content.box {
     overflow-x: auto;
-    width: fit-content;
-    max-width: 100%;
   }
 
-  .docs-content thead,
-  .docs-content tbody {
-    display: table;
+  .docs-content table {
     width: max-content;
-  }
-
-  .docs-content tr {
-    display: table-row;
-  }
-
-  .docs-content th,
-  .docs-content td {
-    display: table-cell;
+    min-width: 100%;
   }
 }
