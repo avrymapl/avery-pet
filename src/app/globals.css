@@ -516,6 +516,23 @@ a {
     background-color: var(--bg-primary);
   }
 
+  /* mobile sidebar content button styling */
+  .mobile-sidebar-content button {
+    border: none;
+    cursor: pointer;
+    padding: var(--radius-sm);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-secondary);
+  }
+
+  .mobile-sidebar-content button:hover {
+    background-color: rgba(var(--color), 0.25);
+  }
+
   /* adjust content layout */
   .content {
     grid-template-columns: 1fr;
