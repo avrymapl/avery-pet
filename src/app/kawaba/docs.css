@@ -199,10 +199,10 @@
   /* make tables horizontally scrollable on mobile */
   .docs-content.box {
     overflow-x: auto;
+    min-width: 0;
   }
 
   .docs-content table {
-    width: max-content;
-    min-width: 100%;
+    width: auto;
   }
 }
