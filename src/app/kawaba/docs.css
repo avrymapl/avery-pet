@@ -200,6 +200,22 @@
   .docs-content table {
     display: block;
     overflow-x: auto;
-    white-space: nowrap;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .docs-content thead,
+  .docs-content tbody {
+    display: table;
+    width: max-content;
+  }
+
+  .docs-content tr {
+    display: table-row;
+  }
+
+  .docs-content th,
+  .docs-content td {
+    display: table-cell;
   }
 }
