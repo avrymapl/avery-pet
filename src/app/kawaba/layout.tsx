@@ -88,6 +88,9 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const pathname = usePathname();
 
+  const currentPage = sidebarItems.find(item => item.href === pathname);
+  const currentPageTitle = currentPage?.title || 'Pages';
+
   return (
     <>
       {/* mobile header */}
@@ -101,52 +104,6 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
               <HomeIcon className="icon" />
             </button>
           </Link>
-        </div>
-
-        {/* collapsible navigation */}
-        <div style={{ borderTop: '1px solid var(--border)', paddingTop: 'var(--gap-sm)' }}>
-          <button
-            onClick={() => setIsNavOpen(!isNavOpen)}
-            style={{
-              width: '100%',
-              padding: 'var(--gap-sm)',
-              background: 'transparent',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              fontSize: '1em',
-              color: 'var(--text-heading)',
-            }}
-          >
-            <span>Pages</span>
-            <span style={{ transform: isNavOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
-              ▼
-            </span>
-          </button>
-
-          {isNavOpen && (
-            <nav style={{ padding: '0 var(--gap-sm) var(--gap-sm)' }}>
-              <div className="column" style={{ gap: 'var(--gap-sm)' }}>
-                {sidebarItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsNavOpen(false)}
-                    style={{
-                      fontWeight: pathname === item.href ? '600' : '400',
-                      color: pathname === item.href ? 'var(--text-heading)' : 'var(--text-body)',
-                      textDecoration: 'none',
-                      padding: 'var(--gap-xs) 0',
-                    }}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-          )}
         </div>
       </div>
 
@@ -175,6 +132,53 @@ export default function KawabaLayout({ children }: { children: ReactNode }) {
             page="kawaba"
             search={<KawabaSearch />}
           />
+
+          {/* mobile navigation menu */}
+          <div className="box mobile-nav-menu">
+            <button
+              onClick={() => setIsNavOpen(!isNavOpen)}
+              style={{
+                width: '100%',
+                padding: 'var(--gap-sm)',
+                background: 'transparent',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontSize: '1em',
+                color: 'var(--text-heading)',
+              }}
+            >
+              <span>{currentPageTitle}</span>
+              <span style={{ transform: isNavOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }}>
+                ▼
+              </span>
+            </button>
+
+            {isNavOpen && (
+              <nav style={{ padding: '0 var(--gap-sm) var(--gap-sm)', borderTop: '1px solid var(--border)', paddingTop: 'var(--gap-sm)' }}>
+                <div className="column" style={{ gap: 'var(--gap-sm)' }}>
+                  {sidebarItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setIsNavOpen(false)}
+                      style={{
+                        fontWeight: pathname === item.href ? '600' : '400',
+                        color: pathname === item.href ? 'var(--text-heading)' : 'var(--text-body)',
+                        textDecoration: 'none',
+                        padding: 'var(--gap-xs) 0',
+                      }}
+                    >
+                      {item.title}
+                    </Link>
+                  ))}
+                </div>
+              </nav>
+            )}
+          </div>
+
           <div className="docs-content box">
             {children}
           </div>

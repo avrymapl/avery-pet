@@ -178,3 +178,14 @@
   font-weight: 600;
   margin-right: var(--gap-sm);
 }
+
+/* mobile navigation menu */
+.mobile-nav-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-menu {
+    display: block;
+  }
+}
