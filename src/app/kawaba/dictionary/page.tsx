@@ -95,7 +95,7 @@ function DictionaryContent() {
       {/* Root words toggle */}
       <div className="box">
         <label className="toggle-container">
-          <span className="toggle-label">Show roots only</span>
+          <span className="toggle-label">show roots only</span>
           <button
             className={`toggle-slider ${showRootsOnly ? 'active' : ''}`}
             onClick={() => setShowRootsOnly(!showRootsOnly)}
