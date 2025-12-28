@@ -5,14 +5,14 @@ import { useMemo, Suspense } from 'react';
 
 // Dictionary data structure
 const dictionaryData = [
-  { root: 'ba', definitions: [{ pos: 'noun', meaning: 'part' }] },
-  { root: 'be', definitions: [{ pos: 'noun', meaning: 'cause' }, { pos: 'verb', meaning: 'to cause' }] },
-  { root: 'bi', definitions: [{ pos: 'verb', meaning: 'to have' }] },
-  { root: 'bo', definitions: [{ pos: 'modifier', meaning: 'before' }] },
-  { root: 'bu', definitions: [{ pos: 'verb', meaning: 'to make' }] },
-  { root: 'da', definitions: [{ pos: 'noun', meaning: 'thing' }] },
-  { root: 'de', definitions: [{ pos: 'noun', meaning: 'body' }] },
-  { root: 'di', definitions: [{ pos: 'verb', meaning: 'to die' }] },
+  { root: 'ba', definitions: [{ pos: 'noun', meaning: 'part, piece, portion, fraction' }] },
+  { root: 'be', definitions: [{ pos: 'noun', meaning: 'cause, reason' }, { pos: 'verb', meaning: 'to cause, to make happen' }] },
+  { root: 'bi', definitions: [{ pos: 'noun', meaning: 'possessions, belongings'}, { pos: 'verb', meaning: 'to have, to own, to hold' }] },
+  { root: 'bo', definitions: [{ pos: 'noun', meaning: 'past, front' }, { pos: 'modifier', meaning: 'before, in front' }] },
+  { root: 'bu', definitions: [{ pos: 'noun', meaning: 'construction' }, { pos: 'verb', meaning: 'to make' }] },
+  { root: 'da', definitions: [{ pos: 'noun', meaning: 'thing, matter, material, substance' }, { pos: 'modifier', meaning: 'physical, material' }] },
+  { root: 'de', definitions: [{ pos: 'noun', meaning: 'body, form' }] },
+  { root: 'di', definitions: [{ pos: 'noun', meaning: 'death' }, { pos: 'verb', meaning: 'to die' }] },
   { root: 'do', definitions: [{ pos: 'verb', meaning: 'to come' }] },
   { root: 'du', definitions: [{ pos: 'modifier', meaning: 'big' }] },
   { root: 'ga', definitions: [{ pos: 'modifier', meaning: 'near' }] },

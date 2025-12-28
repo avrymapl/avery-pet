@@ -22,6 +22,10 @@ export default async function LexiconPage() {
 
 ## lexical roots
 
+<Callout type="warning">
+the definitions provided in these root tables are only rough glosses of their meanings, which often encompass a wider semantic space and vary somewhat with context.
+</Callout>
+
 ### table of basic lexical roots
 
 | | -a | -e | -i | -o | -u |

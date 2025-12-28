@@ -59,7 +59,12 @@ function DocsSidebar({ items }: DocsSidebarProps) {
 }
 
 const sidebarItems = [
-  { title: 'introduction', href: '/kawaba' },
+    {
+    title: 'dictionary',
+    href: '/kawaba/dictionary',
+  },
+  { title: 'introduction',
+    href: '/kawaba' },
   {
     title: 'phonology',
     href: '/kawaba/phonology',
@@ -67,10 +72,6 @@ const sidebarItems = [
   {
     title: 'lexicon',
     href: '/kawaba/lexicon',
-  },
-  {
-    title: 'dictionary',
-    href: '/kawaba/dictionary',
   },
   /*
   {

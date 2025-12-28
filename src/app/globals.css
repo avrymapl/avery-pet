@@ -139,7 +139,7 @@ a {
   --color: 75, 71, 66;
 }
 .kawaba {
-  --color: var(--blue);
+  --color: 0, 60, 93;
 }
 
 .sidebar .box {
