@@ -196,3 +196,59 @@
     display: block;
   }
 }
+
+/* toggle slider for root words filter */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+}
+
+.toggle-label {
+  font-weight: 500;
+  color: var(--text-heading);
+  font-size: 1rem;
+}
+
+.toggle-slider {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.toggle-slider:hover {
+  background-color: rgba(75, 71, 66, 0.25);
+}
+
+.toggle-slider.active {
+  background-color: rgb(var(--blue));
+}
+
+.toggle-slider.active:hover {
+  background-color: rgba(var(--blue), 0.8);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-slider.active .toggle-thumb {
+  transform: translateX(22px);
+}
