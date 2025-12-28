@@ -93,7 +93,7 @@ function DictionaryContent() {
   return (
     <div className="dictionary-page">
       {/* Root words toggle */}
-      <div className="box" style={{ marginBottom: 'var(--gap-md)' }}>
+      <div className="box">
         <label className="toggle-container">
           <span className="toggle-label">Show roots only</span>
           <button
