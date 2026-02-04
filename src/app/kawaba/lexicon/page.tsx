@@ -45,19 +45,19 @@ these are further divided into basic roots, the most fundamental concepts, and a
 
 ## additional roots
 ### lexical roots
-|    | -an    | -en    | -in       | -on        | -un     |
-|----|--------|--------|-----------|------------|---------|
-| b- | most   | get    | hole      | cloth      | surface |
-| d- | stop   | write  | stone     | female     | stay    |
-| g- | group  | strong | eat       | water      | fight   |
-| j- | light  | start  | choose    | use        | middle  |
-| k- | become | hot    | difficult | soft       | easy    |
-| l- | health | air    | long      | tool       | control |
-| m- | round  | give   | house     | dirty      | love    |
-| p- | sleep  | join   | sound     | new        | animal  |
-| s- | fast   | harm   | colour    | shape      | play    |
-| t- | place  | not    | few       | 2nd-person | do      |
-| w- | speak  | other  | some      | touch      | like    |
+|    | -an    | -en       | -in       | -on    | -un     |
+|----|--------|-----------|-----------|--------|---------|
+| b- | most   | get       | hole      | cloth  | surface |
+| d- | stop   | write     | stone     | female | stay    |
+| g- | group  | strong    | eat       | water  | fight   |
+| j- | light  | start     | choose    | use    | middle  |
+| k- | become | hot       | difficult | soft   | easy    |
+| l- | health | air       | long      | tool   | control |
+| m- | round  | give      | house     | dirty  | love    |
+| p- | sleep  | join      | sound     | new    | animal  |
+| s- | fast   | harm      | colour    | shape  | play    |
+| t- | number | divide    | sex       | line   | plant   |
+| w- | trade  | important | cold      | sharp  | male    |
 
 ### grammatical roots
 |    | -an        | -en      | -in      | -on    | -un          |
