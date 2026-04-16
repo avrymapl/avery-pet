@@ -10,9 +10,11 @@ export function renderPostContent(content: string) {
         img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
           const src = typeof props.src === 'string' ? props.src : '';
           const alt = typeof props.alt === 'string' ? props.alt : '';
-
           return <Gallery images={[{ src, alt }]} />;
         },
+      }}
+      options={{
+        blockJS: false,
       }}
     />
   );
