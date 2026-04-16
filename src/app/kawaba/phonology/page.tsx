@@ -45,7 +45,7 @@ the segment **/n/** is pronounced as a voiced alveolar nasal at the beginning of
 
 ### vowel inventory
 
-kawaba has 5 vowels, equally spaced along the periphery of the vowel space.
+*kawaba* has 5 vowels, equally spaced along the periphery of the vowel space.
 
 - **/ä/** is the open central unrounded vowel, between /a/ and /ɑ/
 - **/e̞/** is the mid front unrounded vowel, between /e/ and /ɛ/
@@ -54,7 +54,7 @@ kawaba has 5 vowels, equally spaced along the periphery of the vowel space.
 | | front | central | back |
 |-------|-------|-------|-------|
 | close | i | | u |
-| mid | e /e̞/ | | /o̞/ |
+| mid | e /e̞/ | | o /o̞/ |
 | open | | a /ä/ | | 
 
 <Callout type="info">
