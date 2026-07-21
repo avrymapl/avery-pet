@@ -149,8 +149,10 @@ body {
 
 .article-content .callout p {
   margin-bottom: 0;
-  text-align: left;
-  hyphens: none;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .example {
