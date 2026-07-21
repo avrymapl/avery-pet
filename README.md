@@ -1,1 +1,3 @@
-a personal website created with Next.js :3
+# avery.pet
+
+a personal site built with Next.js and Tailwind CSS v4 :3

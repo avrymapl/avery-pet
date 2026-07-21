@@ -1,34 +1,33 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
+import { PT_Serif, Noto_Sans } from "next/font/google";
+import "./globals.css";
 
-import '@/app/globals.css';
-import { Inter } from 'next/font/google';
+const bodyFont = PT_Serif({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-pt-serif",
+  subsets: ["latin"],
+});
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap', // improves loading performance
+const uiFont = Noto_Sans({
+  variable: "--font-noto-sans",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'avery.pet',
-  description: "avery's home on the web!",
-  keywords: ['next.js', 'react', 'web development'],
-  openGraph: {
-    title: 'avery.pet',
-    description: "avery's home on the web!",
-    images: ['/images/preview.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'avery.pet',
-    description: "avery's home on the web!",
-    images: ['/images/preview.png'],
-  },
+  title: "avery.pet",
+  description:
+    "avery's personal corner of the internet — projects in linguistics, science, programming, and writing.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${bodyFont.variable} ${uiFont.variable} h-full`}>
+      <body className="min-h-full">{children}</body>
     </html>
   );
 }

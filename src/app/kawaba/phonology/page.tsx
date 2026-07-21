@@ -1,83 +1,151 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { docsComponents } from '@/lib/docsComponents';
-import fs from 'fs';
-import path from 'path';
-import Link from 'next/link';
-import remarkGfm from 'remark-gfm';
+import { Article } from "@/components/Article";
+import { Callout } from "@/components/Callout";
 
-export default async function ConsonantsPage() {
-  // read mdx file
-  const filePath = path.join(
-    process.cwd(),
-    'src/content/kawaba/phonology/consonants.mdx'
-  );
-  
-  // for now, inline content (or read from file once you create it)
-  const content = fs.existsSync(filePath) 
-    ? fs.readFileSync(filePath, 'utf8')
-    : `
-# phonology
+export const metadata = {
+  title: "phonology — kawaba",
+};
 
-the phonology of *kawaba* has 17 phonemes: 12 consonants and 5 vowels. these were chosen due to their frequency across the world's languages and ability to be distinguished clearly.
-the International Phonetic Alphabet transcriptions given here represent a standard pronunciation, though individual pronunciation can vary as long as each segment is distinct.
-
-### consonant inventory
-
-*kawaba* has 12 consonants, shown in the table below. these are the 12 most common consonants among languages according to [phoible.org](https://phoible.org/parameters), excluding:
-
-- **/h/** – as it lacks the usual phonetic features of a consonant. acting closer to a manner of phonation, it is a difficult segment to distinguish for speakers of languages that do not feature it.
-
-- **/ŋ/** – as it is restricted to the syllable coda in many languages. in the syllable final position, it is already an allophone of 'n' when undergoing assimilation before a velar consonant.
-
-additionally, the voiceless stops are aspirated for speakers of languages that distinguish stops primarily by aspiration rather than voicing.
-
-| | labial | apical | laminal | dorsal |
-|-------|-------|-------|-------|-------|
-| nasal | m | n | | |
-| stop (aspirated) | p /pʰ/ | t /tʰ/ | | k /kʰ/ |
-| stop (voiced) | b | d | | ɡ |
-| fricative | | | s | |
-| approximant | | l | j | w |
-
-<Callout type="info">
-the segment **/n/** is pronounced as a voiced alveolar nasal at the beginning of a syllable, though can undergo place assimilation with the following segment when it occurs syllable finally.
-</Callout>
-
-### vowel inventory
-
-*kawaba* has 5 vowels, equally spaced along the periphery of the vowel space.
-
-- **/ä/** is the open central unrounded vowel, between /a/ and /ɑ/
-- **/e̞/** is the mid front unrounded vowel, between /e/ and /ɛ/
-- **/o̞/** is the mid back rounded vowel, between /o/ and /ɔ/
-
-| | front | central | back |
-|-------|-------|-------|-------|
-| close | i | | u |
-| mid | e /e̞/ | | o /o̞/ |
-| open | | a /ä/ | | 
-
-<Callout type="info">
-the semivowels **/j/** and **/w/** have a shorter duration and involve a transitionary glide to the following vowel, while the vowels **/i/** and **/u/** have a longer duration and remain stable across their pronunciation.
-the syllables **/ji/** and **/wu/** will have this initial glide, while **/i/** and **/u/** will not.
-</Callout>
-    `;
-
+export default function KawabaPhonology() {
   return (
-    <div>
-      <MDXRemote 
-        source={content} 
-        components={docsComponents}
-        options={{
-          mdxOptions: {
-            remarkPlugins: [remarkGfm], 
-          },
-        }}
-      />      
-      <div className="doc-nav">
-        <Link href="/kawaba">← introduction</Link>
-        <Link href="/kawaba/lexicon">lexicon →</Link>
-      </div>
-    </div>
+    <Article>
+      <h1>phonology</h1>
+      <p>
+        Kawaba has 17 phonemes: 12 consonants and 5 vowels. These were chosen due to
+        their frequency across the world&rsquo;s languages and ability to be distinguished
+        clearly.
+      </p>
+      <p>
+        The International Phonetic Alphabet transcriptions given here represent
+        a standard pronunciation, though individuals&rsquo; pronunciation can vary as long as
+        each segment is distinct.
+      </p>
+      <h2>consonants</h2>
+      <p>
+        Kawaba has 12 consonants, shown in the table below. these are the 12 most common
+        consonants among languages according to{" "}
+        <a href="https://phoible.org/parameters">phoible.org</a>, excluding:
+      </p>
+      <ul>
+        <li>
+          <strong>/h/</strong> – as it lacks the usual phonetic features of a consonant 
+          and behaviours closer to a manner of phonation. It is difficult to distinguish 
+          for speakers of languages that lack it.
+        </li>
+        <li>
+          <strong>/ŋ/</strong> – as it is restricted to the coda of syllables in many 
+          languages. As a coda, it is already an allophone of <strong>/n/</strong> before 
+          a velar consonant.
+        </li>
+      </ul>
+      <p>
+        Additionally, the voiceless stops are aspirated for speakers of languages that
+        distinguish stops primarily by aspiration rather than voicing.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">labial</th>
+            <th scope="col">apical</th>
+            <th scope="col">laminal</th>
+            <th scope="col">dorsal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">nasal</th>
+            <td>m</td>
+            <td>n</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">stop (aspirated)</th>
+            <td>p /pʰ/</td>
+            <td>t /tʰ/</td>
+            <td></td>
+            <td>k /kʰ/</td>
+          </tr>
+          <tr>
+            <th scope="row">stop (voiced)</th>
+            <td>b</td>
+            <td>d</td>
+            <td></td>
+            <td>ɡ</td>
+          </tr>
+          <tr>
+            <th scope="row">fricative</th>
+            <td></td>
+            <td></td>
+            <td>s</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">approximant</th>
+            <td></td>
+            <td>l</td>
+            <td>j</td>
+            <td>w</td>
+          </tr>
+        </tbody>
+      </table>
+      <Callout>
+        <p>
+          The segment <strong>/n/</strong> is pronounced as the voiced alveolar nasal as
+          the onset of a syllable, but can undergo assimilation with the place of the 
+          following segment as a coda.
+        </p>
+      </Callout>
+      <h2>vowels</h2>
+      <p>
+        Kawaba has 5 vowels, shown in the table below. These are evenly spaced along the
+        periphery of the vowel space.
+      </p>
+      <ul>
+        <li><strong>/ä/</strong> is the open central unrounded vowel, between <strong>/a/</strong> and <strong>/ɑ/</strong></li>
+        <li><strong>/e̞/</strong> is the mid front unrounded vowel, between <strong>/e/</strong> and <strong>/ɛ/</strong></li>
+        <li><strong>/o̞/</strong> is the mid back rounded vowel, between <strong>/o/</strong> and <strong>/ɔ/</strong></li>
+      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">front</th>
+            <th scope="col">central</th>
+            <th scope="col">back</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">close</th>
+            <td>i</td>
+            <td></td>
+            <td>u</td>
+          </tr>
+          <tr>
+            <th scope="row">mid</th>
+            <td>e /e̞/</td>
+            <td></td>
+            <td>o /o̞/</td>
+          </tr>
+          <tr>
+            <th scope="row">open</th>
+            <td></td>
+            <td>a /ä/</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <Callout>
+        <p>
+          The semivowels <strong>/j/</strong> and <strong>/w/</strong> have a shorter 
+          duration and involve a transitionary glide to the following vowel, while the 
+          vowels <strong>/i/</strong> and <strong>/u/</strong> are longer and remain 
+          stable. The syllables <strong>/ji/</strong> and <strong>/wu/</strong> have an 
+          initial glide, while <strong>/i/</strong> and <strong>/u/</strong> do not.
+        </p>
+      </Callout>
+      <h2>stress</h2>
+    </Article>
   );
 }
