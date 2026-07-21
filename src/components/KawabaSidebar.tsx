@@ -13,7 +13,7 @@ export function KawabaSidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-full flex-col gap-6">
+    <div className="flex h-full flex-col gap-4">
       <div className="flex flex-col gap-4">
         <Link
           href="/"
@@ -25,7 +25,7 @@ export function KawabaSidebar() {
           <PixelIcon pattern={categoryIcons.kawaba} className="text-green" />
           <p className="font-ui text-lg font-bold text-ink">kawaba</p>
         </div>
-        <p className="text-sm text-ink-soft">the language of parts</p>
+        <p className="font-ui text-sm text-ink-soft">the language of parts</p>
       </div>
 
       <nav className="flex flex-col gap-1">
