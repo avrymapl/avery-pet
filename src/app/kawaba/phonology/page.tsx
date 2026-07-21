@@ -43,8 +43,7 @@ export default function KawabaPhonology() {
           <tr>
             <th></th>
             <th scope="col">labial</th>
-            <th scope="col">apical</th>
-            <th scope="col">laminal</th>
+            <th scope="col">coronal</th>
             <th scope="col">dorsal</th>
           </tr>
         </thead>
@@ -54,35 +53,30 @@ export default function KawabaPhonology() {
             <td>m</td>
             <td>n</td>
             <td></td>
-            <td></td>
           </tr>
           <tr>
             <th scope="row">stop (aspirated)</th>
             <td>p /pʰ/</td>
             <td>t /tʰ/</td>
-            <td></td>
             <td>k /kʰ/</td>
           </tr>
           <tr>
             <th scope="row">stop (voiced)</th>
             <td>b</td>
             <td>d</td>
-            <td></td>
             <td>ɡ</td>
           </tr>
           <tr>
             <th scope="row">fricative</th>
-            <td></td>
             <td></td>
             <td>s</td>
             <td></td>
           </tr>
           <tr>
             <th scope="row">approximant</th>
-            <td></td>
+            <td>w</td>
             <td>l</td>
             <td>j</td>
-            <td>w</td>
           </tr>
         </tbody>
       </table>
