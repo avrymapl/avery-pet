@@ -55,13 +55,12 @@ export default function KawabaPhonology() {
             <td></td>
           </tr>
           <tr>
-            <th scope="row">stop (aspirated)</th>
+            <th scope="row" rowSpan={2}>plosive</th>
             <td>p /pʰ/</td>
             <td>t /tʰ/</td>
             <td>k /kʰ/</td>
           </tr>
           <tr>
-            <th scope="row">stop (voiced)</th>
             <td>b</td>
             <td>d</td>
             <td>ɡ</td>
