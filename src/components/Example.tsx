@@ -1,3 +1,6 @@
+import { Glyphs } from "@/components/Glyphs";
+import { getGlyphMarkup } from "@/lib/glyphs";
+
 function renderGloss(gloss: string) {
   return gloss.split(/([-.\s]+)/).map((part, i) =>
     /^[A-Z0-9]*[A-Z][A-Z0-9]*$/.test(part) ? (
@@ -19,9 +22,14 @@ export function Example({
   gloss: string;
   translation: string;
 }) {
+  const glyphs = getGlyphMarkup();
+
   return (
     <div className="example">
-      <p className="example-kawaba">{kawaba}</p>
+      <p className="example-kawaba">
+        {kawaba}
+        <Glyphs word={kawaba} glyphs={glyphs} />
+      </p>
       <p className="example-gloss">{renderGloss(gloss)}</p>
       <p className="example-translation">{translation}</p>
     </div>
