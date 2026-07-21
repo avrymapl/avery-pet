@@ -36,6 +36,14 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "da",
+    type: "root",
+    definitions: [
+      { partOfSpeech: "N", meaning: "thing, matter, material, substance, object, entity, item, stuff" },
+      { partOfSpeech: "Q", meaning: "physical, material, tangible, concrete" },
+    ],
+  },
+  {
     kawaba: "ka",
     type: "root",
     definitions: [
