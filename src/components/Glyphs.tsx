@@ -1,4 +1,5 @@
 import { splitMorphemes } from "@/lib/morphemes";
+import { morphemeGlosses } from "@/lib/dictionary";
 
 export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, string> }) {
   const tokens = splitMorphemes(word);
@@ -8,10 +9,16 @@ export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, 
       {tokens.map((token, index) => {
         const key = token === "-" ? "hyphen" : token;
         const markup = glyphs[key];
+        const gloss = token === "-" ? undefined : morphemeGlosses[token];
 
         if (markup) {
           return (
-            <span key={index} className="glyph" dangerouslySetInnerHTML={{ __html: markup }} />
+            <span
+              key={index}
+              className="glyph"
+              data-gloss={gloss}
+              dangerouslySetInnerHTML={{ __html: markup }}
+            />
           );
         }
 
@@ -24,7 +31,7 @@ export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, 
         }
 
         return (
-          <span key={index} className="glyph glyph-missing">
+          <span key={index} className="glyph glyph-missing" data-gloss={gloss}>
             {token}
           </span>
         );

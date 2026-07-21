@@ -12,6 +12,9 @@ export interface DictionaryEntry {
   kawaba: string;
   type: WordType;
   definitions: Definition[];
+  // Short interlinear gloss for a root morpheme, shown as a tooltip when
+  // hovering its glyph. Not displayed in the dictionary listing itself.
+  gloss?: string;
 }
 
 // Definitions are always displayed in this order, regardless of storage order.
@@ -31,6 +34,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "ba",
     type: "root",
+    gloss: "part",
     definitions: [
       { partOfSpeech: "N", meaning: "part, piece, portion, fraction, section, component, segment, division" },
     ],
@@ -38,6 +42,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "ka",
     type: "root",
+    gloss: "kind",
     definitions: [
       { partOfSpeech: "N", meaning: "kind, type, sort, category, class, variety" },
     ],
@@ -52,6 +57,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "la",
     type: "root",
+    gloss: "person",
     definitions: [
       { partOfSpeech: "N", meaning: "person, human, individual, being, people" },
       { partOfSpeech: "V", meaning: "speak, talk, say, tell, communicate" },
@@ -74,9 +80,18 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "wa",
     type: "root",
+    gloss: "speech",
     definitions: [
       { partOfSpeech: "N", meaning: "speech, speaking, communication" },
       { partOfSpeech: "V", meaning: "speak, talk, say, tell, communicate" },
     ],
   },
 ];
+
+// Root morpheme -> short gloss, keyed for glyph tooltip lookups.
+export const morphemeGlosses: Record<string, string> = {};
+for (const entry of dictionary) {
+  if (entry.type === "root" && entry.gloss) {
+    morphemeGlosses[entry.kawaba] = entry.gloss;
+  }
+}
