@@ -74,7 +74,7 @@ export const dictionary: DictionaryEntry[] = [
     type: "root",
     gloss: "part",
     definitions: [
-      { partOfSpeech: "N", meaning: "part, piece, portion, fraction, section, component, segment, division" },
+      { wordClass: "N", meaning: "part, piece, portion, fraction, section, component, segment, division" },
     ],
   },
   {
@@ -82,8 +82,8 @@ export const dictionary: DictionaryEntry[] = [
     type: "root",
     gloss: "thing",
     definitions: [
-      { partOfSpeech: "N", meaning: "thing, matter, material, substance, object, entity, item, stuff" },
-      { partOfSpeech: "Q", meaning: "physical, material, tangible, concrete" },
+      { wordClass: "N", meaning: "thing, matter, material, substance, object, entity, item, stuff" },
+      { wordClass: "Q", meaning: "physical, material, tangible, concrete" },
     ],
   },
   {
