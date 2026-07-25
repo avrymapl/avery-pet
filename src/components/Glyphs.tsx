@@ -16,7 +16,7 @@ export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, 
             <span
               key={index}
               className="glyph"
-              data-gloss={gloss}
+              data-tooltip={gloss}
               dangerouslySetInnerHTML={{ __html: markup }}
             />
           );
@@ -31,7 +31,7 @@ export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, 
         }
 
         return (
-          <span key={index} className="glyph glyph-missing" data-gloss={gloss}>
+          <span key={index} className="glyph glyph-missing" data-tooltip={gloss}>
             {token}
           </span>
         );

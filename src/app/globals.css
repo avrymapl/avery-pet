@@ -24,6 +24,37 @@ body {
   color: var(--color-green-deep);
 }
 
+/* Shared hover tooltip, used by glyph glosses and word-class abbreviations. */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  z-index: 10;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.35rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 .article-content h1 {
   font-family: var(--font-ui);
   font-weight: 700;
@@ -315,7 +346,7 @@ body {
   color: var(--color-ink-soft);
 }
 
-.dictionary-pos {
+.dictionary-word-class {
   display: inline-block;
   width: 1.15rem;
   margin-right: 0.4rem;
@@ -325,6 +356,17 @@ body {
   text-align: center;
 }
 
+.dictionary-marker-category {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-green-deep);
+}
+
 .glyphs {
   display: inline-flex;
   align-items: center;
@@ -332,40 +374,10 @@ body {
 }
 
 .glyph {
-  position: relative;
   display: inline-flex;
   align-items: center;
   height: 1.4rem;
   color: var(--color-ink);
-}
-
-.glyph[data-gloss] {
-  cursor: help;
-}
-
-.glyph[data-gloss]::after {
-  content: attr(data-gloss);
-  position: absolute;
-  bottom: calc(100% + 0.4rem);
-  left: 50%;
-  z-index: 10;
-  padding: 0.3rem 0.55rem;
-  border-radius: 0.35rem;
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, 4px);
-  transition: opacity 0.12s ease, transform 0.12s ease;
-}
-
-.glyph[data-gloss]:hover::after {
-  opacity: 1;
-  transform: translate(-50%, 0);
 }
 
 .glyph svg {
