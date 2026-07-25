@@ -133,8 +133,10 @@ body {
 }
 
 .article-content table {
-  margin: 1.5rem auto;
+  width: 100%;
+  margin: 1.5rem 0;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .article-content th,
