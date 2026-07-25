@@ -1,13 +1,16 @@
 export type WordType = "root" | "compound";
 
-// N = noun, Q = qualifier, V = verb, C = circumstantial.
-export type WordClass = "N" | "Q" | "V" | "C";
+// N = noun, Q = qualifier, V = verb, C = circumstantial. Interjection senses
+// aren't abbreviated to a letter — some compounds double as interjections,
+// and that sense is spelled out in full like the marker categories.
+export type WordClass = "N" | "Q" | "V" | "C" | "interjection";
 
 export const WORD_CLASS_NAMES: Record<WordClass, string> = {
   N: "noun",
   Q: "qualifier",
   V: "verb",
   C: "circumstantial",
+  interjection: "interjection",
 };
 
 export interface Definition {
@@ -43,7 +46,7 @@ export interface MarkerEntry {
 export type DictionaryEntry = LexicalEntry | MarkerEntry;
 
 // Word classes are always displayed in this order, regardless of storage order.
-const WORD_CLASS_ORDER: WordClass[] = ["N", "Q", "V", "C"];
+const WORD_CLASS_ORDER: WordClass[] = ["N", "Q", "V", "C", "interjection"];
 
 export function sortedDefinitions(entry: LexicalEntry): Definition[] {
   return [...entry.definitions].sort(
@@ -114,7 +117,8 @@ export const dictionary: DictionaryEntry[] = [
     kawaba: "lawa",
     type: "compound",
     definitions: [
-      { wordClass: "N", meaning: "speaker, lecturer, orator" }
+      { wordClass: "N", meaning: "speaker, lecturer, orator" },
+      { wordClass: "interjection", meaning: "hey!, listen up! (used to call for attention)" },
     ],
   },
   {
