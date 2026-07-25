@@ -100,12 +100,16 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
               ) : (
                 sortedDefinitions(entry).map((def, index) => (
                   <dd key={index}>
-                    <span
-                      className="dictionary-word-class"
-                      data-tooltip={WORD_CLASS_NAMES[def.wordClass]}
-                    >
-                      {def.wordClass}
-                    </span>
+                    {def.wordClass === "interjection" ? (
+                      <span className="dictionary-marker-category">interjection</span>
+                    ) : (
+                      <span
+                        className="dictionary-word-class"
+                        data-tooltip={WORD_CLASS_NAMES[def.wordClass]}
+                      >
+                        {def.wordClass}
+                      </span>
+                    )}
                     {def.meaning}
                   </dd>
                 ))
