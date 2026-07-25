@@ -22,17 +22,17 @@ export default function KawabaCompounds() {
       </p>
       <div className="flex flex-row gap-4">
         <Example
-          kawaba="aka"
+          kawaba="ka"
           gloss="N-kind.of"
           translation="a kind of"
         />
         <Example
-          kawaba="akawa"
+          kawaba="kawa"
           gloss="N-kind.of-speak"
           translation="language"
         />  
         <Example
-          kawaba="akawaba"
+          kawaba="kawaba"
           gloss="N-kind.of-speak-part"
           translation="the language of parts"
         />
@@ -43,7 +43,7 @@ export default function KawabaCompounds() {
         on the following syllable.
       </p>
       <Example
-          kawaba="alawa-kawaba"
+          kawaba="lawa-kawaba"
           gloss="N-person-speak+kind.of-speak-part"
           translation="the language of parts"
       />

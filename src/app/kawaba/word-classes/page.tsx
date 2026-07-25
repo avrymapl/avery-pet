@@ -94,6 +94,43 @@ export default function KawabaWordClasses() {
           The mechanics of this coercion system are covered in the Numbers section.
         </p>
       </Callout>
+      <h2>interjections</h2>
+      <p>
+        Interjections are words that stand outside of normal clause structure entirely 
+        and are complete utterances by themselves. Kawaba interjections take no word 
+        class prefix at all, instead the bare word stem is simply used on its own. This 
+        category covers three related functions: 
+      </p>
+      <ul>
+        <li>
+          <strong>expressive use</strong> – conveys an immediate emotional or physical 
+          reaction
+        </li>
+        <li>
+          <strong>conative use</strong> – used to manage communication, such as a 
+          greeting or a call for attention
+        </li>
+        <li>
+          <strong>address</strong> – names or titles the person being spoken to
+        </li>
+      </ul>
+            <div className="flex flex-row gap-4">
+        <Example
+          kawaba="sen!"
+          gloss="hurt!"
+          translation="ouch!"
+        />
+        <Example
+          kawaba="jemu!"
+          gloss="feel-good!"
+          translation="hello!"
+        />  
+        <Example
+          kawaba="laki!"
+          gloss="person-know!"
+          translation="teacher!"
+        />           
+      </div>
     </Article>
   );
 }

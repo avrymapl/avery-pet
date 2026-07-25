@@ -89,6 +89,14 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "du",
+    type: "root",
+    gloss: "big",
+    definitions: [
+      { wordClass: "Q", meaning: "big, large" },
+    ],
+  },
+  {
     kawaba: "e",
     type: "marker",
     category: "word class prefix",
@@ -147,7 +155,7 @@ export const dictionary: DictionaryEntry[] = [
     type: "root",
     gloss: "small",
     definitions: [
-      { wordClass: "Q", meaning: "small, little, short, young" }
+      { wordClass: "Q", meaning: "small, little" }
     ],
   },
   {
@@ -156,16 +164,21 @@ export const dictionary: DictionaryEntry[] = [
     gloss: "person",
     definitions: [
       { wordClass: "N", meaning: "person, human, individual, being, people" },
-      { wordClass: "V", meaning: "speak, talk, say, tell, communicate" },
+    ],
+  },
+  {
+    kawaba: "ladu",
+    type: "compound",
+    definitions: [
+      { wordClass: "N", meaning: "adult, senior, elder" },
     ],
   },
   {
     kawaba: "lako",
     type: "compound",
-    gloss: "child, youth, infant, baby, kid",
+    gloss: "",
     definitions: [
-      { wordClass: "N", meaning: "person, human, individual, being, people" },
-      { wordClass: "V", meaning: "speak, talk, say, tell, communicate" },
+      { wordClass: "N", meaning: "child, youth, infant, baby, kid" },
     ],
   },
   {
@@ -206,6 +219,30 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "so",
+    type: "root",
+    gloss: "time",
+    definitions: [
+      { wordClass: "N", meaning: "time, period, duration" },
+    ],
+  },
+  {
+    kawaba: "sodu",
+    type: "compound",
+    definitions: [
+      { wordClass: "N", meaning: "age, era, epoch" },
+      { wordClass: "Q", meaning: "old, aged, ancient" },
+    ],
+  },
+  {
+    kawaba: "soko",
+    type: "compound",
+    definitions: [
+      { wordClass: "N", meaning: "moment, instant" },
+      { wordClass: "Q", meaning: "brief, shortly" },
+    ],
+  },
+  {
     kawaba: "u",
     type: "marker",
     category: "word class prefix",
@@ -219,6 +256,15 @@ export const dictionary: DictionaryEntry[] = [
     definitions: [
       { wordClass: "N", meaning: "speech, speaking, communication" },
       { wordClass: "V", meaning: "speak, talk, say, tell, communicate" },
+    ],
+  },
+  {
+    kawaba: "wi",
+    type: "root",
+    gloss: "some",
+    definitions: [
+      { wordClass: "N", meaning: "amount, quantity" },
+      { wordClass: "V", meaning: "some, multiple, " },
     ],
   },
 ];
