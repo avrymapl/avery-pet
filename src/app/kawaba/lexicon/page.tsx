@@ -22,7 +22,7 @@ export default function KawabaLexicon() {
           <strong>20 grammatical markers</strong> – express the relationships between words
         </li>
       </ul>
-              <table>
+              <table className="table-uniform">
             <thead>
                 <tr>
                     <th></th>

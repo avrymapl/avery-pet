@@ -133,9 +133,14 @@ body {
 }
 
 .article-content table {
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+}
+
+/* Opt a table into equal-width columns instead of sizing to content. */
+.article-content table.table-uniform {
   width: 100%;
   margin: 1.5rem 0;
-  border-collapse: collapse;
   table-layout: fixed;
 }
 
