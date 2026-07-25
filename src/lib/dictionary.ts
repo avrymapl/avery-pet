@@ -3,7 +3,7 @@ export type WordType = "root" | "compound";
 // N = noun, Q = qualifier, V = verb, C = circumstantial. Interjection senses
 // aren't abbreviated to a letter — some compounds double as interjections,
 // and that sense is spelled out in full like the marker categories.
-export type WordClass = "N" | "Q" | "V" | "C" | "interjection";
+export type WordClass = "interjection" | "N" | "Q" | "V" | "C";
 
 export const WORD_CLASS_NAMES: Record<WordClass, string> = {
   N: "noun",
@@ -46,7 +46,7 @@ export interface MarkerEntry {
 export type DictionaryEntry = LexicalEntry | MarkerEntry;
 
 // Word classes are always displayed in this order, regardless of storage order.
-const WORD_CLASS_ORDER: WordClass[] = ["N", "Q", "V", "C", "interjection"];
+const WORD_CLASS_ORDER: WordClass[] = ["interjection", "N", "Q", "V", "C"];
 
 export function sortedDefinitions(entry: LexicalEntry): Definition[] {
   return [...entry.definitions].sort(
@@ -65,15 +65,14 @@ export function entryMeanings(entry: DictionaryEntry): string[] {
 // prepositional prefixes, clausal particles, and conjunctions).
 export const dictionary: DictionaryEntry[] = [
   {
-    kawaba: "ba",
-    type: "root",
-    gloss: "part",
-    definitions: [
-      { wordClass: "N", meaning: "part, piece, portion, fraction, section, component, segment, division" },
-    ],
+    kawaba: "a",
+    type: "marker",
+    category: "word class prefix",
+    meaning: "noun marker",
+    gloss: "N",
   },
   {
-    kawaba: "a",
+    kawaba: "ba",
     type: "root",
     gloss: "part",
     definitions: [
@@ -90,6 +89,38 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "e",
+    type: "marker",
+    category: "word class prefix",
+    meaning: "qualifier marker",
+    gloss: "Q",
+  },
+  {
+    kawaba: "i",
+    type: "marker",
+    category: "word class prefix",
+    meaning: "verb marker",
+    gloss: "V",
+  },
+  {
+    kawaba: "je",
+    type: "root",
+    gloss: "thing",
+    definitions: [
+      { wordClass: "N", meaning: "feel, experience, sense, perceive" },
+      { wordClass: "Q", meaning: "feeling, experience, sensation, perception" },
+    ],
+  },
+  {
+    kawaba: "jemu",
+    type: "compound",
+    definitions: [
+      { wordClass: "interjection", meaning: "hello! (general greeting)" },
+      { wordClass: "N", meaning: "happiness, contentment, love, joy" },
+      { wordClass: "Q", meaning: "happy, content, joyful" },
+    ],
+  },
+  {
     kawaba: "ka",
     type: "root",
     gloss: "kind of",
@@ -98,10 +129,25 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "kawa",
+    type: "compound",
+    definitions: [
+      { wordClass: "N", meaning: "language, dialect, accent" }
+    ],
+  },
+  {
     kawaba: "kawaba",
     type: "compound",
     definitions: [
       { wordClass: "N", meaning: "Kawaba, the language of parts" }
+    ],
+  },
+  {
+    kawaba: "ko",
+    type: "root",
+    gloss: "small",
+    definitions: [
+      { wordClass: "Q", meaning: "small, little, short, young" }
     ],
   },
   {
@@ -114,11 +160,19 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "lako",
+    type: "compound",
+    gloss: "child, youth, infant, baby, kid",
+    definitions: [
+      { wordClass: "N", meaning: "person, human, individual, being, people" },
+      { wordClass: "V", meaning: "speak, talk, say, tell, communicate" },
+    ],
+  },
+  {
     kawaba: "lawa",
     type: "compound",
     definitions: [
       { wordClass: "N", meaning: "speaker, lecturer, orator" },
-      { wordClass: "interjection", meaning: "hey!, listen up! (used to call for attention)" },
     ],
   },
   {
@@ -129,6 +183,36 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "mu",
+    type: "root",
+    gloss: "good",
+    definitions: [
+      { wordClass: "Q", meaning: "good, pleasant, positive, beneficial" },
+    ],
+  },
+  {
+    kawaba: "o",
+    type: "marker",
+    category: "word class prefix",
+    meaning: "numeral marker",
+    gloss: "NUM",
+  },
+  {
+    kawaba: "pu",
+    type: "root",
+    gloss: "bad",
+    definitions: [
+      { wordClass: "Q", meaning: "bad, unpleasant, negative, detrimental" },
+    ],
+  },
+  {
+    kawaba: "u",
+    type: "marker",
+    category: "word class prefix",
+    meaning: "circumstantial marker",
+    gloss: "C",
+  },
+  {
     kawaba: "wa",
     type: "root",
     gloss: "speak",
@@ -136,41 +220,6 @@ export const dictionary: DictionaryEntry[] = [
       { wordClass: "N", meaning: "speech, speaking, communication" },
       { wordClass: "V", meaning: "speak, talk, say, tell, communicate" },
     ],
-  },
-  {
-    kawaba: "a",
-    type: "marker",
-    category: "word class prefix",
-    meaning: "marks the following root as a noun",
-    gloss: "N",
-  },
-  {
-    kawaba: "i",
-    type: "marker",
-    category: "word class prefix",
-    meaning: "marks the following root as a verb",
-    gloss: "V",
-  },
-  {
-    kawaba: "ta",
-    type: "marker",
-    category: "prepositional prefix",
-    meaning: "at, in (locative)",
-    gloss: "LOC",
-  },
-  {
-    kawaba: "pe",
-    type: "marker",
-    category: "clausal particle",
-    meaning: "marks a yes/no question",
-    gloss: "INT",
-  },
-  {
-    kawaba: "ne",
-    type: "marker",
-    category: "conjunction",
-    meaning: "and, additionally",
-    gloss: "and",
   },
 ];
 

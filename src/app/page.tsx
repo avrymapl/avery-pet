@@ -42,7 +42,7 @@ export default async function Home({
           <p className="mt-3 max-w-md leading-relaxed text-ink-soft">
             i&rsquo;m a boy girl dog thing that loves science and linguistics.
             welcome to my little corner of the internet where i share projects
-            i&rsquo;m working on!
+            i&rsquo;m working on! :3
           </p>
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 font-ui text-sm">
             {socialLinks.map((link) => (
