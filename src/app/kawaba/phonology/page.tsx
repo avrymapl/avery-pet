@@ -12,10 +12,7 @@ export default function KawabaPhonology() {
       <p>
         Kawaba has 17 phonemes: 12 consonants and 5 vowels. These were chosen due to
         their frequency across the world&rsquo;s languages and ability to be distinguished
-        clearly.
-      </p>
-      <p>
-        The International Phonetic Alphabet transcriptions given here represent
+        clearly. The International Phonetic Alphabet transcriptions given here represent
         a standard pronunciation, though individuals&rsquo; pronunciation can vary as long as
         each segment is distinct.
       </p>
@@ -46,8 +43,7 @@ export default function KawabaPhonology() {
           <tr>
             <th></th>
             <th scope="col">labial</th>
-            <th scope="col">apical</th>
-            <th scope="col">laminal</th>
+            <th scope="col">coronal</th>
             <th scope="col">dorsal</th>
           </tr>
         </thead>
@@ -57,34 +53,29 @@ export default function KawabaPhonology() {
             <td>m</td>
             <td>n</td>
             <td></td>
-            <td></td>
           </tr>
           <tr>
             <th scope="row" rowSpan={2}>plosive</th>
             <td>p /pʰ/</td>
             <td>t /tʰ/</td>
-            <td></td>
             <td>k /kʰ/</td>
           </tr>
           <tr>
             <td>b</td>
             <td>d</td>
-            <td></td>
             <td>ɡ</td>
           </tr>
           <tr>
             <th scope="row">fricative</th>
-            <td></td>
             <td></td>
             <td>s</td>
             <td></td>
           </tr>
           <tr>
             <th scope="row">approximant</th>
-            <td></td>
+            <td>w</td>
             <td>l</td>
             <td>j</td>
-            <td>w</td>
           </tr>
         </tbody>
       </table>
@@ -145,6 +136,12 @@ export default function KawabaPhonology() {
         </p>
       </Callout>
       <h2>stress</h2>
+      <p>
+        Primary stress falls on the first root of a word, which is the second syllable 
+        for words with a prefix. Secondary stress falls on syllables following 
+        a hyphen in a compound word. Stressed syllables are pronounced with a higher
+        pitch and longer duration than unstressed syllables.
+      </p>
     </Article>
   );
 }

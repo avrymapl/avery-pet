@@ -380,6 +380,31 @@ body {
   color: var(--color-ink);
 }
 
+.glyph[data-gloss]::after {
+  content: attr(data-gloss);
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  z-index: 10;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.35rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.glyph[data-gloss]:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 .glyph svg {
   display: block;
   width: auto;

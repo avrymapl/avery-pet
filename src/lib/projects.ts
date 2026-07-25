@@ -28,7 +28,7 @@ export const projects: Project[] = [
     slug: "kawaba",
     title: "kawaba",
     description:
-      "a constructed language — sounds, grammar, and a growing lexicon, documented as its own little sub-site.",
+      "the language of parts – a minimalist oligosynthetic constructed language",
     category: "linguistics",
     href: "/kawaba",
     pinned: true,

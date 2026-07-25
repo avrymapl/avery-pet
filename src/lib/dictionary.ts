@@ -70,9 +70,26 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "a",
+    type: "root",
+    gloss: "part",
+    definitions: [
+      { partOfSpeech: "N", meaning: "part, piece, portion, fraction, section, component, segment, division" },
+    ],
+  },
+  {
+    kawaba: "da",
+    type: "root",
+    gloss: "thing",
+    definitions: [
+      { partOfSpeech: "N", meaning: "thing, matter, material, substance, object, entity, item, stuff" },
+      { partOfSpeech: "Q", meaning: "physical, material, tangible, concrete" },
+    ],
+  },
+  {
     kawaba: "ka",
     type: "root",
-    gloss: "kind",
+    gloss: "kind of",
     definitions: [
       { wordClass: "N", meaning: "kind, type, sort, category, class, variety" },
     ],
@@ -110,7 +127,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "wa",
     type: "root",
-    gloss: "speech",
+    gloss: "speak",
     definitions: [
       { wordClass: "N", meaning: "speech, speaking, communication" },
       { wordClass: "V", meaning: "speak, talk, say, tell, communicate" },
