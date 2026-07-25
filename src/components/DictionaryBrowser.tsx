@@ -1,7 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { dictionary, sortedDefinitions, type DictionaryEntry } from "@/lib/dictionary";
+import {
+  dictionary,
+  entryMeanings,
+  sortedDefinitions,
+  WORD_CLASS_NAMES,
+  type DictionaryEntry,
+} from "@/lib/dictionary";
 import { Glyphs } from "./Glyphs";
 
 // Lower is a better match: exact match, then prefix match, then match
@@ -21,7 +27,7 @@ function rankEntry(entry: DictionaryEntry, term: string): { tier: number; score:
   if (entry.kawaba.toLowerCase().includes(term)) {
     return { tier: entry.type === "root" ? 0 : 1, score: matchScore(entry.kawaba, term) };
   }
-  const score = Math.min(...entry.definitions.map((def) => matchScore(def.meaning, term)));
+  const score = Math.min(...entryMeanings(entry).map((meaning) => matchScore(meaning, term)));
   return { tier: 2, score };
 }
 
@@ -38,7 +44,7 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
         (entry) =>
           !term ||
           entry.kawaba.toLowerCase().includes(term) ||
-          entry.definitions.some((def) => def.meaning.toLowerCase().includes(term)),
+          entryMeanings(entry).some((meaning) => meaning.toLowerCase().includes(term)),
       );
 
     if (!term) {
@@ -86,12 +92,24 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
                 <span className="dictionary-kawaba">{entry.kawaba}</span>
                 <Glyphs word={entry.kawaba} glyphs={glyphs} />
               </dt>
-              {sortedDefinitions(entry).map((def, index) => (
-                <dd key={index}>
-                  <span className="dictionary-pos">{def.partOfSpeech}</span>
-                  {def.meaning}
+              {entry.type === "marker" ? (
+                <dd>
+                  <span className="dictionary-marker-category">{entry.category}</span>
+                  {entry.meaning}
                 </dd>
-              ))}
+              ) : (
+                sortedDefinitions(entry).map((def, index) => (
+                  <dd key={index}>
+                    <span
+                      className="dictionary-word-class"
+                      data-tooltip={WORD_CLASS_NAMES[def.wordClass]}
+                    >
+                      {def.wordClass}
+                    </span>
+                    {def.meaning}
+                  </dd>
+                ))
+              )}
             </div>
           ))}
         </dl>
