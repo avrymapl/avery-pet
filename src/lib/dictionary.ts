@@ -40,6 +40,14 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "a",
+    type: "root",
+    gloss: "part",
+    definitions: [
+      { partOfSpeech: "N", meaning: "part, piece, portion, fraction, section, component, segment, division" },
+    ],
+  },
+  {
     kawaba: "da",
     type: "root",
     gloss: "thing",

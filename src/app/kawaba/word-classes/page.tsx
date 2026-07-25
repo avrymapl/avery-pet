@@ -11,14 +11,14 @@ export default function KawabaWordClasses() {
     <Article>
       <h1>word classes</h1>
       <p>
-        Every content word in Kawaba carries an obligatory word-class prefix, a single 
+        Every lexical word in Kawaba carries an obligatory <strong>word class</strong> prefix, a single 
         vowel attached to the front of the word that marks which grammatical category the 
         word belongs to.
       </p>
       <p>
         There are five word-class prefixes, one for each vowel: 
       </p>
-            <table>
+      <table>
         <thead>
           <tr>
             <th scope="col">prefix</th>

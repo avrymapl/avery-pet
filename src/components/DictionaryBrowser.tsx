@@ -74,7 +74,7 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
           <span className="toggle-track">
             <span className="toggle-thumb" />
           </span>
-          roots only
+          morphemes only
         </label>
       </div>
 

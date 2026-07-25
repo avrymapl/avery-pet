@@ -338,10 +338,6 @@ body {
   color: var(--color-ink);
 }
 
-.glyph[data-gloss] {
-  cursor: help;
-}
-
 .glyph[data-gloss]::after {
   content: attr(data-gloss);
   position: absolute;
