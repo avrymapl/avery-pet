@@ -98,21 +98,26 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
                   {entry.meaning}
                 </dd>
               ) : (
-                sortedDefinitions(entry).map((def, index) => (
-                  <dd key={index}>
-                    {def.wordClass === "interjection" ? (
-                      <span className="dictionary-marker-category">interjection</span>
-                    ) : (
-                      <span
-                        className="dictionary-word-class"
-                        data-tooltip={WORD_CLASS_NAMES[def.wordClass]}
-                      >
-                        {def.wordClass}
-                      </span>
-                    )}
-                    {def.meaning}
-                  </dd>
-                ))
+                <>
+                  {entry.etymology && (
+                    <dd className="dictionary-etymology">({entry.etymology})</dd>
+                  )}
+                  {sortedDefinitions(entry).map((def, index) => (
+                    <dd key={index}>
+                      {def.wordClass === "interjection" ? (
+                        <span className="dictionary-marker-category">interjection</span>
+                      ) : (
+                        <span
+                          className="dictionary-word-class"
+                          data-tooltip={WORD_CLASS_NAMES[def.wordClass]}
+                        >
+                          {def.wordClass}
+                        </span>
+                      )}
+                      {def.meaning}
+                    </dd>
+                  ))}
+                </>
               )}
             </div>
           ))}

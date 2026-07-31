@@ -353,6 +353,11 @@ body {
   color: var(--color-ink-soft);
 }
 
+.dictionary-etymology {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 .dictionary-word-class {
   display: inline-block;
   width: 1.15rem;

@@ -25,6 +25,10 @@ export interface LexicalEntry {
   // Short interlinear gloss for a root morpheme, shown as a tooltip when
   // hovering its glyph. Not displayed in the dictionary listing itself.
   gloss?: string;
+  // Optional note on why a compound's meaning followed from its parts —
+  // useful when the connection is a bit of a stretch. Shown in the
+  // dictionary listing under the entry's title.
+  etymology?: string;
 }
 
 // Grammatical markers aren't lexical roots and don't carry a word class of
@@ -237,6 +241,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "punga",
     type: "compound",
+    etymology: "dogs are close to humans as the first animal we domesticated",
     definitions: [
       { wordClass: "N", meaning: "dog, canine" },
     ],
