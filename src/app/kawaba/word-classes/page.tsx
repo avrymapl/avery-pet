@@ -112,19 +112,17 @@ export default function KawabaWordClasses() {
             <div className="flex flex-row gap-4">
         <Example
           kawaba="sen!"
-          gloss="hurt!"
           translation="ouch!"
         />
         <Example
           kawaba="jemu!"
           gloss="feel-good!"
           translation="hello!"
-        />  
+        />
         <Example
           kawaba="laki!"
-          gloss="person-know!"
           translation="teacher!"
-        />           
+        />
       </div>
     </Article>
   );

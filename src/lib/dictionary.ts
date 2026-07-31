@@ -173,6 +173,14 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "ki",
+    type: "root",
+    gloss: "know",
+    definitions: [
+      { wordClass: "V", meaning: "know, understand, recognize, realize" },
+    ],
+  },
+  {
     kawaba: "ko",
     type: "root",
     gloss: "small",
@@ -345,9 +353,15 @@ function glossWord(word: string): string {
   let gloss = "";
   for (const token of splitMorphemes(word)) {
     if (token === "-") {
-      gloss += "-";
+      // A hyphen in the word marks a compound-of-compound boundary, so it
+      // gets its own "+" in the gloss rather than the usual "-".
+      gloss += "+";
+    } else if (!/[a-z]/i.test(token)) {
+      // Trailing punctuation (e.g. the "!" on an interjection) attaches
+      // directly rather than being treated as a morpheme.
+      gloss += token;
     } else {
-      if (gloss && !gloss.endsWith("-")) gloss += "-";
+      if (gloss && !gloss.endsWith("-") && !gloss.endsWith("+")) gloss += "-";
       gloss += glossMorpheme(token);
     }
   }
