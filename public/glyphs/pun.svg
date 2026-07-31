@@ -7,7 +7,7 @@
    id="svg4"
    sodipodi:docname="glyphs.svg"
    inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
-   inkscape:export-filename="../../GitHub/avery.pet/public/glyphs/la.svg"
+   inkscape:export-filename="/Users/avery/Documents/GitHub/avery.pet/public/glyphs/la.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -18,12 +18,7 @@
      id="defs4">
     <inkscape:path-effect
        effect="spiro"
-       id="path-effect26"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect6-1"
+       id="path-effect6-1-0-0"
        is_visible="true"
        lpeversion="1" />
   </defs>
@@ -50,8 +45,8 @@
     <inkscape:grid
        id="grid4"
        units="px"
-       originx="-18"
-       originy="-108"
+       originx="-186"
+       originy="-144"
        spacingx="1"
        spacingy="1"
        empcolor="#e50009"
@@ -73,17 +68,17 @@
   <path
      style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
      d="M 6,3 C 6.9164916,2.9999293 7.8273451,3.3772984 8.4753147,4.0254437 9.1232843,4.6735889 9.5004009,5.5845084 9.50027,6.501 9.5001391,7.41728 9.1229442,8.3278864 8.4750566,8.9758144 7.8271691,9.6237425 6.91655,10.001 6.00027,10.001 5.08399,10.001 4.1733709,9.6237425 3.5254834,8.9758144 2.8775958,8.3278864 2.5004009,7.41728 2.50027,6.501 2.5001391,5.5845984 2.8771784,4.6737662 3.5250344,4.0256346 4.1728904,3.377503 5.0835983,3.0000707 6,3 Z"
-     id="path6-8"
+     id="path6-8-5-6"
      sodipodi:nodetypes="sssss"
-     transform="translate(-2.7e-4,-2.001)"
+     transform="matrix(-1,0,0,1,12.00027,0.999)"
      inkscape:original-d="m 6,3 c 0.7395833,-0.65625 2.8336033,2.8343333 3.50027,3.501 0.666667,0.6666666 -2.8333333,2.8333333 -3.5,3.5 -0.6666667,0.666667 -2.8333333,-2.8333333 -3.5,-3.5 C 1.8336033,5.8343333 5.2604167,3.65625 6,3 Z"
-     inkscape:path-effect="#path-effect6-1" />
+     inkscape:path-effect="#path-effect6-1-0-0" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
-     d="M 1,71 C 1.4806036,70.099506 2.2095473,69.333175 3.084897,68.808169 3.9602467,68.283162 4.9795502,68.000951 6.00027,68.001 c 1.0206298,4.9e-5 2.039817,0.282306 2.9150645,0.807307 C 9.790582,69.333309 10.519439,70.099586 11,71"
-     id="path26"
-     sodipodi:nodetypes="csc"
-     transform="translate(-2.7e-4,-60.001)"
-     inkscape:original-d="M 1,71 C 2.5935173,69.290818 4.3336033,69.334334 6.00027,68.001 7.6669367,66.667667 9.3333333,69.666667 11,71"
-     inkscape:path-effect="#path-effect26" />
+     style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;stroke-linecap:round;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000"
+     d="m 5.99956,8.24905 a 0.75,0.75 0 0 0 -0.75,0.75 0.75,0.75 0 0 0 0.75,0.75 0.75,0.75 0 0 0 0.75,-0.75 0.75,0.75 0 0 0 -0.75,-0.75 z"
+     id="path32-7-8" />
+  <path
+     id="path16-1-8"
+     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+     d="M 0.99956,0.99905 C 0.78939,1.68959 0.76981,2.43746 0.94486,3.13772 1.11993,3.83798 1.48915,4.48865 1.99955,4.99905 2.28908,5.28857 2.62458,5.5327 2.98783,5.72171 3.13664,5.46751 3.31659,5.23285 3.52494,5.02444 4.06611,4.48313 4.79034,4.12978 5.54838,4.02835 5.29424,3.46095 4.93921,2.93871 4.49955,2.49905 c -0.91956,-0.91956 -2.19994,-1.46829 -3.5,-1.5 z m 10,0 c -1.30006,0.0317 -2.58044,0.58044 -3.5,1.5 C 7.0599,2.93871 6.70487,3.46095 6.45073,4.02835 7.20886,4.12979 7.93298,4.48302 8.47417,5.02444 8.68244,5.2328 8.86252,5.46759 9.01128,5.72171 9.37453,5.5327 9.71003,5.28857 9.99956,4.99905 c 0.5104,-0.5104 0.87962,-1.16107 1.05469,-1.86133 0.17506,-0.70026 0.15548,-1.44813 -0.0547,-2.13867 z" />
 </svg>

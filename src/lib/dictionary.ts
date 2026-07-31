@@ -104,6 +104,14 @@ export const dictionary: DictionaryEntry[] = [
     gloss: "Q",
   },
   {
+    kawaba: "ga",
+    type: "root",
+    gloss: "near",
+    definitions: [
+      { wordClass: "Q", meaning: "near, close, adjacent" },
+    ],
+  },
+  {
     kawaba: "i",
     type: "marker",
     category: "word class prefix",
@@ -216,6 +224,21 @@ export const dictionary: DictionaryEntry[] = [
     gloss: "bad",
     definitions: [
       { wordClass: "Q", meaning: "bad, unpleasant, negative, detrimental" },
+    ],
+  },
+  {
+    kawaba: "pun",
+    type: "root",
+    gloss: "animal",
+    definitions: [
+      { wordClass: "N", meaning: "animal, creature, beast" },
+    ],
+  },
+  {
+    kawaba: "punga",
+    type: "compound",
+    definitions: [
+      { wordClass: "N", meaning: "dog, canine" },
     ],
   },
   {
