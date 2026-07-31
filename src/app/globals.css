@@ -368,6 +368,16 @@ body {
   text-align: center;
 }
 
+.dictionary-empty {
+  font-family: var(--font-ui);
+  color: var(--color-ink-soft);
+}
+
+.dictionary-empty-query {
+  font-weight: 600;
+  color: var(--color-green-deep);
+}
+
 .dictionary-marker-category {
   display: inline-block;
   margin-right: 0.5rem;

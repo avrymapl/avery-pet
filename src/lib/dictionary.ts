@@ -241,7 +241,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "punga",
     type: "compound",
-    etymology: "dogs are close to humans as the first animal we domesticated",
+    etymology: "dogs are close to humans as the first domesticated animal",
     definitions: [
       { wordClass: "N", meaning: "dog, canine" },
     ],

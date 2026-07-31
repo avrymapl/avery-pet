@@ -123,7 +123,9 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
           ))}
         </dl>
       ) : (
-        <p>no entries match &ldquo;{query}&rdquo;</p>
+        <p className="dictionary-empty">
+          no entries match <span className="dictionary-empty-query">{query}</span>
+        </p>
       )}
     </div>
   );
