@@ -392,6 +392,12 @@ body {
 .glyphs {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+}
+
+.glyphs-word {
+  display: inline-flex;
+  align-items: center;
   gap: 0.15rem;
 }
 

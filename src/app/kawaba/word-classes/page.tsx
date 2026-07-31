@@ -61,29 +61,24 @@ export default function KawabaWordClasses() {
       <div className="flex flex-row gap-4">
         <Example
           kawaba="aba"
-          gloss="N-part"
           translation="part"
         />
         <Example
           kawaba="eba"
-          gloss="Q-part"
           translation="partial"
-        />  
+        />
         <Example
           kawaba="iba"
-          gloss="V-part"
           translation="to divide"
         />
         <Example
           kawaba="oba"
-          gloss="NUM-part"
           translation="one"
         />
         <Example
           kawaba="uba"
-          gloss="C-part"
           translation="partially"
-        />             
+        />
       </div>
       <Callout>
         <p>
