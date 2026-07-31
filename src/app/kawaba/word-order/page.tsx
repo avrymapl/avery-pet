@@ -18,7 +18,7 @@ export default function KawabaWordOrder() {
       </p>
       <Example
         kawaba="apunga igin atun"
-        translation="part"
+        translation="the dog drinks the water"
       />
     </Article>
   );

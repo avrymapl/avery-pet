@@ -120,9 +120,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "gin",
     type: "root",
-    gloss: "eat",
+    gloss: "consume",
     definitions: [
-      { wordClass: "V", meaning: "eat, consume, ingest, devour" },
+      { wordClass: "V", meaning: "consume, eat, drink, ingest, devour" },
     ],
   },
   {
@@ -254,6 +254,16 @@ export const dictionary: DictionaryEntry[] = [
     etymology: "dogs are close to humans as the first domesticated animal",
     definitions: [
       { wordClass: "N", meaning: "dog, canine" },
+    ],
+  },
+  {
+    kawaba: "sen",
+    type: "root",
+    gloss: "hurt",
+    definitions: [
+      { wordClass: "N", meaning: "pain, wound" },
+      { wordClass: "Q", meaning: "painful, wounded" },
+      { wordClass: "V", meaning: "hurt, harm, wound, attack" },
     ],
   },
   {
