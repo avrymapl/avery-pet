@@ -18,7 +18,6 @@ export default function KawabaWordOrder() {
       </p>
       <Example
         kawaba="apunga igin atun"
-        gloss="N-animal-near V-eat N-plant"
         translation="part"
       />
     </Article>

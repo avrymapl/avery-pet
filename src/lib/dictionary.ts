@@ -1,3 +1,5 @@
+import { splitMorphemes } from "@/lib/morphemes";
+
 export type WordType = "root" | "compound";
 
 // N = noun, Q = qualifier, V = verb, C = circumstantial. Interjection senses
@@ -113,6 +115,14 @@ export const dictionary: DictionaryEntry[] = [
     gloss: "near",
     definitions: [
       { wordClass: "Q", meaning: "near, close, adjacent" },
+    ],
+  },
+  {
+    kawaba: "gin",
+    type: "root",
+    gloss: "eat",
+    definitions: [
+      { wordClass: "V", meaning: "eat, consume, ingest, devour" },
     ],
   },
   {
@@ -271,6 +281,14 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "tun",
+    type: "root",
+    gloss: "plant",
+    definitions: [
+      { wordClass: "N", meaning: "plant, vegetation, flora" },
+    ],
+  },
+  {
     kawaba: "u",
     type: "marker",
     category: "word class prefix",
@@ -303,4 +321,37 @@ for (const entry of dictionary) {
   if (entry.type !== "compound" && entry.gloss) {
     morphemeGlosses[entry.kawaba] = entry.gloss;
   }
+}
+
+// A morpheme's gloss, falling back to its bare spelling when it isn't in the
+// dictionary yet. Multi-word glosses (e.g. "kind of") are period-joined so
+// they read as a single gloss unit rather than being mistaken for a word break.
+function glossMorpheme(token: string): string {
+  const gloss = morphemeGlosses[token];
+  return gloss ? gloss.replace(/\s+/g, ".") : token;
+}
+
+function glossWord(word: string): string {
+  let gloss = "";
+  for (const token of splitMorphemes(word)) {
+    if (token === "-") {
+      gloss += "-";
+    } else {
+      if (gloss && !gloss.endsWith("-")) gloss += "-";
+      gloss += glossMorpheme(token);
+    }
+  }
+  return gloss;
+}
+
+// Generates an interlinear gloss line for a Kawaba example straight from the
+// dictionary, so it doesn't need to be typed out by hand. Words are
+// space-separated, and each word's morphemes are hyphen-joined, matching the
+// existing hand-written gloss convention.
+export function generateGloss(kawaba: string): string {
+  return kawaba
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(glossWord)
+    .join(" ");
 }

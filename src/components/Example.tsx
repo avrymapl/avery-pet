@@ -1,5 +1,6 @@
 import { Glyphs } from "@/components/Glyphs";
 import { getGlyphMarkup } from "@/lib/glyphs";
+import { generateGloss } from "@/lib/dictionary";
 
 function renderGloss(gloss: string) {
   return gloss.split(/([-.\s]+)/).map((part, i) =>
@@ -19,7 +20,10 @@ export function Example({
   translation,
 }: {
   kawaba: string;
-  gloss: string;
+  // Auto-generated from the dictionary via generateGloss() when omitted.
+  // Pass this explicitly to override — e.g. for interjections or examples
+  // using roots the dictionary doesn't have entries for yet.
+  gloss?: string;
   translation: string;
 }) {
   const glyphs = getGlyphMarkup();
@@ -30,7 +34,7 @@ export function Example({
         {kawaba}
         <Glyphs word={kawaba} glyphs={glyphs} />
       </p>
-      <p className="example-gloss">{renderGloss(gloss)}</p>
+      <p className="example-gloss">{renderGloss(gloss ?? generateGloss(kawaba))}</p>
       <p className="example-translation">{translation}</p>
     </div>
   );
