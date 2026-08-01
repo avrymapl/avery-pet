@@ -27,12 +27,13 @@ export function KawabaSidebar() {
         <div className="flex items-center gap-2">
           <PixelIcon pattern={categoryIcons.kawaba} className="text-green" />
           <p className="font-ui text-lg font-bold text-ink">kawaba</p>
+          <span className="font-ui text-sm text-ink-soft md:hidden">the language of parts</span>
           <CollapsibleNavToggle open={open} onToggle={() => setOpen((value) => !value)} />
         </div>
-        <p className="font-ui text-sm text-ink-soft">the language of parts</p>
+        <p className="hidden font-ui text-sm text-ink-soft md:block">the language of parts</p>
       </div>
 
-      <CollapsibleNav open={open}>
+      <CollapsibleNav open={open} onNavigate={() => setOpen(false)}>
         {kawabaNav.map((item, index) => {
           const previous = kawabaNav[index - 1];
           const isBoundary = index > 0 && Boolean(item.icon) !== Boolean(previous?.icon);

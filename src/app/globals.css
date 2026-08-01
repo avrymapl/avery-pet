@@ -133,15 +133,24 @@ body {
 }
 
 .article-content table {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
   margin: 1.5rem auto;
   border-collapse: collapse;
 }
 
-/* Opt a table into equal-width columns instead of sizing to content. */
-.article-content table.table-uniform {
-  width: 100%;
-  margin: 1.5rem 0;
-  table-layout: fixed;
+/* Opt a table into equal-width columns instead of sizing to content, once
+   there's enough room — below md this would squish narrow cells (like a
+   single letter) as tight as long ones, so those tables size to content
+   like any other table until then. */
+@media (min-width: 768px) {
+  .article-content table.table-uniform {
+    width: 100%;
+    margin: 1.5rem 0;
+    table-layout: fixed;
+  }
 }
 
 .article-content th,
@@ -200,14 +209,14 @@ body {
 }
 
 .example-kawaba {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
   font-family: var(--font-ui);
   font-weight: 700;
   font-size: 1.125rem;
   color: var(--color-ink);
+}
+
+.example .glyphs {
+  margin-top: 0.35rem;
 }
 
 .example-gloss {
