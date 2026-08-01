@@ -135,7 +135,7 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "je",
     type: "root",
-    gloss: "thing",
+    gloss: "feel",
     definitions: [
       { wordClass: "N", meaning: "feel, experience, sense, perceive" },
       { wordClass: "Q", meaning: "feeling, experience, sensation, perception" },
@@ -177,7 +177,8 @@ export const dictionary: DictionaryEntry[] = [
     type: "root",
     gloss: "know",
     definitions: [
-      { wordClass: "V", meaning: "know, understand, recognize, realize" },
+      { wordClass: "N", meaning: "knowledge, understanding, awareness" },
+      { wordClass: "V", meaning: "know, understand, recognise, aware of" },
     ],
   },
   {

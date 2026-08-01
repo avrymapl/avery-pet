@@ -109,14 +109,13 @@ export default function KawabaWordClasses() {
           <strong>address</strong> – names or titles the person being spoken to
         </li>
       </ul>
-            <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4">
         <Example
           kawaba="sen!"
           translation="ouch!"
         />
         <Example
           kawaba="jemu!"
-          gloss="feel-good!"
           translation="hello!"
         />
         <Example

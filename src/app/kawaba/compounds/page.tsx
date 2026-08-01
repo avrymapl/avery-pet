@@ -23,17 +23,14 @@ export default function KawabaCompounds() {
       <div className="flex flex-row gap-4">
         <Example
           kawaba="ka"
-          gloss="N-kind.of"
           translation="a kind of"
         />
         <Example
           kawaba="kawa"
-          gloss="N-kind.of-speak"
           translation="language"
         />  
         <Example
           kawaba="kawaba"
-          gloss="N-kind.of-speak-part"
           translation="the language of parts"
         />
       </div>
@@ -44,7 +41,6 @@ export default function KawabaCompounds() {
       </p>
       <Example
           kawaba="lawa-kawaba"
-          gloss="N-person-speak+kind.of-speak-part"
           translation="the language of parts"
       />
       <Callout>

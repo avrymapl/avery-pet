@@ -17,7 +17,7 @@ const uiFont = Noto_Sans({
 export const metadata: Metadata = {
   title: "avery.pet",
   description:
-    "avery's personal corner of the internet — projects in linguistics, science, programming, and writing.",
+    "welcome to my little corner of the internet where i share projects i'm working on! :3",
 };
 
 export default function RootLayout({
