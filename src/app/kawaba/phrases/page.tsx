@@ -3,7 +3,7 @@ import { Example } from "@/components/Example";
 import { Callout } from "@/components/Callout";
 
 export const metadata = {
-  title: "constituent order — kawaba",
+  title: "phrases — kawaba",
 };
 
 export default function KawabaPhrases() {
@@ -11,9 +11,8 @@ export default function KawabaPhrases() {
     <Article>
       <h1>phrases</h1>
       <p>
-        Grammatical arguments such as the subject and the direct object are filled by 
-        noun phrases. A <strong>phrase</strong> is a string of words that act as a single
-        syntactic unit.
+        Clauses are comprised of <strong>phrases</strong>, which are strings of words
+        that act as a single syntactic unit.
       </p>
     </Article>
   );

@@ -190,6 +190,15 @@ export const dictionary: DictionaryEntry[] = [
     ],
   },
   {
+    kawaba: "ku",
+    type: "root",
+    gloss: "what",
+    definitions: [
+      { wordClass: "N", meaning: "what" },
+      { wordClass: "Q", meaning: "which" }
+    ],
+  },
+  {
     kawaba: "la",
     type: "root",
     gloss: "person",
@@ -224,6 +233,24 @@ export const dictionary: DictionaryEntry[] = [
     type: "compound",
     definitions: [
       { wordClass: "N", meaning: "Kawaba speaker" }
+    ],
+  },
+  {
+    kawaba: "lu",
+    type: "root",
+    gloss: "3",
+    definitions: [
+      { wordClass: "N", meaning: "3rd person pronoun, she, her, he, him, it, they, them" },
+      { wordClass: "Q", meaning: "her, hers, his, its, their, theirs" },
+    ],
+  },
+  {
+    kawaba: "mi",
+    type: "root",
+    gloss: "1",
+    definitions: [
+      { wordClass: "N", meaning: "1st person pronoun, I, me, us, we" },
+      { wordClass: "Q", meaning: "my, mine, our, ours" },
     ],
   },
   {
@@ -297,6 +324,23 @@ export const dictionary: DictionaryEntry[] = [
     definitions: [
       { wordClass: "N", meaning: "moment, instant" },
       { wordClass: "Q", meaning: "brief, shortly" },
+    ],
+  },
+  {
+    kawaba: "ta",
+    type: "root",
+    gloss: "place",
+    definitions: [
+      { wordClass: "N", meaning: "place, location, position, area, site" },
+    ],
+  },
+  {
+    kawaba: "to",
+    type: "root",
+    gloss: "2",
+    definitions: [
+      { wordClass: "N", meaning: "2nd person pronoun, you" },
+      { wordClass: "Q", meaning: "your, yours" },
     ],
   },
   {

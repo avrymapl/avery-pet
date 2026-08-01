@@ -3,7 +3,7 @@ import { Example } from "@/components/Example";
 import { Callout } from "@/components/Callout";
 
 export const metadata = {
-  title: "constituent order — kawaba",
+  title: "clauses — kawaba",
 };
 
 export default function KawabaClauses() {
@@ -11,11 +11,12 @@ export default function KawabaClauses() {
     <Article>
       <h1>clauses</h1>
       <p>
-        Kawaba is an <strong>SVO</strong> language that uses word order to express
-        grammatical relations such as subject and object. The argument before the verb
-        is the <strong>subject</strong> – the noun phrase that the statement is about,
-        and the argument after the verb is the <strong>direct object</strong> – the noun
-        phrase the statement acts upon.
+        A <strong>clause</strong> is a string of words that expresses a single proposition
+        and consists of at least a verb. Kawaba is an <strong>SVO</strong> language that
+        uses word order to express grammatical relations such as subject and object. The
+        argument before the verb is the <strong>subject</strong>, the noun phrase that
+        the statement is about, and the argument after the verb is the <strong>direct
+        object</strong>, the noun phrase the statement acts upon.
       </p>
       <Example
         kawaba="apunga igin atun"
