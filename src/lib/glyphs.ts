@@ -17,7 +17,11 @@ export function getGlyphMarkup(): Record<string, string> {
   const glyphs: Record<string, string> = {};
   for (const file of files) {
     const name = file.slice(0, -".svg".length);
-    glyphs[name] = fs.readFileSync(path.join(GLYPHS_DIR, file), "utf-8");
+    const svg = fs.readFileSync(path.join(GLYPHS_DIR, file), "utf-8");
+    // The glyphs are drawn in Inkscape with a hardcoded black stroke/fill
+    // rather than currentColor, so swap it in here to match the surrounding
+    // text color instead of always rendering black.
+    glyphs[name] = svg.replace(/(stroke|fill):#000000/g, "$1:currentColor");
   }
   return glyphs;
 }

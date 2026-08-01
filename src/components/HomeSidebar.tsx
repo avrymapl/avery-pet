@@ -22,7 +22,7 @@ export function HomeSidebar({ activeCategory }: { activeCategory?: CategoryId })
         <CollapsibleNavToggle open={open} onToggle={() => setOpen((value) => !value)} />
       </div>
 
-      <CollapsibleNav open={open}>
+      <CollapsibleNav open={open} onNavigate={() => setOpen(false)}>
         <p className="mb-2 px-3 font-ui text-xs font-semibold tracking-widest text-ink-soft uppercase">
           browse
         </p>
