@@ -5,6 +5,8 @@ import { chevronIcon } from "@/lib/pixel-icons";
 
 // Toggle for the mobile nav dropdown, meant to sit inline with a sidebar's
 // heading text. Hidden at md and above, where the nav is always expanded.
+// The heading row it sits in is also clickable (a bigger, easier target), so
+// this stops its own click from bubbling up and double-toggling.
 export function CollapsibleNavToggle({
   open,
   onToggle,
@@ -15,7 +17,10 @@ export function CollapsibleNavToggle({
   return (
     <button
       type="button"
-      onClick={onToggle}
+      onClick={(event) => {
+        event.stopPropagation();
+        onToggle();
+      }}
       aria-expanded={open}
       aria-label="toggle menu"
       className="ml-auto shrink-0 text-ink-soft hover:text-green-deep md:hidden"

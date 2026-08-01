@@ -24,7 +24,10 @@ export function KawabaSidebar() {
         >
           &larr; avery.pet
         </Link>
-        <div className="flex items-center gap-2">
+        <div
+          onClick={() => setOpen((value) => !value)}
+          className="flex cursor-pointer items-center gap-2 md:cursor-auto"
+        >
           <PixelIcon pattern={categoryIcons.kawaba} className="text-green" />
           <p className="font-ui text-lg font-bold text-ink">kawaba</p>
           <span className="font-ui text-sm text-ink-soft md:hidden">the language of parts</span>

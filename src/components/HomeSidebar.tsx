@@ -14,8 +14,15 @@ export function HomeSidebar({ activeCategory }: { activeCategory?: CategoryId })
 
   return (
     <div className="flex h-full flex-col gap-10">
-      <div className="flex items-center gap-3">
-        <Link href="/" className="flex items-center gap-3">
+      <div
+        onClick={() => setOpen((value) => !value)}
+        className="flex cursor-pointer items-center gap-3 md:cursor-auto"
+      >
+        <Link
+          href="/"
+          onClick={(event) => event.stopPropagation()}
+          className="flex items-center gap-3"
+        >
           <Avatar size={40} src="/avatar.png" />
           <span className="font-ui text-lg font-bold text-ink">avery.pet</span>
         </Link>

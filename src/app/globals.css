@@ -133,12 +133,16 @@ body {
 }
 
 .article-content table {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  overflow-x: auto;
   margin: 1.5rem auto;
   border-collapse: collapse;
+}
+
+/* Wraps a table so it can scroll horizontally within itself if it's too wide
+   for the screen, instead of either overflowing the page or being forced to
+   squish its columns to fit — the table inside is free to size naturally. */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* Opt a table into equal-width columns instead of sizing to content, once
@@ -206,6 +210,17 @@ body {
 .example {
   margin: 1.75rem auto;
   text-align: center;
+}
+
+/* A group of examples shown together (side by side at md, stacked below it).
+   The group itself carries the vertical spacing so individual examples don't
+   also add their own — otherwise stacked examples end up double-spaced. */
+.example-group {
+  margin: 1.75rem 0;
+}
+
+.example-group .example {
+  margin: 0;
 }
 
 .example-kawaba {
