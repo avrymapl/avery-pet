@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Avatar } from "./Avatar";
 import { SidebarLink } from "./SidebarLink";
 import { PixelIcon } from "./PixelIcon";
+import { CollapsibleNav } from "./CollapsibleNav";
 import { categories, type CategoryId } from "@/lib/projects";
 import { categoryIcons } from "@/lib/pixel-icons";
 
@@ -13,7 +14,7 @@ export function HomeSidebar({ activeCategory }: { activeCategory?: CategoryId })
         <span className="font-ui text-lg font-bold text-ink">avery.pet</span>
       </Link>
 
-      <nav className="flex flex-col gap-1">
+      <CollapsibleNav>
         <p className="mb-2 px-3 font-ui text-xs font-semibold tracking-widest text-ink-soft uppercase">
           browse
         </p>
@@ -30,7 +31,7 @@ export function HomeSidebar({ activeCategory }: { activeCategory?: CategoryId })
             {category.label}
           </SidebarLink>
         ))}
-      </nav>
+      </CollapsibleNav>
     </div>
   );
 }

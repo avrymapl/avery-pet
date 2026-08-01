@@ -70,3 +70,8 @@ export const starIcon: PixelPattern = ["...#...",
                                       "..###..",
                                       "...#...",
                                       "...#..."];
+
+export const chevronIcon: PixelPattern = ["#.....#",
+                                          ".#...#.",
+                                          "..#.#..",
+                                          "...#..."];

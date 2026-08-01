@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SidebarLink } from "./SidebarLink";
 import { PixelIcon } from "./PixelIcon";
+import { CollapsibleNav } from "./CollapsibleNav";
 import { kawabaNav } from "@/lib/kawaba-nav";
 import { categoryIcons, searchIcon } from "@/lib/pixel-icons";
 
@@ -28,7 +29,7 @@ export function KawabaSidebar() {
         <p className="font-ui text-sm text-ink-soft">the language of parts</p>
       </div>
 
-      <nav className="flex flex-col gap-1">
+      <CollapsibleNav>
         {kawabaNav.map((item, index) => {
           const previous = kawabaNav[index - 1];
           const isBoundary = index > 0 && Boolean(item.icon) !== Boolean(previous?.icon);
@@ -47,7 +48,7 @@ export function KawabaSidebar() {
             </div>
           );
         })}
-      </nav>
+      </CollapsibleNav>
     </div>
   );
 }
