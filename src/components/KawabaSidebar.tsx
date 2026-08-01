@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SidebarLink } from "./SidebarLink";
 import { PixelIcon } from "./PixelIcon";
-import { CollapsibleNav } from "./CollapsibleNav";
+import { CollapsibleNav, CollapsibleNavToggle } from "./CollapsibleNav";
 import { kawabaNav } from "@/lib/kawaba-nav";
 import { categoryIcons, searchIcon } from "@/lib/pixel-icons";
 
@@ -12,6 +13,7 @@ const navIcons: Record<string, typeof searchIcon> = { search: searchIcon };
 
 export function KawabaSidebar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="flex h-full flex-col gap-4">
@@ -25,11 +27,12 @@ export function KawabaSidebar() {
         <div className="flex items-center gap-2">
           <PixelIcon pattern={categoryIcons.kawaba} className="text-green" />
           <p className="font-ui text-lg font-bold text-ink">kawaba</p>
+          <CollapsibleNavToggle open={open} onToggle={() => setOpen((value) => !value)} />
         </div>
         <p className="font-ui text-sm text-ink-soft">the language of parts</p>
       </div>
 
-      <CollapsibleNav>
+      <CollapsibleNav open={open}>
         {kawabaNav.map((item, index) => {
           const previous = kawabaNav[index - 1];
           const isBoundary = index > 0 && Boolean(item.icon) !== Boolean(previous?.icon);
