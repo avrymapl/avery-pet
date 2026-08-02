@@ -14,15 +14,22 @@ export function HomeSidebar({ activeCategory }: { activeCategory?: CategoryId })
 
   return (
     <div className="flex h-full flex-col gap-10">
-      <div className="flex items-center gap-3">
-        <Link href="/" className="flex items-center gap-3">
+      <div
+        onClick={() => setOpen((value) => !value)}
+        className="flex cursor-pointer items-center gap-3 md:cursor-auto"
+      >
+        <Link
+          href="/"
+          onClick={(event) => event.stopPropagation()}
+          className="flex items-center gap-3"
+        >
           <Avatar size={40} src="/avatar.png" />
           <span className="font-ui text-lg font-bold text-ink">avery.pet</span>
         </Link>
         <CollapsibleNavToggle open={open} onToggle={() => setOpen((value) => !value)} />
       </div>
 
-      <CollapsibleNav open={open}>
+      <CollapsibleNav open={open} onNavigate={() => setOpen(false)}>
         <p className="mb-2 px-3 font-ui text-xs font-semibold tracking-widest text-ink-soft uppercase">
           browse
         </p>

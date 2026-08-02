@@ -38,7 +38,7 @@ export default function KawabaPhonology() {
         Additionally, the voiceless stops are aspirated for speakers of languages that
         distinguish stops primarily by aspiration rather than voicing.
       </p>
-      <table className="table-uniform">
+      <table>
         <thead>
           <tr>
             <th></th>
@@ -96,7 +96,7 @@ export default function KawabaPhonology() {
         <li><strong>/e̞/</strong> is the mid front unrounded vowel, between <strong>/e/</strong> and <strong>/ɛ/</strong></li>
         <li><strong>/o̞/</strong> is the mid back rounded vowel, between <strong>/o/</strong> and <strong>/ɔ/</strong></li>
       </ul>
-      <table className="table-uniform">
+      <table className="table-">
         <thead>
           <tr>
             <th></th>

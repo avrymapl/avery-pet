@@ -30,10 +30,8 @@ export function Example({
 
   return (
     <div className="example">
-      <p className="example-kawaba">
-        {kawaba}
-        <Glyphs word={kawaba} glyphs={glyphs} />
-      </p>
+      <p className="example-kawaba">{kawaba}</p>
+      <Glyphs word={kawaba} glyphs={glyphs} />
       <p className="example-gloss">{renderGloss(gloss ?? generateGloss(kawaba))}</p>
       <p className="example-translation">{translation}</p>
     </div>
