@@ -28,7 +28,7 @@ export default function KawabaClauses() {
         context, or are irrelevant. Omitting the subject is analogous to the passive voice 
         in English.
       </p>
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-row gap-4">
         <Example
           kawaba="apunga igin"
           translation="the dog eats"
@@ -42,7 +42,7 @@ export default function KawabaClauses() {
         Even both the subject and the direct object can be omitted together, such as when
         answering a question. A Kawaba clause only requires a verb to be valid.
       </p>
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-row gap-4">
         <Example
           kawaba="nu atun anmi i utaku?"
           translation="where is my plant?"

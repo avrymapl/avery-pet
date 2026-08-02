@@ -58,7 +58,7 @@ export default function KawabaWordClasses() {
         A word in Kawaba can be used as any of the five classes by changing its prefix, 
         allowing flexibility in word derivation from a very small root inventory.
       </p>
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-row gap-4">
         <Example
           kawaba="aba"
           translation="part"
@@ -109,7 +109,7 @@ export default function KawabaWordClasses() {
           <strong>address</strong> – names or titles the person being spoken to
         </li>
       </ul>
-      <div className="flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-row gap-4">
         <Example
           kawaba="sen!"
           translation="ouch!"

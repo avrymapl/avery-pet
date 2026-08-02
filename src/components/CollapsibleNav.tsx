@@ -30,20 +30,12 @@ export function CollapsibleNavToggle({
 
 // Below md, the nav links collapse into a dropdown instead of always being
 // expanded at the top of the page. At md and above, they're always shown.
-// onNavigate fires on any click inside (e.g. selecting a link) so the caller
-// can close the dropdown — a no-op on desktop, where it's always open anyway.
 export function CollapsibleNav({
   open,
-  onNavigate,
   children,
 }: {
   open: boolean;
-  onNavigate: () => void;
   children: React.ReactNode;
 }) {
-  return (
-    <nav onClick={onNavigate} className={`${open ? "flex" : "hidden"} flex-col gap-1 md:flex`}>
-      {children}
-    </nav>
-  );
+  return <nav className={`${open ? "flex" : "hidden"} flex-col gap-1 md:flex`}>{children}</nav>;
 }
