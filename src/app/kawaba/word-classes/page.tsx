@@ -18,49 +18,47 @@ export default function KawabaWordClasses() {
       <p>
         There are five word-class prefixes, one for each vowel: 
       </p>
-      <div className="table-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">prefix</th>
-              <th scope="col">word class</th>
-              <th scope="col">function</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>a-</td>
-              <td>noun</td>
-              <td>expresses a person, place, thing, state, or concept</td>
-            </tr>
-            <tr>
-              <td>e-</td>
-              <td>qualifier</td>
-              <td>expresses a quality or property</td>
-            </tr>
-            <tr>
-              <td>i-</td>
-              <td>verb</td>
-              <td>expresses an action, event, process, or state</td>
-            </tr>
-            <tr>
-              <td>o-</td>
-              <td>numeral</td>
-              <td>expresses a numerical quantity</td>
-            </tr>
-            <tr>
-              <td>u-</td>
-              <td>circumstantial</td>
-              <td>expresses place, time, degree, or frequency</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">prefix</th>
+            <th scope="col">word class</th>
+            <th scope="col">function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>a-</td>
+            <td>noun</td>
+            <td>expresses a person, place, thing, state, or concept</td>
+          </tr>
+          <tr>
+            <td>e-</td>
+            <td>qualifier</td>
+            <td>expresses a quality or property</td>
+          </tr>
+          <tr>
+            <td>i-</td>
+            <td>verb</td>
+            <td>expresses an action, event, process, or state</td>
+          </tr>
+          <tr>
+            <td>o-</td>
+            <td>numeral</td>
+            <td>expresses a numerical quantity</td>
+          </tr>
+          <tr>
+            <td>u-</td>
+            <td>circumstantial</td>
+            <td>expresses place, time, degree, or frequency</td>
+          </tr>
+        </tbody>
+      </table>
       <p>
         A word in Kawaba can be used as any of the five classes by changing its prefix, 
         allowing flexibility in word derivation from a very small root inventory.
       </p>
-      <div className="example-group flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-col gap-4 md:flex-row">
         <Example
           kawaba="aba"
           translation="part"
@@ -111,7 +109,7 @@ export default function KawabaWordClasses() {
           <strong>address</strong> – names or titles the person being spoken to
         </li>
       </ul>
-      <div className="example-group flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-col gap-4 md:flex-row">
         <Example
           kawaba="sen!"
           translation="ouch!"

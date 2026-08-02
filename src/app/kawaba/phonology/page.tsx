@@ -38,49 +38,47 @@ export default function KawabaPhonology() {
         Additionally, the voiceless stops are aspirated for speakers of languages that
         distinguish stops primarily by aspiration rather than voicing.
       </p>
-      <div className="table-scroll">
-        <table className="table-uniform">
-          <thead>
-            <tr>
-              <th></th>
-              <th scope="col">labial</th>
-              <th scope="col">coronal</th>
-              <th scope="col">dorsal</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">nasal</th>
-              <td>m</td>
-              <td>n</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row" rowSpan={2}>plosive</th>
-              <td>p /pʰ/</td>
-              <td>t /tʰ/</td>
-              <td>k /kʰ/</td>
-            </tr>
-            <tr>
-              <td>b</td>
-              <td>d</td>
-              <td>ɡ</td>
-            </tr>
-            <tr>
-              <th scope="row">fricative</th>
-              <td></td>
-              <td>s</td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">approximant</th>
-              <td>w</td>
-              <td>l</td>
-              <td>j</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table className="table-uniform">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">labial</th>
+            <th scope="col">coronal</th>
+            <th scope="col">dorsal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">nasal</th>
+            <td>m</td>
+            <td>n</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row" rowSpan={2}>plosive</th>
+            <td>p /pʰ/</td>
+            <td>t /tʰ/</td>
+            <td>k /kʰ/</td>
+          </tr>
+          <tr>
+            <td>b</td>
+            <td>d</td>
+            <td>ɡ</td>
+          </tr>
+          <tr>
+            <th scope="row">fricative</th>
+            <td></td>
+            <td>s</td>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">approximant</th>
+            <td>w</td>
+            <td>l</td>
+            <td>j</td>
+          </tr>
+        </tbody>
+      </table>
       <Callout>
         <p>
           The segment <strong>/n/</strong> is pronounced as the voiced alveolar nasal as
@@ -98,38 +96,36 @@ export default function KawabaPhonology() {
         <li><strong>/e̞/</strong> is the mid front unrounded vowel, between <strong>/e/</strong> and <strong>/ɛ/</strong></li>
         <li><strong>/o̞/</strong> is the mid back rounded vowel, between <strong>/o/</strong> and <strong>/ɔ/</strong></li>
       </ul>
-      <div className="table-scroll">
-        <table className="table-uniform">
-          <thead>
-            <tr>
-              <th></th>
-              <th scope="col">front</th>
-              <th scope="col">central</th>
-              <th scope="col">back</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">close</th>
-              <td>i</td>
-              <td></td>
-              <td>u</td>
-            </tr>
-            <tr>
-              <th scope="row">mid</th>
-              <td>e /e̞/</td>
-              <td></td>
-              <td>o /o̞/</td>
-            </tr>
-            <tr>
-              <th scope="row">open</th>
-              <td></td>
-              <td>a /ä/</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table className="table-uniform">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">front</th>
+            <th scope="col">central</th>
+            <th scope="col">back</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">close</th>
+            <td>i</td>
+            <td></td>
+            <td>u</td>
+          </tr>
+          <tr>
+            <th scope="row">mid</th>
+            <td>e /e̞/</td>
+            <td></td>
+            <td>o /o̞/</td>
+          </tr>
+          <tr>
+            <th scope="row">open</th>
+            <td></td>
+            <td>a /ä/</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
       <Callout>
         <p>
           The semivowels <strong>/j/</strong> and <strong>/w/</strong> have a shorter 

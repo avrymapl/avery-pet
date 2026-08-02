@@ -20,7 +20,7 @@ export default function KawabaCompounds() {
         are its <strong>dependents</strong>, which narrow the meaning of all the roots 
         before them.
       </p>
-      <div className="example-group flex flex-col gap-4 md:flex-row">
+      <div className="flex flex-col gap-4 md:flex-row">
         <Example
           kawaba="ka"
           translation="a kind of"
