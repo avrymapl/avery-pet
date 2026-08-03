@@ -11,6 +11,5 @@ export const kawabaNav: KawabaNavItem[] = [
   { title: "phonology", href: "/kawaba/phonology" },
   { title: "compounds", href: "/kawaba/compounds" },
   { title: "word classes", href: "/kawaba/word-classes" },
-  { title: "clauses", href: "/kawaba/clauses" },
-  { title: "phrases", href: "/kawaba/phrases" },
+  { title: "word order", href: "/kawaba/word-order" },
 ];

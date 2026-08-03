@@ -11,8 +11,9 @@ export default function KawabaCompounds() {
     <Article>
       <h1>compounds</h1>
       <p>
-        Kawaba uses compounding to form all words from a set of just 110 root morphemes,
-        allowing the language to express so much with so little.
+        Kawaba is a head initial language that uses compounding to form all words from a
+        set of just 110 root morphemes, allowing the language to express so much with so
+        little.
       </p>
       <p>
         The first root in a Kawaba word after the word class prefix is the <strong>head 

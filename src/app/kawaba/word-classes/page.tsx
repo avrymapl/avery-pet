@@ -1,19 +1,24 @@
 import { Article } from "@/components/Article";
 import { Example } from "@/components/Example";
 import { Callout } from "@/components/Callout";
+import { Glyphs } from "@/components/Glyphs";
+import { getGlyphMarkup } from "@/lib/glyphs";
 
 export const metadata = {
   title: "word classes — kawaba",
 };
 
 export default function KawabaWordClasses() {
+  const glyphs = getGlyphMarkup();
+  
+  
   return (
     <Article>
       <h1>word classes</h1>
       <p>
-        Every lexical word in Kawaba carries an obligatory <strong>word class</strong> prefix, a single 
-        vowel attached to the front of the word that marks which grammatical category the 
-        word belongs to.
+        Every lexical word in Kawaba carries an obligatory <strong>word class</strong> 
+        prefix, a single vowel attached to the front of the word that marks which
+        grammatical category the word belongs to.
       </p>
       <p>
         There are five word-class prefixes, one for each vowel: 
@@ -28,27 +33,52 @@ export default function KawabaWordClasses() {
         </thead>
         <tbody>
           <tr>
-            <td>a-</td>
+            <td>
+              <span className="gap-4 flex flex-row items-center">
+                <Glyphs word="a" glyphs={glyphs} />
+                a-
+              </span>
+              </td>
             <td>noun</td>
             <td>expresses a person, place, thing, state, or concept</td>
           </tr>
           <tr>
-            <td>e-</td>
-            <td>qualifier</td>
+            <td>
+              <span className="gap-4 flex flex-row items-center">
+                <Glyphs word="e" glyphs={glyphs} />
+                e-
+              </span>
+              </td>            
+              <td>qualifier</td>
             <td>expresses a quality or property</td>
           </tr>
           <tr>
-            <td>i-</td>
+            <td>
+              <span className="gap-4 flex flex-row items-center">
+                <Glyphs word="i" glyphs={glyphs} />
+                i-
+              </span>
+            </td>
             <td>verb</td>
             <td>expresses an action, event, process, or state</td>
           </tr>
           <tr>
-            <td>o-</td>
+            <td>
+              <span className="gap-4 flex flex-row items-center">
+                <Glyphs word="o" glyphs={glyphs} />
+                o-
+              </span>
+            </td>
             <td>numeral</td>
             <td>expresses a numerical quantity</td>
           </tr>
           <tr>
-            <td>u-</td>
+            <td>
+              <span className="gap-4 flex flex-row items-center">
+                <Glyphs word="u" glyphs={glyphs} />
+                u-
+              </span>
+            </td>
             <td>circumstantial</td>
             <td>expresses place, time, degree, or frequency</td>
           </tr>
