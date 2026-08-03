@@ -16,7 +16,7 @@ export default function KawabaWordClasses() {
     <Article>
       <h1>word classes</h1>
       <p>
-        Every lexical word in Kawaba carries an obligatory <strong>word class</strong> 
+        Every lexical word in Kawaba carries an obligatory <strong>word class </strong>
         prefix, a single vowel attached to the front of the word that marks which
         grammatical category the word belongs to.
       </p>
