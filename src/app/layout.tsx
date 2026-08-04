@@ -14,10 +14,31 @@ const uiFont = Noto_Sans({
   subsets: ["latin"],
 });
 
+const description =
+  "welcome to my little corner of the internet where i share projects i'm working on! :3";
+
 export const metadata: Metadata = {
+  // Needed so the social card image resolves to an absolute URL — crawlers
+  // can't follow a relative one.
+  metadataBase: new URL("https://avery.pet"),
   title: "avery.pet",
-  description:
-    "welcome to my little corner of the internet where i share projects i'm working on! :3",
+  description,
+  openGraph: {
+    title: "avery.pet",
+    description,
+    siteName: "avery.pet",
+    url: "/",
+    type: "website",
+    images: [{ url: "/avatar.png", width: 256, height: 256, alt: "avery.pet" }],
+  },
+  twitter: {
+    // The avatar is square, so a "summary" card (small square thumbnail) fits
+    // it — "summary_large_image" would crop it into a wide banner.
+    card: "summary",
+    title: "avery.pet",
+    description,
+    images: ["/avatar.png"],
+  },
 };
 
 export default function RootLayout({
