@@ -60,7 +60,7 @@ export default function KawabaWordOrder() {
       </div>
       <h2>circumstantials</h2>
       <p>
-        Circumstantials are words that carry the u- prefix, and are used to provide
+        Circumstantials are words that carry the <em>u-</em> prefix, and are used to provide
         context about a situation, such as the place, time, or frequency. A 
         circumstantial may appear anywhere within a clause, but is typically placed
         earlier in the clause to provide context for the statement.
@@ -79,7 +79,7 @@ export default function KawabaWordOrder() {
       />
       <h2>qualifiers</h2>
       <p>
-        Qualifiers are words that carry the e- prefix, and are used to ascribe a quality
+        Qualifiers are words that carry the <em>e-</em> prefix, and are used to ascribe a quality
         or property to a noun, verb, or circumstantial. A qualifier follows the word it
         is modifying rather than preceding it like adjectives in English.
       </p>
@@ -96,7 +96,31 @@ export default function KawabaWordOrder() {
         translation="the dog barks in the big park"
       />
       <h2>the copula</h2>
-      
+      <p>
+        The verbal prefix <em>i</em> can be used as a word on its own with no attached
+        roots as the copula – the equivalent of forms of the verb "to be" ("is/am/are")
+        in English. The copula is used to link a subject to a predicate, such as a noun,
+        qualifier, or circumstantial.
+      </p>
+      <Example
+        kawaba="apunga i apun"
+        translation="the dog is an animal"
+      />
+      <Example
+        kawaba="apunga i esun"
+        translation="the dog is playful"
+      />
+      <Example
+        kawaba="apunga i umin"
+        translation="the dog is in the house"
+      />
+      <Callout>
+        <p>
+          Unlike English, where the verb "to be" can be used with a verb to form the
+          progressive aspect ("is eating"), Kawaba's copula <em>i</em> is never used
+          with a verb.
+        </p>
+      </Callout>
     </Article>
   );
 }
