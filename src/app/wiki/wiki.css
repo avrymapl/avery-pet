@@ -1,0 +1,245 @@
+/* Styles for the wiki subsite. Everything is prefixed wiki- ; base article
+ * typography comes from .article-content in globals.css.
+ *
+ * Layout note: the reading column is the site's usual 42rem measure. From
+ * 80rem viewports up, tier-1 glosses sit in a 14rem margin to its right —
+ * the column gives up being centered to make that room (margin-right below),
+ * which is the classic sidenote layout trade. */
+
+.wiki-column {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 80rem) {
+  .wiki-column {
+    margin-right: 17rem;
+  }
+}
+
+/* Positioning context for the absolutely-placed margin glosses. */
+.wiki-article {
+  position: relative;
+}
+
+/* ---- Annotations ---------------------------------------------------------
+ * Deliberately quiet: a dotted underline and nothing else. The article must
+ * read as prose, not as a field of widgets. */
+
+.wiki-dep,
+.wiki-dep-again {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: inherit;
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.wiki-dep:hover,
+.wiki-dep-again:hover {
+  text-decoration-color: var(--color-green-deep);
+}
+
+/* The one expanded right now reads as "active" without shouting. */
+.wiki-dep[aria-expanded="true"] {
+  text-decoration-style: solid;
+  text-decoration-color: var(--color-green);
+}
+
+/* Concepts the reader is resolved to know fade back toward plain text. */
+.wiki-dep[data-state="known"],
+.wiki-dep-again[data-state="known"] {
+  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 22%, transparent);
+}
+
+/* Repeat occurrences: fainter than the first, still discoverable. */
+.wiki-dep-again {
+  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 30%, transparent);
+}
+
+/* Brief highlight when a repeat occurrence jumps back to the first one. */
+.wiki-dep.wiki-flash {
+  background: var(--color-green-pale);
+  transition: background 0.9s ease;
+}
+
+/* Inert references inside primers: marked like annotations, not clickable. */
+.wiki-dep-inert {
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 30%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* ---- Tier 1: margin glosses ---------------------------------------------
+ * Only shown where there is a real margin; below that the same sentence
+ * heads the expanded primer instead. Vertical positions are nudged by a
+ * small script in WikiReader so stacked glosses never overlap. */
+
+.wiki-gloss {
+  display: none;
+}
+
+@media (min-width: 80rem) {
+  .wiki-gloss {
+    display: block;
+    position: absolute;
+    left: calc(100% + 3rem);
+    width: 14rem;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* ---- Tier 2: inline primer expansions -----------------------------------
+ * Slots and everything inside them are <span>s styled as blocks, because
+ * they live inside the host paragraph — see render.ts for why. */
+
+.wiki-slot {
+  display: block;
+}
+
+.wiki-slot[hidden] {
+  display: none;
+}
+
+.wiki-primer {
+  display: block;
+  margin: 0.9rem 0 1.1rem;
+  padding: 0.85rem 1.15rem 0.8rem;
+  border-left: 2px solid var(--color-green);
+  border-radius: 0 0.4rem 0.4rem 0;
+  background: var(--color-paper-soft);
+  font-size: 0.9375rem;
+}
+
+.wiki-primer-head {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--color-ink-soft);
+  line-height: 1.6;
+}
+
+.article-content .wiki-primer-para {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--color-ink-soft);
+  line-height: 1.65;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.wiki-primer-missing {
+  font-style: italic;
+}
+
+.wiki-primer-actions {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  margin-top: 0.65rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+}
+
+.wiki-primer-actions button {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.wiki-primer-actions [data-wiki-action="got-it"] {
+  color: var(--color-green-deep);
+  font-weight: 600;
+}
+
+.wiki-primer-actions [data-wiki-action="got-it"]:hover {
+  text-decoration: underline;
+}
+
+.wiki-primer-actions [data-wiki-action="close"] {
+  color: var(--color-ink-soft);
+}
+
+.wiki-primer-actions a {
+  color: var(--color-green-deep);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-green) 45%, transparent);
+  text-underline-offset: 2px;
+}
+
+/* ---- Article meta line & mode toggle ------------------------------------ */
+
+.wiki-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  margin: 0.5rem 0 2.25rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+}
+
+.wiki-mode {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
+.wiki-mode button {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-ink-soft);
+}
+
+.wiki-mode button:hover {
+  color: var(--color-green-deep);
+}
+
+.wiki-mode button[aria-pressed="true"] {
+  color: var(--color-green-deep);
+  font-weight: 700;
+}
+
+/* ---- Run-up prelude ------------------------------------------------------ */
+
+.wiki-prelude {
+  margin: 0 0 2.75rem;
+}
+
+.wiki-prelude-title {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-bottom: 1rem;
+}
+
+.wiki-prelude-item {
+  margin-bottom: 1.1rem;
+}
+
+.wiki-prelude-empty {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}

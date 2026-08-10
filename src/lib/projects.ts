@@ -34,4 +34,12 @@ export const projects: Project[] = [
     pinned: true,
     icon: "kawaba",
   },
+  {
+    slug: "wiki",
+    title: "wiki",
+    description:
+      "an adaptive-depth learning wiki – articles that expand in place to fit what you already know",
+    category: "writing",
+    href: "/wiki",
+  },
 ];

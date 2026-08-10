@@ -1,0 +1,65 @@
+# The concept registry: every id that articles may annotate with [[...]].
+#
+# Each entry:
+#   name      display name (defaults to the id with hyphens as spaces)
+#   gloss     ONE sentence, required — tier 1, always visible in the margin
+#   prereqs   list of concept ids this one builds on (edges point downward)
+#   article   slug of the full article on this concept, if one exists (tier 3)
+#
+# A concept does not need an article: gloss + primer is a complete node.
+# Prerequisites mean "you need this to understand that", not "this is
+# related" — keep the list honest and minimal, because propagation trusts it.
+
+function:
+  name: function
+  gloss: A rule assigning to each input exactly one output, written f(x).
+
+limit:
+  name: limit
+  gloss: The value a quantity approaches as its argument gets arbitrarily close to some point.
+  prereqs: [function]
+
+convergence:
+  name: convergence
+  gloss: An infinite sequence or sum converges when its partial results approach a single finite value.
+  prereqs: [limit]
+
+derivative:
+  name: derivative
+  gloss: The instantaneous rate of change of a function, defined as a limit of difference quotients.
+  prereqs: [function, limit]
+
+integral:
+  name: integral
+  gloss: The signed area under a function's graph over an interval, defined as a limit of finer and finer sums.
+  prereqs: [function, limit]
+
+periodic-function:
+  name: periodic function
+  gloss: A function that repeats itself exactly after a fixed interval, its period.
+  prereqs: [function]
+
+trigonometric-functions:
+  name: trigonometric functions
+  gloss: Sine and cosine, the coordinates of a point moving around the unit circle at unit speed.
+  prereqs: [function, periodic-function]
+
+vector-space:
+  name: vector space
+  gloss: A collection of objects that can be added together and scaled by numbers, obeying the familiar rules of arrows in the plane.
+
+basis:
+  name: basis
+  gloss: A minimal set of vectors from which every vector in the space is built by scaling and adding.
+  prereqs: [vector-space]
+
+inner-product:
+  name: inner product
+  gloss: A rule pairing two vectors into a number that measures how much they point the same way.
+  prereqs: [vector-space]
+
+orthogonality:
+  name: orthogonality
+  gloss: Two vectors are orthogonal when their inner product is zero, the general form of "perpendicular".
+  prereqs: [inner-product]
+  article: orthogonality
