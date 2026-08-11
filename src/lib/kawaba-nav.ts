@@ -9,7 +9,5 @@ export const kawabaNav: KawabaNavItem[] = [
   { title: "dictionary", href: "/kawaba/dictionary", icon: "search" },
   { title: "overview", href: "/kawaba" },
   { title: "phonology", href: "/kawaba/phonology" },
-  { title: "compounds", href: "/kawaba/compounds" },
-  { title: "word classes", href: "/kawaba/word-classes" },
-  { title: "word order", href: "/kawaba/word-order" },
+  { title: "morphology", href: "/kawaba/morphology" },
 ];

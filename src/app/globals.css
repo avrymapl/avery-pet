@@ -233,6 +233,16 @@ body {
   hyphens: none;
 }
 
+.article-content .centred {
+  margin: 1.75rem auto;
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-ink);
+}
+
 .dictionary-controls {
   display: flex;
   flex-wrap: wrap;
