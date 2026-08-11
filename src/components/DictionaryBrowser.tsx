@@ -33,13 +33,13 @@ function rankEntry(entry: DictionaryEntry, term: string): { tier: number; score:
 
 export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }) {
   const [query, setQuery] = useState("");
-  const [rootsOnly, setRootsOnly] = useState(false);
+  const [morphemesOnly, setmorphemesOnly] = useState(false);
 
   const results = useMemo(() => {
     const term = query.trim().toLowerCase();
 
     const matched = dictionary
-      .filter((entry) => !rootsOnly || entry.type === "root")
+      .filter((entry) => !morphemesOnly || ["root", "marker"].includes(entry.type))
       .filter(
         (entry) =>
           !term ||
@@ -58,7 +58,7 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
           a.tier - b.tier || a.score - b.score || a.entry.kawaba.localeCompare(b.entry.kawaba),
       )
       .map((ranked) => ranked.entry);
-  }, [query, rootsOnly]);
+  }, [query, morphemesOnly]);
 
   return (
     <div>
@@ -74,8 +74,8 @@ export function DictionaryBrowser({ glyphs }: { glyphs: Record<string, string> }
         <label className="toggle">
           <input
             type="checkbox"
-            checked={rootsOnly}
-            onChange={(event) => setRootsOnly(event.target.checked)}
+            checked={morphemesOnly}
+            onChange={(event) => setmorphemesOnly(event.target.checked)}
           />
           <span className="toggle-track">
             <span className="toggle-thumb" />
