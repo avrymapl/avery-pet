@@ -84,9 +84,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "an",
     type: "marker",
-    category: "preposition",
-    meaning: "of, belonging to, associated with (genitive)",
-    gloss: "GEN",
+    category: "clause marker",
+    meaning: "opens a complement clause — a clause used as a referring expression",
+    gloss: "COMP",
   },
   {
     kawaba: "ba",
@@ -295,9 +295,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "en",
     type: "marker",
-    category: "preposition",
-    meaning: "to, for (recipient, beneficiary)",
-    gloss: "REC",
+    category: "clause marker",
+    meaning: "opens a relative clause — a clause used as a modifier",
+    gloss: "REL",
   },
   {
     kawaba: "ga",
@@ -411,9 +411,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "in",
     type: "marker",
-    category: "preposition",
-    meaning: "with, by means of, using (instrument, means)",
-    gloss: "INS",
+    category: "clause marker",
+    meaning: "opens a non-finite clause — a bare predication taking its subject from outside",
+    gloss: "NF",
   },
   {
     kawaba: "ja",
@@ -883,9 +883,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "na",
     type: "marker",
-    category: "clause marker",
-    meaning: "opens a complement clause — a clause used as a referring expression, as in \u201cI know that\u2026\u201d",
-    gloss: "COMP",
+    category: "preposition",
+    meaning: "of, belonging to, associated with (genitive)",
+    gloss: "GEN",
   },
   {
     kawaba: "nan",
@@ -897,9 +897,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "ne",
     type: "marker",
-    category: "clause marker",
-    meaning: "opens a relative clause — a clause used as a modifier, as in \u201cthe dog that\u2026\u201d",
-    gloss: "REL",
+    category: "preposition",
+    meaning: "to, for (recipient, beneficiary)",
+    gloss: "REC",
   },
   {
     kawaba: "nen",
@@ -911,9 +911,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "ni",
     type: "marker",
-    category: "clause marker",
-    meaning: "opens a non-finite clause — a bare predication taking its subject from outside, used for purpose, modal and aspectual complements, secondary predication, and the imperative",
-    gloss: "NF",
+    category: "preposition",
+    meaning: "with, by means of, using (instrument, means)",
+    gloss: "INS",
   },
   {
     kawaba: "nin",
@@ -925,9 +925,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "no",
     type: "marker",
-    category: "clause marker",
-    meaning: "opens a degree clause, marking the standard of a comparison — \u201cthan\u2026\u201d, \u201cas much as\u2026\u201d",
-    gloss: "DEG",
+    category: "preposition",
+    meaning: "about, regarding (topic, subject)",
+    gloss: "ABT",
   },
   {
     kawaba: "non",
@@ -939,9 +939,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "nu",
     type: "marker",
-    category: "clause marker",
-    meaning: "opens an adverbial clause — a clause used to situate the event in time, place or circumstance",
-    gloss: "ADV",
+    category: "preposition",
+    meaning: "with, together with, accompanied by (comitative)",
+    gloss: "COM",
   },
   {
     kawaba: "nun",
@@ -960,9 +960,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "on",
     type: "marker",
-    category: "preposition",
-    meaning: "by (agent of a clause whose subject has been omitted)",
-    gloss: "AG",
+    category: "clause marker",
+    meaning: "opens a degree clause, marking the standard of a comparison",
+    gloss: "DEG",
   },
   {
     kawaba: "pa",
@@ -1302,9 +1302,9 @@ export const dictionary: DictionaryEntry[] = [
   {
     kawaba: "un",
     type: "marker",
-    category: "preposition",
-    meaning: "with, together with, accompanied by (comitative)",
-    gloss: "COM",
+    category: "clause marker",
+    meaning: "opens an adverbial clause — a clause used to situate the event in time, place or circumstance",
+    gloss: "ADV",
   },
   {
     kawaba: "wa",
