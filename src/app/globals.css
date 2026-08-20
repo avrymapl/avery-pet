@@ -456,12 +456,3 @@ body {
   color: var(--color-ink-soft);
   line-height: 1;
 }
-
-.glyph-hyphen {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 0.7rem;
-  height: 1.4rem;
-  color: var(--color-ink-soft);
-}

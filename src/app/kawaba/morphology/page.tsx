@@ -20,11 +20,7 @@ export default function KawabaMorphology() {
       </ul>
       <h3>lexical roots</h3>
       <p>
-        Lexical roots are the building blocks that express the core meaning of Kawaba
-        words. They are generated exhaustively from all possible <strong>CV(n) </strong>
-        combinations, with no gaps and no homophones. More complex concepts are assigned
-        to the longer syllables ending in /n/, while the shorter syllables are reserved
-        for more basic concepts.
+        Lexical roots are the building blocks that express the core meaning of Kawaba words. They are generated exhaustively from all possible <strong>CV(n)</strong> combinations, with no gaps and no homophones. More complex concepts are assigned to the longer syllables ending in /n/, while the shorter syllables are reserved for more basic concepts.
       </p>
       <table>
         <thead>
@@ -49,10 +45,7 @@ export default function KawabaMorphology() {
       </table>
       <h3>grammatical markers</h3>
       <p>
-        Grammatical markers are the structure that expresses the relationships between 
-        words. They have a distinct <strong>(n)V(n) </strong> syllable structure that no
-        lexical root can take. There are four series of grammatical markers, grouped by
-        shape.
+        Grammatical markers are the structure that expresses the relationships between words. They have a distinct <strong>(n)V(n) </strong> syllable structure that no lexical root can take. There are four series of grammatical markers, grouped by shape.
       </p>
       <table>
         <thead>
@@ -91,8 +84,7 @@ export default function KawabaMorphology() {
       <ul>
         <li><strong>prefix</strong> – one of the five word class prefixes</li>
         <li><strong>head</strong> – one root supplying the word's core meaning</li>
-        <li><strong>dependent</strong> – any number of roots narrowing the meaning of
-          all previous roots</li>
+        <li><strong>dependent</strong> – any number of roots narrowing the meaning of all previous roots</li>
       </ul>
       <p>for example:</p>
       <Example
@@ -101,10 +93,7 @@ export default function KawabaMorphology() {
       />
       <h2>compounding</h2>
       <p>
-        The first root in a Kawaba word after the word class prefix is the <strong>head 
-        </strong>, which provides the core meaning of a word. Roots that follow the head 
-        are its <strong>dependents</strong>, which narrow the meaning of all the roots 
-        before them.
+        The first root in a Kawaba word after the word class prefix is the <strong>head </strong>, which provides the core meaning of a word. Roots that follow the head are its <strong>dependents</strong>, which narrow the meaning of all the roots before them.
       </p>
       <div className="flex flex-row gap-4">
         <Example
@@ -121,9 +110,14 @@ export default function KawabaMorphology() {
         />
       </div>
       <p>
-        A compound word itself can be used as the dependent in another compound by 
-        placing a hyphen before it in the word, which is pronounced as secondary stress 
-        on the following syllable.
+        Because each dependent narrows everything before it, compounds are left-branching by default. There is only ever one possible bracketing, which keeps long compounds unambiguous.
+      </p>
+        <Example
+          kawaba="((ka+wa)+ba)"
+          translation="the language of parts"
+        />
+      <p>
+        A compound word itself can be used as the dependent in another compound by placing a hyphen before it in the word, which is pronounced as secondary stress on the following syllable.
       </p>
       <Example
           kawaba="lawa-kawaba"
@@ -131,9 +125,7 @@ export default function KawabaMorphology() {
       />
       <Callout>
         <p>
-          To avoid ambiguity, a compound that already contains a hyphen cannot be used as a 
-          dependent in another compound (in other words, compounding may embed to a maximum depth 
-          of one).
+          To avoid ambiguity, a compound that already contains a hyphen cannot be used as a dependent in another compound (in other words, compounding may embed to a maximum depth of one).
         </p>
       </Callout>
       </Article>
