@@ -21,8 +21,8 @@ export default function KawabaMorphology() {
       <h3>lexical roots</h3>
       <p>
         Lexical roots are the building blocks that express the core meaning of Kawaba
-        words. They are generated exhaustively from possible <strong>CV(n) </strong>
-        combination, with no gaps and no homophones. More complex concepts are assigned
+        words. They are generated exhaustively from all possible <strong>CV(n) </strong>
+        combinations, with no gaps and no homophones. More complex concepts are assigned
         to the longer syllables ending in /n/, while the shorter syllables are reserved
         for more basic concepts.
       </p>
@@ -131,7 +131,7 @@ export default function KawabaMorphology() {
       />
       <Callout>
         <p>
-          To avoid ambiguity, a compound word containing a hyphen cannot be used as a 
+          To avoid ambiguity, a compound that already contains a hyphen cannot be used as a 
           dependent in another compound (in other words, compounding may embed to a maximum depth 
           of one).
         </p>
