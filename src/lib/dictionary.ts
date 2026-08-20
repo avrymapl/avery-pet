@@ -1431,11 +1431,13 @@ function glossWord(word: string): string {
       // gets its own "+" in the gloss rather than the usual "-".
       gloss += "+";
     } else if (!/[a-z]/i.test(token)) {
-      // Trailing punctuation (e.g. the "!" on an interjection) attaches
-      // directly rather than being treated as a morpheme.
+      // Punctuation (e.g. the "!" on an interjection, or the brackets around a
+      // compound) attaches directly rather than being treated as a morpheme.
       gloss += token;
     } else {
-      if (gloss && !gloss.endsWith("-") && !gloss.endsWith("+")) gloss += "-";
+      // Morphemes are hyphen-joined, but only to each other — no separator
+      // after an opening bracket or a "+" that already joins them.
+      if (/[\w.]$/.test(gloss)) gloss += "-";
       gloss += glossMorpheme(token);
     }
   }
