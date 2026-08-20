@@ -1,5 +1,14 @@
-import { splitMorphemes } from "@/lib/morphemes";
+import { MINUS, splitMorphemes } from "@/lib/morphemes";
 import { morphemeGlosses } from "@/lib/dictionary";
+
+// Tokens whose glyph file isn't named after the character itself, either
+// because the filename can't contain it or because one character maps to two
+// different glyphs depending on context.
+const GLYPH_FILES: Record<string, string> = {
+  "-": "hyphen",
+  [MINUS]: "minus",
+  "+": "plus",
+};
 
 export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, string> }) {
   const tokens = splitMorphemes(word);
@@ -7,9 +16,8 @@ export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, 
   return (
     <span className="glyphs" aria-hidden>
       {tokens.map((token, index) => {
-        const key = token === "-" ? "hyphen" : token;
-        const markup = glyphs[key];
-        const gloss = token === "-" ? undefined : morphemeGlosses[token];
+        const markup = glyphs[GLYPH_FILES[token] ?? token];
+        const gloss = morphemeGlosses[token];
 
         if (markup) {
           return (
@@ -19,14 +27,6 @@ export function Glyphs({ word, glyphs }: { word: string; glyphs: Record<string, 
               data-tooltip={gloss}
               dangerouslySetInnerHTML={{ __html: markup }}
             />
-          );
-        }
-
-        if (token === "-") {
-          return (
-            <span key={index} className="glyph-hyphen">
-              -
-            </span>
           );
         }
 
