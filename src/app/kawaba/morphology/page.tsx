@@ -12,7 +12,7 @@ export default function KawabaMorphology() {
       <h1>morphology</h1>
       <h2>the morpheme inventory</h2>
       <p>
-        Kawaba is built from just 130 morphemes, each just a single syllable long.
+        Kawaba is built from just 130 single syllable <strong>morphemes</strong>, the smallest possible units of meaning. These morphemes are divided into two groups:
       </p>
       <ul>
         <li><strong>110 lexical roots</strong> – express the core meaning of words</li> 
@@ -97,15 +97,15 @@ export default function KawabaMorphology() {
       </p>
       <div className="flex flex-row gap-4">
         <Example
-          kawaba="ka"
+          kawaba="aka"
           translation="a kind of"
         />
         <Example
-          kawaba="kawa"
+          kawaba="akawa"
           translation="language"
         />  
         <Example
-          kawaba="kawaba"
+          kawaba="akawaba"
           translation="the language of parts"
         />
       </div>
@@ -113,21 +113,49 @@ export default function KawabaMorphology() {
         Because each dependent narrows everything before it, compounds are left-branching by default. There is only ever one possible bracketing, which keeps long compounds unambiguous.
       </p>
         <Example
-          kawaba="((ka+wa)+ba)"
+          kawaba="a + ((ka + wa) + ba)"
           translation="the language of parts"
         />
+      <h3>embedding</h3>
       <p>
-        A compound word itself can be used as the dependent in another compound by placing a hyphen before it in the word, which is pronounced as secondary stress on the following syllable.
+        A compound can be embedded in another compound by placing a hyphen before it in the word, which is pronounced as secondary stress on the following syllable. The embedded compound acts as a dependent of the word as a whole, and similarly narrows the meaning of all the roots before it.
       </p>
-      <Example
-          kawaba="lawa-kawaba"
-          translation="the language of parts"
-      />
+      <div className="flex flex-row gap-4">
+        <Example
+          kawaba="aganlako"
+          translation="team, band of people"
+        />
+        <Example
+          kawaba="agan-lako"
+          translation="class, group of children"
+        />  
+      </div>
       <Callout>
         <p>
-          To avoid ambiguity, a compound that already contains a hyphen cannot be used as a dependent in another compound (in other words, compounding may embed to a maximum depth of one).
+          To improve readability, a compound that already contains a hyphen cannot be used as a dependent in another compound. Since compounds cannot be embedded more than once, multiple separate embedded compounds can be used in a word without ambiguity.
         </p>
       </Callout>
+      <h2>lexicalisation</h2>
+      <p>
+        There is no single correct word to express a concept in Kawaba. Instead, the language allows speakers to create new words as needed to express the most relevant aspects of that concept to the conversation. A longer word is more precise, while a shorter one is more general and dependent on context, but both are correct.
+      </p>
+      <div className="flex flex-row gap-4">
+        <Example
+          kawaba="apun"
+          translation="animal"
+        />
+        <Example
+          kawaba="apunpan"
+          translation="cat"
+        />  
+        <Example
+          kawaba="apunpanmin"
+          translation="house cat"
+        />
+      </div>
+      <p>
+        Frequently used words may become <strong>lexicalised</strong> as the standard way of expressing a concept. A word naturally tends to settle into its most concise form over time, though its meaning should still be able to be understood from its roots. Lexicalisation is a natural and useful linguistic process, but it's important to remember that there are any number of correct ways to express a concept.
+      </p>
       </Article>
   );
 }
