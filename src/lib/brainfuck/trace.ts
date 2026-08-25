@@ -73,6 +73,8 @@ export interface StepState {
   ptr: number;
   /** Source offset of the next instruction to execute, or -1 at the end. */
   ip: number;
+  /** Source offset of the instruction whose execution produced this state, or -1 at step 0. */
+  lastIp: number;
   inputPos: number;
 }
 
@@ -80,13 +82,15 @@ export interface StepState {
 export function seek(trace: Trace, t: number): StepState {
   const target = Math.max(0, Math.min(t, trace.totalSteps));
 
-  // Latest snapshot at or before the target.
+  // Latest snapshot at or before the step just prior to the target, so the
+  // final step is replayed here and its instruction can be reported.
+  const anchor = Math.max(0, target - 1);
   const { snapshots } = trace;
   let lo = 0;
   let hi = snapshots.length - 1;
   while (lo < hi) {
     const mid = (lo + hi + 1) >> 1;
-    if (snapshots[mid].t <= target) lo = mid;
+    if (snapshots[mid].t <= anchor) lo = mid;
     else hi = mid - 1;
   }
   const snap = snapshots[lo];
@@ -99,14 +103,23 @@ export function seek(trace: Trace, t: number): StepState {
     state,
     trace.inputBytes,
     trace.settings.wrap,
-    target - snap.t,
+    anchor - snap.t,
   );
+  let lastOp = -1;
+  if (target > 0) {
+    execute(trace.program, tape, state, trace.inputBytes, trace.settings.wrap, 1, {
+      onStep: (opIndex) => {
+        lastOp = opIndex;
+      },
+    });
+  }
   const { ops } = trace.program;
   return {
     t: target,
     tape,
     ptr: state.ptr,
     ip: state.pc < ops.length ? ops[state.pc] : -1,
+    lastIp: lastOp >= 0 ? ops[lastOp] : -1,
     inputPos: state.inputPos,
   };
 }
@@ -146,12 +159,12 @@ export function anchorVisit(visits: Uint32Array, currentT: number): number {
   return before > 0 ? before - 1 : 0;
 }
 
-/** The earliest state index strictly after t at which any of these source offsets executes, or -1. */
-export function nextVisitAfter(trace: Trace, offsets: Iterable<number>, t: number): number {
+/** The earliest state index at or after t at which any of these source offsets is about to execute, or -1. */
+export function nextVisitFrom(trace: Trace, offsets: Iterable<number>, t: number): number {
   let best = -1;
   for (const offset of offsets) {
     const visits = visitsAt(trace, offset);
-    const idx = countAtMost(visits, t);
+    const idx = countAtMost(visits, t - 1);
     if (idx < visits.length) {
       const candidate = visits[idx];
       if (best === -1 || candidate < best) best = candidate;

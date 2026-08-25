@@ -24,6 +24,8 @@ export function useBrainfuckTrace(
   source: string,
   input: string,
   settings: Settings,
+  /** Called with each freshly recorded trace, before the state updates land. */
+  onTrace?: (trace: Trace) => void,
 ): TraceState {
   const [state, setState] = useState<TraceState>({
     trace: null,
@@ -33,6 +35,10 @@ export function useBrainfuckTrace(
   const workerRef = useRef<Worker | null>(null);
   const idRef = useRef(0);
   const pendingRef = useRef<RunRequest | null>(null);
+  const onTraceRef = useRef(onTrace);
+  useEffect(() => {
+    onTraceRef.current = onTrace;
+  });
 
   useEffect(() => {
     const worker = new Worker(new URL("./bf.worker.ts", import.meta.url));
@@ -49,16 +55,14 @@ export function useBrainfuckTrace(
           working: false,
         });
       } else {
-        setState({
-          trace: buildTrace(
-            response.payload,
-            request.source,
-            encoder.encode(request.input),
-            request.settings,
-          ),
-          compileError: null,
-          working: false,
-        });
+        const trace = buildTrace(
+          response.payload,
+          request.source,
+          encoder.encode(request.input),
+          request.settings,
+        );
+        onTraceRef.current?.(trace);
+        setState({ trace, compileError: null, working: false });
       }
     };
     return () => {

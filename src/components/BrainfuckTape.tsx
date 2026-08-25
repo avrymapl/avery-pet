@@ -2,7 +2,8 @@
 
 // The tape, rendered as a horizontally scrolling strip. Only the visible
 // cells are in the DOM — the strip is virtualised over a spacer of the full
-// tape width, so a 30,000-cell (or million-cell) tape stays cheap.
+// tape width, so a 30,000-cell (or quarter-million-cell) tape stays cheap.
+// Clicking a cell swaps its label line for an inline input.
 
 import { useEffect, useRef, useState } from "react";
 import type { Tape } from "@/lib/brainfuck/machine";
@@ -20,7 +21,10 @@ export function BrainfuckTape({
   pointer,
   labels,
   selected,
+  labelDraft,
   onSelect,
+  onEditLabel,
+  onCloseLabel,
 }: {
   tapeLength: number;
   /** Tape contents at the current step, or null while no trace exists. */
@@ -28,9 +32,12 @@ export function BrainfuckTape({
   /** Cell index under the pointer, or -1. */
   pointer: number;
   labels: ReadonlyMap<number, string>;
-  /** Cell index selected for label editing, or -1. */
+  /** Cell index whose label is being edited, or -1. */
   selected: number;
+  labelDraft: string;
   onSelect: (index: number) => void;
+  onEditLabel: (value: string) => void;
+  onCloseLabel: () => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [range, setRange] = useState<[number, number]>([0, 0]);
@@ -77,15 +84,15 @@ export function BrainfuckTape({
       const isSelected = i === selected;
       const label = labels.get(i);
       cells.push(
-        <button
+        <div
           key={i}
-          type="button"
+          role="button"
           onClick={() => onSelect(i)}
           title={label ? `cell ${i} – ${label}` : `cell ${i}`}
           style={{ left: i * CELL_WIDTH_PX, width: CELL_WIDTH_PX }}
           className={`absolute inset-y-0 flex cursor-pointer flex-col items-center justify-center gap-0.5 border-r border-border px-1 text-center font-mono ${
             isPointer ? "bg-amber-pale" : "hover:bg-paper-soft"
-          } ${isSelected ? "inset-ring-2 inset-ring-green" : ""}`}
+          }`}
         >
           <span className={`text-[10px] leading-none ${isPointer ? "text-amber" : "text-ink-soft/70"}`}>
             {i}
@@ -94,10 +101,26 @@ export function BrainfuckTape({
             {tape[i]}
           </span>
           <span className="h-4 text-xs leading-none text-ink-soft">{printable(tape[i])}</span>
-          <span className="w-full truncate text-[10px] leading-none text-green-deep">
-            {label ?? " "}
-          </span>
-        </button>,
+          {isSelected ? (
+            <input
+              value={labelDraft}
+              onChange={(event) => onEditLabel(event.target.value)}
+              onClick={(event) => event.stopPropagation()}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === "Escape") onCloseLabel();
+              }}
+              onBlur={onCloseLabel}
+              autoFocus
+              placeholder="label"
+              aria-label={`label for cell ${i}`}
+              className="w-full rounded-xs border border-green bg-paper px-0.5 py-0 text-center font-ui text-[10px] leading-4 text-ink outline-none"
+            />
+          ) : (
+            <span className="w-full truncate text-[10px] leading-4 text-green-deep">
+              {label ?? " "}
+            </span>
+          )}
+        </div>,
       );
     }
   }

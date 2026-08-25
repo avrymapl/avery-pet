@@ -101,6 +101,47 @@ export function BrainfuckEditor({
   const overlayRef = useRef<HTMLPreElement>(null);
   const gutterRef = useRef<HTMLDivElement>(null);
   const rulerRef = useRef<HTMLSpanElement>(null);
+  // Caret position to restore after a programmatic source change (the
+  // fallback path of bracket auto-closing), where React would otherwise
+  // leave the caret at the end of the textarea.
+  const pendingCaretRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (textarea && pendingCaretRef.current !== null) {
+      textarea.setSelectionRange(pendingCaretRef.current, pendingCaretRef.current);
+      pendingCaretRef.current = null;
+    }
+  }, [source]);
+
+  // Typing [ inserts the matching ] as well (wrapping any selection), and
+  // typing ] in front of an existing ] steps over it instead of doubling up.
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    const textarea = event.currentTarget;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    if (event.key === "[") {
+      event.preventDefault();
+      const inner = source.slice(start, end);
+      const caret = start + 1 + inner.length;
+      // execCommand keeps the native undo history intact; the manual path is
+      // the fallback for browsers where it no longer works.
+      if (document.execCommand("insertText", false, `[${inner}]`)) {
+        textarea.setSelectionRange(caret, caret);
+        onCaretChange(caret, textarea.value);
+      } else {
+        const next = `${source.slice(0, start)}[${inner}]${source.slice(end)}`;
+        pendingCaretRef.current = caret;
+        onSourceChange(next);
+        onCaretChange(caret, next);
+      }
+    } else if (event.key === "]" && start === end && source[start] === "]") {
+      event.preventDefault();
+      textarea.setSelectionRange(start + 1, start + 1);
+      onCaretChange(start + 1, source);
+    }
+  };
 
   const segments = useMemo(
     () => segment(source, currentIp, bracketOpen, bracketClose, errorOffset),
@@ -198,6 +239,7 @@ export function BrainfuckEditor({
           onSelect={(event) =>
             onCaretChange(event.currentTarget.selectionStart, event.currentTarget.value)
           }
+          onKeyDown={handleKeyDown}
           onScroll={syncScroll}
           wrap="off"
           spellCheck={false}

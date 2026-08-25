@@ -15,10 +15,11 @@ import { useBrainfuckSettings } from "@/lib/brainfuck/useSettings";
 import {
   anchorVisit,
   inputConsumedAt,
-  nextVisitAfter,
+  nextVisitFrom,
   outputAt,
   seek,
   visitsAt,
+  type Trace,
 } from "@/lib/brainfuck/trace";
 import { useBrainfuckTrace } from "@/lib/brainfuck/useTrace";
 
@@ -105,16 +106,35 @@ export function BrainfuckIde() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const outputRef = useRef<HTMLPreElement>(null);
+  const caretRef = useRef(0);
+  const lastTraceSourceRef = useRef<string | null>(null);
+  const tRef = useRef(0);
 
   // ---- the trace and the state at the current step ----
 
-  const { trace, working } = useBrainfuckTrace(source, input, settings);
+  // When a re-recording lands after a program edit, seek to the caret's
+  // instruction so the tape reflects what was just typed without the caret
+  // having to move.
+  const handleTrace = (newTrace: Trace) => {
+    const previousSource = lastTraceSourceRef.current;
+    lastTraceSourceRef.current = newTrace.program.source;
+    if (previousSource === null || previousSource === newTrace.program.source) return;
+    const offset = caretCommandOffset(newTrace.program.source, caretRef.current);
+    if (offset < 0) return;
+    const visits = visitsAt(newTrace, offset);
+    const index = anchorVisit(visits, tRef.current);
+    if (index >= 0) {
+      setRunning(false);
+      setT(visits[index] + 1);
+    }
+  };
+
+  const { trace, working } = useBrainfuckTrace(source, input, settings, handleTrace);
   const totalSteps = trace?.totalSteps ?? 0;
 
   // The stored step is clamped where it's used rather than in state, so a
   // shorter re-recording never needs an effect to fix it up.
   const t = trace ? Math.min(rawT, totalSteps) : 0;
-  const tRef = useRef(0);
   useEffect(() => {
     tRef.current = t;
   }, [t]);
@@ -140,7 +160,10 @@ export function BrainfuckIde() {
     () => (trace && caretOffset >= 0 ? visitsAt(trace, caretOffset) : null),
     [trace, caretOffset],
   );
-  const caretVisitIndex = caretVisits ? anchorVisit(caretVisits, t) : -1;
+  // The tape shows the result of the highlighted (just executed) instruction,
+  // so a visit at state v is displayed at step v + 1; the counter maps back
+  // with t - 1.
+  const caretVisitIndex = caretVisits ? anchorVisit(caretVisits, Math.max(0, t - 1)) : -1;
 
   // Moving the caret seeks the trace to the most recent visit of that
   // instruction at or before the current step (or its first visit); it never
@@ -148,6 +171,7 @@ export function BrainfuckIde() {
   // trace's source so a seek can't happen against a stale recording.
   const handleCaret = (offset: number, value: string) => {
     setCaret(offset);
+    caretRef.current = offset;
     if (!trace || trace.program.source !== value) return;
     const command = caretCommandOffset(value, offset);
     if (command < 0) return;
@@ -155,7 +179,7 @@ export function BrainfuckIde() {
     const index = anchorVisit(visits, tRef.current);
     if (index >= 0) {
       setRunning(false);
-      setT(visits[index]);
+      setT(visits[index] + 1);
     }
   };
 
@@ -187,9 +211,11 @@ export function BrainfuckIde() {
         accumulated -= whole;
         const from = tRef.current;
         let target = Math.min(from + whole, trace.totalSteps);
-        const stop = nextVisitAfter(trace, breakpointOffsets, from);
-        if (stop !== -1 && stop <= target) {
-          target = stop;
+        // A visit at state v executes during step v + 1, so pause there: the
+        // marked instruction ends up highlighted with its result on the tape.
+        const stop = nextVisitFrom(trace, breakpointOffsets, from);
+        if (stop !== -1 && stop + 1 <= target) {
+          target = stop + 1;
           setRunning(false);
         } else if (target >= trace.totalSteps) {
           setRunning(false);
@@ -238,6 +264,7 @@ export function BrainfuckIde() {
     void file.text().then((text) => {
       const imported = importBf(text);
       pause();
+      caretRef.current = 0;
       setSource(imported.source);
       setLabels(imported.labels);
       setBreakpoints(new Set());
@@ -295,6 +322,29 @@ export function BrainfuckIde() {
 
   return (
     <div className="flex flex-col gap-3 md:h-[calc(100vh-8rem)]">
+      {/* tape */}
+      <section className="flex flex-col gap-1.5">
+        <div className="flex items-baseline gap-3">
+          <h2 className={headingClasses}>tape</h2>
+          <span className="font-ui text-xs text-ink-soft/60">click a cell to label it</span>
+        </div>
+        <BrainfuckTape
+          tapeLength={trace?.settings.tapeLength ?? settings.tapeLength}
+          tape={stepState?.tape ?? null}
+          pointer={stepState?.ptr ?? -1}
+          labels={labels}
+          selected={selectedCell}
+          labelDraft={labelDraft}
+          onSelect={selectCell}
+          onEditLabel={editLabel}
+          onCloseLabel={() => {
+            setSelectedCell(-1);
+            setLabelIssue(null);
+          }}
+        />
+        {labelIssue && <p className="font-ui text-xs text-rust">{labelIssue}</p>}
+      </section>
+
       {/* transport */}
       <div className="flex flex-col gap-1.5">
         <div className="flex flex-wrap items-center gap-2">
@@ -363,7 +413,7 @@ export function BrainfuckIde() {
               <span className="flex items-center gap-1 font-ui text-xs text-ink-soft">
                 <button
                   type="button"
-                  onClick={() => { pause(); setT(caretVisits[caretVisitIndex - 1]); }}
+                  onClick={() => { pause(); setT(caretVisits[caretVisitIndex - 1] + 1); }}
                   disabled={caretVisitIndex <= 0}
                   aria-label="previous visit"
                   className="cursor-pointer px-1 hover:text-green-deep disabled:cursor-default disabled:opacity-40"
@@ -373,7 +423,7 @@ export function BrainfuckIde() {
                 visit {formatCount(caretVisitIndex + 1)} of {formatCount(caretVisits.length)}
                 <button
                   type="button"
-                  onClick={() => { pause(); setT(caretVisits[caretVisitIndex + 1]); }}
+                  onClick={() => { pause(); setT(caretVisits[caretVisitIndex + 1] + 1); }}
                   disabled={caretVisitIndex >= caretVisits.length - 1}
                   aria-label="next visit"
                   className="cursor-pointer px-1 hover:text-green-deep disabled:cursor-default disabled:opacity-40"
@@ -412,7 +462,7 @@ export function BrainfuckIde() {
               setSource(value);
             }}
             onCaretChange={handleCaret}
-            currentIp={traceIsCurrent && stepState ? stepState.ip : -1}
+            currentIp={traceIsCurrent && stepState ? stepState.lastIp : -1}
             bracketOpen={bracketPair ? bracketPair[0] : -1}
             bracketClose={bracketPair ? bracketPair[1] : -1}
             errorOffset={
@@ -474,45 +524,6 @@ export function BrainfuckIde() {
         </aside>
       </div>
 
-      {/* tape */}
-      <section className="flex flex-col gap-1.5">
-        <h2 className={headingClasses}>tape</h2>
-        <BrainfuckTape
-          tapeLength={trace?.settings.tapeLength ?? settings.tapeLength}
-          tape={stepState?.tape ?? null}
-          pointer={stepState?.ptr ?? -1}
-          labels={labels}
-          selected={selectedCell}
-          onSelect={selectCell}
-        />
-        <div className="flex min-h-6 flex-wrap items-center gap-2 font-ui text-xs text-ink-soft">
-          {selectedCell >= 0 ? (
-            <>
-              <label className="flex items-center gap-2">
-                label for cell {formatCount(selectedCell)}
-                <input
-                  type="text"
-                  value={labelDraft}
-                  onChange={(event) => editLabel(event.target.value)}
-                  placeholder="unlabelled"
-                  aria-label={`label for cell ${selectedCell}`}
-                  className="w-48 rounded-md border border-border bg-card px-2 py-1 font-ui text-xs text-ink focus:border-green focus:outline-none"
-                />
-              </label>
-              <button
-                type="button"
-                onClick={() => selectCell(selectedCell)}
-                className="cursor-pointer px-1 hover:text-green-deep"
-              >
-                done
-              </button>
-              {labelIssue && <span className="basis-full text-rust">{labelIssue}</span>}
-            </>
-          ) : (
-            <span className="text-ink-soft/60">click a cell to label it</span>
-          )}
-        </div>
-      </section>
     </div>
   );
 }
