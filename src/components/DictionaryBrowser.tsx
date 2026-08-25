@@ -7,7 +7,7 @@ import {
   sortedDefinitions,
   WORD_CLASS_NAMES,
   type DictionaryEntry,
-} from "@/lib/dictionary";
+} from "@/lib/kawaba/dictionary";
 import { Glyphs } from "./Glyphs";
 
 // Lower is a better match: exact match, then prefix match, then match

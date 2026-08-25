@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { SidebarLink } from "./SidebarLink";
 import { PixelIcon } from "./PixelIcon";
 import { CollapsibleNav, CollapsibleNavToggle } from "./CollapsibleNav";
-import { kawabaNav } from "@/lib/kawaba-nav";
+import { kawabaNav } from "@/lib/kawaba/kawaba-nav";
 import { categoryIcons, searchIcon } from "@/lib/pixel-icons";
 
 const navIcons: Record<string, typeof searchIcon> = { search: searchIcon };

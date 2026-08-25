@@ -1,6 +1,6 @@
 import { Glyphs } from "@/components/Glyphs";
-import { getGlyphMarkup } from "@/lib/glyphs";
-import { generateGloss } from "@/lib/dictionary";
+import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
+import { generateGloss } from "@/lib/kawaba/dictionary";
 
 function renderGloss(gloss: string) {
   return gloss.split(/([-.\s]+)/).map((part, i) =>

@@ -440,7 +440,7 @@ export function BrainfuckIde() {
                 import
               </button>
               <button type="button" className={buttonClasses} onClick={doExport}>
-                export .bf
+                export
               </button>
               <input
                 ref={fileInputRef}

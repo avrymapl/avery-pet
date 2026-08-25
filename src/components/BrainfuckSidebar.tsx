@@ -42,11 +42,11 @@ export function BrainfuckSidebar() {
           className="flex cursor-pointer items-center gap-2 md:cursor-auto"
         >
           <PixelIcon pattern={categoryIcons.programming} className="text-green" />
-          <p className="font-ui text-lg font-bold text-ink">brainfuck</p>
-          <span className="font-ui text-sm text-ink-soft md:hidden">a time-travelling ide</span>
+          <p className="font-ui text-lg font-bold text-ink">brainfuck IDE</p>
+          <span className="font-ui text-sm text-ink-soft md:hidden">IDE with live tape preview</span>
           <CollapsibleNavToggle open={open} onToggle={() => setOpen((value) => !value)} />
         </div>
-        <p className="hidden font-ui text-sm text-ink-soft md:block">a time-travelling ide</p>
+        <p className="hidden font-ui text-sm text-ink-soft md:block">IDE with live tape preview</p>
       </div>
 
       <div className={`${open ? "flex" : "hidden"} flex-col gap-6 md:flex`}>

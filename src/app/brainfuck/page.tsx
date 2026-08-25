@@ -1,8 +1,8 @@
 import { BrainfuckIde } from "@/components/BrainfuckIde";
 
 export const metadata = {
-  title: "brainfuck — avery.pet",
-  description: "a time-travelling brainfuck ide – step forwards and backwards through a full execution trace",
+  title: "brainfuck IDE — avery.pet",
+  description: "a time-travelling brainfuck IDE – full execution trace with live tape preview",
 };
 
 export default function BrainfuckPage() {

@@ -1,5 +1,5 @@
-import { MINUS, splitMorphemes } from "@/lib/morphemes";
-import { morphemeGlosses } from "@/lib/dictionary";
+import { MINUS, splitMorphemes } from "@/lib/kawaba/morphemes";
+import { morphemeGlosses } from "@/lib/kawaba/dictionary";
 
 // Tokens whose glyph file isn't named after the character itself, either
 // because the filename can't contain it or because one character maps to two

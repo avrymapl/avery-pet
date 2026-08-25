@@ -38,7 +38,7 @@ export const projects: Project[] = [
     slug: "brainfuck",
     title: "brainfuck ide",
     description:
-      "a time-travelling ide for brainfuck – step execution forwards and backwards on a labelled tape",
+      "a time-travelling ide for brainfuck – full execution trace with live tape preview",
     category: "programming",
     href: "/brainfuck",
   },

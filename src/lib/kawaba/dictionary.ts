@@ -1,4 +1,4 @@
-import { splitMorphemes } from "@/lib/morphemes";
+import { splitMorphemes } from "@/lib/kawaba/morphemes";
 
 export type WordType = "root" | "compound";
 

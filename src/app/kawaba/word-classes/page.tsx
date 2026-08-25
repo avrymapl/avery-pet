@@ -2,7 +2,7 @@ import { Article } from "@/components/Article";
 import { Example } from "@/components/Example";
 import { Callout } from "@/components/Callout";
 import { Glyphs } from "@/components/Glyphs";
-import { getGlyphMarkup } from "@/lib/glyphs";
+import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 
 export const metadata = {
   title: "word classes – kawaba",

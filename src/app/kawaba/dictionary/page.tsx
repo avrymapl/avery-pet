@@ -1,6 +1,6 @@
 import { Article } from "@/components/Article";
 import { DictionaryBrowser } from "@/components/DictionaryBrowser";
-import { getGlyphMarkup } from "@/lib/glyphs";
+import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 
 export const metadata = {
   title: "dictionary — kawaba",
