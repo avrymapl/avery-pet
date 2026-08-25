@@ -1,9 +1,13 @@
 export function SidebarShell({
   sidebar,
   children,
+  // Centred prose width by default; pages that need the full content area
+  // (like the brainfuck ide) can override it.
+  contentClassName = "mx-auto max-w-2xl",
 }: {
   sidebar: React.ReactNode;
   children: React.ReactNode;
+  contentClassName?: string;
 }) {
   return (
     <div className="md:flex md:min-h-screen">
@@ -11,7 +15,7 @@ export function SidebarShell({
         {sidebar}
       </aside>
       <main className="px-6 py-10 md:ml-64 md:min-h-screen md:flex-1 md:px-12 md:py-16">
-        <div className="mx-auto max-w-2xl">{children}</div>
+        <div className={contentClassName}>{children}</div>
       </main>
     </div>
   );
