@@ -93,7 +93,7 @@ export default function KawabaMorphology() {
       />
       <h2>compounding</h2>
       <p>
-        The first root in a Kawaba word after the word class prefix is the <strong>head </strong>, which provides the core meaning of a word. Roots that follow the head are its <strong>dependents</strong>, which narrow the meaning of all the roots before them.
+        The first root in a Kawaba word after the word class prefix is the <strong>head</strong>, which provides the core meaning of a word. Roots that follow the head are its <strong>dependents</strong>, which narrow the meaning of all the roots before them.
       </p>
       <div className="flex flex-row gap-4">
         <Example

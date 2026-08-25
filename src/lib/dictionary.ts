@@ -999,9 +999,9 @@ export const dictionary: DictionaryEntry[] = [
     type: "root",
     gloss: "join",
     definitions: [
-      { wordClass: "N", meaning: "joint, connection, link, junction, seam" },
-      { wordClass: "Q", meaning: "joined, connected, attached, linked" },
-      { wordClass: "V", meaning: "join, connect, attach, link, combine" },
+      { wordClass: "N", meaning: "one, connection, link, junction, joint" },
+      { wordClass: "Q", meaning: "singular, connected, joined, attached, linked" },
+      { wordClass: "V", meaning: "unify, connect, join, attach, link, combine" },
       { wordClass: "O", meaning: "one" },
     ],
   },
@@ -1100,9 +1100,10 @@ export const dictionary: DictionaryEntry[] = [
     gloss: "same",
     definitions: [
       { wordClass: "N", meaning: "identity, equality, likeness" },
-      { wordClass: "Q", meaning: "same, identical, equal, alike" },
+      { wordClass: "Q", meaning: "similar, identical, equal, alike" },
       { wordClass: "V", meaning: "match, equal, be the same as" },
-      { wordClass: "O", meaning: "the same, self" },
+      { wordClass: "O", meaning: "same, self" },
+      { wordClass: "C", meaning: "similarly, likewise" },
     ],
   },
   {
@@ -1227,10 +1228,10 @@ export const dictionary: DictionaryEntry[] = [
     type: "root",
     gloss: "divide",
     definitions: [
-      { wordClass: "N", meaning: "division, split, separation, share" },
-      { wordClass: "Q", meaning: "divided, separate, split" },
-      { wordClass: "V", meaning: "divide, split, separate, share out" },
-      { wordClass: "O", meaning: "two" },
+      { wordClass: "N", meaning: "two, division, separation" },
+      { wordClass: "Q", meaning: "dual, separated, divided, split" },
+      { wordClass: "V", meaning: "divide, split, separate, halve" },
+      { wordClass: "O", meaning: "two of" },
     ],
   },
   {
