@@ -34,4 +34,12 @@ export const projects: Project[] = [
     pinned: true,
     icon: "kawaba",
   },
+  {
+    slug: "brainfuck",
+    title: "brainfuck ide",
+    description:
+      "a time-travelling ide for brainfuck – step execution forwards and backwards on a labelled tape",
+    category: "programming",
+    href: "/brainfuck",
+  },
 ];

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PT_Serif, Noto_Sans } from "next/font/google";
+import { PT_Serif, Noto_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const bodyFont = PT_Serif({
@@ -11,6 +11,16 @@ const bodyFont = PT_Serif({
 
 const uiFont = Noto_Sans({
   variable: "--font-noto-sans",
+  subsets: ["latin"],
+});
+
+// Must live on <html> with the others: --font-mono in the theme references
+// this variable, and a css variable resolves its var() lookups where it is
+// declared (:root), so a font variable set further down the tree is invisible
+// to it and the editor would fall back to the inherited serif.
+const monoFont = IBM_Plex_Mono({
+  weight: ["400", "700"],
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
 });
 
@@ -47,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bodyFont.variable} ${uiFont.variable} h-full`}>
+    <html lang="en" className={`${bodyFont.variable} ${uiFont.variable} ${monoFont.variable} h-full`}>
       <body className="min-h-full">{children}</body>
     </html>
   );

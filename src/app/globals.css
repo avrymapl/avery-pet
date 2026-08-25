@@ -11,8 +11,15 @@
   --color-green-deep: #39523c;
   --color-green-pale: #dce5d8;
 
+  /* Warm accents for the brainfuck ide: amber for the executing instruction
+     and the tape pointer, rust for errors and breakpoints. */
+  --color-amber: #96702a;
+  --color-amber-pale: #f0e5c8;
+  --color-rust: #9c4b38;
+
   --font-serif: var(--font-pt-serif), serif;
   --font-ui: var(--font-noto-sans), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, "Cascadia Mono", Menlo, monospace;
 }
 
 body {
@@ -22,6 +29,13 @@ body {
 ::selection {
   background: var(--color-green-pale);
   color: var(--color-green-deep);
+}
+
+/* The ide editor is a transparent textarea over a highlighted copy of the
+   source; recolouring selected text would double it up over the overlay. */
+.bf-editor-input::selection {
+  background: var(--color-green-pale);
+  color: transparent;
 }
 
 /* Shared hover tooltip, used by glyph glosses and word-class abbreviations. */
