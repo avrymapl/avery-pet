@@ -41,7 +41,7 @@ export function WikiSidebar({ articles }: { articles: { slug: string; title: str
 
       <CollapsibleNav open={open} onNavigate={() => setOpen(false)}>
         <SidebarLink href="/wiki" active={pathname === "/wiki"}>
-          about &amp; your knowledge
+          about
         </SidebarLink>
         <hr className="my-2 border-t border-border" />
         <p className="mb-2 px-3 font-ui text-xs font-semibold tracking-widest text-ink-soft uppercase">
@@ -56,6 +56,16 @@ export function WikiSidebar({ articles }: { articles: { slug: string; title: str
             {article.title}
           </SidebarLink>
         ))}
+        {/* Quiet utility link, in the same register as the back link above —
+            state management is an escape hatch, not a destination. */}
+        <Link
+          href="/wiki/knowledge"
+          className={`mt-6 px-3 font-ui text-xs tracking-widest uppercase hover:text-green-deep ${
+            pathname === "/wiki/knowledge" ? "text-green-deep" : "text-ink-soft"
+          }`}
+        >
+          your knowledge
+        </Link>
       </CollapsibleNav>
     </div>
   );

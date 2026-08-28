@@ -29,14 +29,14 @@
 .wiki-dep,
 .wiki-dep-again {
   font: inherit;
-  color: inherit;
+  color: var(--color-green-deep);
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
   text-align: inherit;
   text-decoration: underline dotted;
-  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 55%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--color-green-deep) 55%, transparent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
@@ -52,15 +52,17 @@
   text-decoration-color: var(--color-green);
 }
 
-/* Concepts the reader is resolved to know fade back toward plain text. */
+/* Concepts the reader is resolved to know fade back to plain text — the
+ * green then *means* something: "the wiki thinks you might need this". */
 .wiki-dep[data-state="known"],
 .wiki-dep-again[data-state="known"] {
-  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 22%, transparent);
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 25%, transparent);
 }
 
 /* Repeat occurrences: fainter than the first, still discoverable. */
 .wiki-dep-again {
-  text-decoration-color: color-mix(in srgb, var(--color-ink-soft) 30%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--color-green-deep) 30%, transparent);
 }
 
 /* Brief highlight when a repeat occurrence jumps back to the first one. */
@@ -179,6 +181,22 @@
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--color-green) 45%, transparent);
   text-underline-offset: 2px;
+}
+
+/* ---- Math (KaTeX, rendered at build time) -------------------------------
+ * Display math is a phrasing-legal <span> styled block by katex's CSS, so it
+ * works inside paragraphs and primers alike. Long formulas scroll on their
+ * own rather than widening the page. */
+
+.article-content .katex-display {
+  margin: 1.1rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.1rem 0;
+}
+
+.article-content .katex {
+  font-size: 1.05em;
 }
 
 /* ---- Article meta line & mode toggle ------------------------------------ */

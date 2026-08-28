@@ -83,7 +83,8 @@ export function buildWiki(content: WikiContent): { wiki: BuiltWiki; issues: Issu
   // --- Articles ------------------------------------------------------------
   const articles: RenderedArticle[] = [];
   for (const source of content.articles) {
-    const rendered = renderArticle(source, concepts);
+    const { issues: articleIssues, ...rendered } = renderArticle(source, concepts);
+    issues.push(...articleIssues);
     for (const id of rendered.deps) {
       if (!concepts.has(id)) {
         issues.push({ fatal: true, file: source.file, message: `annotation [[${id}]] references an unregistered concept` });

@@ -25,6 +25,7 @@
 
 import { Marked } from "marked";
 import type { TokenizerAndRendererExtension, Tokens } from "marked";
+import katex from "katex";
 import type { ArticleSource, Concept, Issue, RenderedArticle } from "./types";
 
 const ANNOTATION = /^\[\[([a-z0-9][a-z0-9-]*)(?:\|([^\]\n]+))?\]\]/;
@@ -68,8 +69,71 @@ function wikirefExtension(
   };
 }
 
+// TeX math, rendered to static HTML by KaTeX at build time (the client only
+// needs katex's stylesheet): $...$ inline, $$...$$ display. Display output is
+// still a <span> (styled block by katex's CSS), so math is safe everywhere
+// phrasing content is — primers included. A literal dollar is \$ (markdown's
+// escape, handled before this extension), and $5 or $10 won't match: the
+// opening $ must not be followed by whitespace, the closing one must not be
+// preceded by it, and a closing $ can't run into a digit.
+const DISPLAY_MATH = /^\$\$([\s\S]+?)\$\$/;
+const INLINE_MATH = /^\$(?!\s)((?:\\.|[^\\$\n])+?)(?<!\s)\$(?!\d)/;
+
+interface MathToken extends Tokens.Generic {
+  type: "wikimath";
+  tex: string;
+  display: boolean;
+}
+
+function mathExtension(onError: (message: string) => void): TokenizerAndRendererExtension {
+  return {
+    name: "wikimath",
+    level: "inline",
+    start(src: string) {
+      const i = src.indexOf("$");
+      return i === -1 ? undefined : i;
+    },
+    tokenizer(src: string) {
+      const display = DISPLAY_MATH.exec(src);
+      if (display) return { type: "wikimath", raw: display[0], tex: display[1].trim(), display: true };
+      const inline = INLINE_MATH.exec(src);
+      if (inline) return { type: "wikimath", raw: inline[0], tex: inline[1], display: false };
+      return undefined;
+    },
+    renderer(token) {
+      const { tex, display } = token as MathToken;
+      try {
+        return katex.renderToString(tex, { displayMode: display, throwOnError: true, strict: false });
+      } catch (e) {
+        onError(`bad TeX "${tex.length > 40 ? tex.slice(0, 40) + "…" : tex}": ${(e as Error).message}`);
+        return `<code>${escapeHtml(token.raw)}</code>`;
+      }
+    },
+  };
+}
+
 const BLOCK_CLOSE = /^<\/(p|li|h[1-6]|td|th|dt|dd)>/;
 const SLOT_OPEN = '<span class="wiki-slot"';
+
+/** Given `from` at an opening <span, returns the index just past its matching
+ *  close, nested spans included. Used to skip whole KaTeX subtrees. */
+function skipBalancedSpan(html: string, from: number): number {
+  let depth = 0;
+  let i = from;
+  while (i < html.length) {
+    if (html.startsWith("<span", i)) {
+      depth++;
+      i = html.indexOf(">", i) + 1;
+    } else if (html.startsWith("</span>", i)) {
+      depth--;
+      i += "</span>".length;
+      if (depth === 0) return i;
+    } else {
+      i++;
+    }
+  }
+  return html.length;
+}
 
 /**
  * Finds where to insert an expansion slot: the end of the sentence that the
@@ -88,8 +152,14 @@ function findSlotIndex(html: string, from: number): number {
       // Reaching the end of the enclosing block without a sentence
       // terminator: put the slot just before the block closes.
       if (BLOCK_CLOSE.test(html.slice(i))) return i;
-      // Skip whole gloss spans and annotation buttons, contents included —
-      // their text carries punctuation that isn't part of this sentence.
+      // Skip whole gloss spans, annotation buttons and math subtrees,
+      // contents included — their text carries punctuation (gloss sentences,
+      // decimal digits, TeX source in KaTeX's MathML annotation) that isn't
+      // part of this sentence.
+      if (html.startsWith('<span class="katex', i)) {
+        i = skipBalancedSpan(html, i);
+        continue;
+      }
       if (html.startsWith('<span class="wiki-gloss"', i)) {
         i = html.indexOf("</span>", i) + "</span>".length;
         continue;
@@ -132,12 +202,14 @@ function findSlotIndex(html: string, from: number): number {
 export function renderArticle(
   source: ArticleSource,
   registry: Map<string, Concept>,
-): RenderedArticle {
+): RenderedArticle & { issues: Issue[] } {
   const deps: string[] = [];
+  const issues: Issue[] = [];
 
   const marked = new Marked({ gfm: true });
   marked.use({
     extensions: [
+      mathExtension((message) => issues.push({ fatal: true, file: source.file, message })),
       wikirefExtension((token) => {
         const concept = registry.get(token.id);
         const surface = token.surface ?? concept?.name ?? token.id.replace(/-/g, " ");
@@ -181,7 +253,7 @@ export function renderArticle(
     cursor = afterAnnotation;
   }
 
-  return { slug: source.slug, title: source.title, summary: source.summary, html, deps };
+  return { slug: source.slug, title: source.title, summary: source.summary, html, deps, issues };
 }
 
 /**
@@ -198,6 +270,7 @@ export function renderPrimer(
   const marked = new Marked({ gfm: true });
   marked.use({
     extensions: [
+      mathExtension((message) => issues.push({ fatal: true, file, message })),
       wikirefExtension((token) => {
         const surface = token.surface ?? token.id.replace(/-/g, " ");
         return `<span class="wiki-dep-inert">${escapeHtml(surface)}</span>`;
