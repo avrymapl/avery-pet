@@ -53,6 +53,14 @@ One heuristic from the slot-placement code: primers open after the sentence's
 closing punctuation, found by scanning. Abbreviations like "e.g." mid-sentence
 can fool it; if a primer opens somewhere silly, rephrase the sentence.
 
+### math
+
+`$...$` is inline TeX, `$$...$$` display TeX — in articles and primers alike.
+It is rendered by KaTeX at build time (no math JS ships to the reader), and a
+TeX error fails the build naming the file. A literal dollar is `\$`; plain
+prices like $5 are left alone (the opening `$` must touch the math). KaTeX's
+support tables: https://katex.org/docs/supported.html
+
 ## writing a primer
 
 A primer answers *what do you need to know about X to keep reading this

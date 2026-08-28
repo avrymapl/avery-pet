@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Article } from "@/components/Article";
-import { StatePanel } from "@/components/wiki/StatePanel";
 import { getWiki } from "@/lib/wiki/site";
 
 export const metadata = {
@@ -33,6 +32,10 @@ export default function WikiIndex() {
           prelude before the text proper, so the same page can be read as a wiki or as a
           textbook chapter.
         </p>
+        <p>
+          Everything the site infers about you — and the controls to inspect, export, or
+          undo it — lives on the <Link href="/wiki/knowledge">your knowledge</Link> page.
+        </p>
       </Article>
 
       <section className="mt-10">
@@ -55,17 +58,6 @@ export default function WikiIndex() {
             </li>
           ))}
         </ul>
-      </section>
-
-      <hr className="my-10 border-t border-border" />
-
-      <section>
-        <h2 className="font-ui text-xs font-semibold tracking-widest text-ink-soft uppercase">
-          your knowledge
-        </h2>
-        <div className="mt-4">
-          <StatePanel />
-        </div>
       </section>
     </>
   );

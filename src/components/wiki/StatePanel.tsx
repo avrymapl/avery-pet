@@ -79,9 +79,7 @@ export function StatePanel() {
     <div className="font-ui text-sm">
       <p className="text-ink-soft">
         {known.length} known · {unknown.length} unknown · {unassessed.length} unassessed, out of{" "}
-        {ids.length} concepts. Nothing here is asked of you — it is all inferred from how you read,
-        and recomputed from the raw evidence every time, so forgetting one thing also retracts
-        whatever was inferred from it.
+        {ids.length} concepts.
       </p>
 
       {known.length > 0 && (

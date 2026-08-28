@@ -2,6 +2,9 @@
 // own content column (.wiki-column) instead of the shared centered one: from
 // 80rem up the column shifts left to leave a real margin for tier-1 glosses.
 
+// KaTeX's stylesheet (fonts bundled by Next); the math itself is rendered
+// to static HTML at build time, so no math JS ever reaches the client.
+import "katex/dist/katex.min.css";
 import "./wiki.css";
 import { WikiSidebar } from "@/components/wiki/WikiSidebar";
 import { getWiki } from "@/lib/wiki/site";

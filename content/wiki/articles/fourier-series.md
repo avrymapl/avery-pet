@@ -7,12 +7,12 @@ A Fourier series represents a [[periodic-function]] as an infinite sum of
 [[trigonometric-functions|sines and cosines]]. The claim is startling on first
 contact: the function being represented can jag, step, and corner, while every
 sine and cosine is as smooth as a function can be. Yet for any reasonable
-periodic function f with period 2π there are coefficients a₀, a₁, b₁, a₂, b₂, …
-such that
+periodic function $f$ with period $2\pi$ there are coefficients
+$a_0, a_1, b_1, a_2, b_2, \dots$ such that
 
-f(x) = a₀/2 + a₁ cos x + b₁ sin x + a₂ cos 2x + b₂ sin 2x + …
+$$f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \bigl( a_n \cos nx + b_n \sin nx \bigr),$$
 
-and the sum on the right, carried far enough, comes as close to f as you
+and the sum on the right, carried far enough, comes as close to $f$ as you
 please. Joseph Fourier asserted as much in 1807 while studying the flow of
 heat, to the open scepticism of his examiners; making his claim precise took
 mathematics most of a century, and the tools invented to do it — much of
@@ -28,8 +28,8 @@ integrating the product of two functions over one period. With it, questions
 about functions become questions about geometry: lengths, angles, and
 projections all make sense.
 
-The trigonometric family — the constant function together with cos nx and
-sin nx for every whole number n — has a remarkable property under this inner
+The trigonometric family — the constant function together with $\cos nx$ and
+$\sin nx$ for every whole number $n$ — has a remarkable property under this inner
 product: [[orthogonality]]. Take any two distinct members of the family,
 multiply them, and take the [[integral]] over a period, and the answer is
 exactly zero, every time. The family behaves like a set of mutually
@@ -41,21 +41,22 @@ project: dot the vector with the axis and divide by the axis's squared length,
 and no other axis interferes. The Fourier coefficients are precisely this
 projection, performed in a space of functions:
 
-aₙ = (1/π) ∫ f(x) cos nx dx,  bₙ = (1/π) ∫ f(x) sin nx dx,
+$$a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx \, dx, \qquad
+  b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx \, dx,$$
 
 each integral taken over one period. Each coefficient answers, independently
-of all the others, the question "how much of this frequency does f contain?"
+of all the others, the question "how much of this frequency does $f$ contain?"
 The independence is orthogonality speaking: because the directions do not
 overlap, the recipe for each is oblivious to the rest. It also explains the
-otherwise odd-looking a₀/2 — the constant function is the lone member of the
+otherwise odd-looking $a_0/2$ — the constant function is the lone member of the
 family with a different squared length, and the halving quietly repairs the
 mismatch.
 
-## In what sense the sum reaches f
+## In what sense the sum reaches $f$
 
-The claim that the series equals f is a statement about [[convergence]], and
+The claim that the series equals $f$ is a statement about [[convergence]], and
 its precise form is where the century of work went. The honest statement is
-that the partial sums converge to f in mean square: the integral of the
+that the partial sums converge to $f$ in mean square: the integral of the
 squared error over a period tends to zero. For functions no worse than
 piecewise smooth, more is true — the series converges at every point,
 settling at each jump on the midpoint of the gap, splitting the difference
@@ -76,9 +77,9 @@ of a vector in a perpendicular frame, written out with integrals.
 
 ## Why the representation earns its keep
 
-The value of trading f for its coefficients is that hard operations become
-easy ones. Take the [[derivative]]: differentiating f term by term merely
-multiplies the nth pair of coefficients by n and swaps sine with cosine.
+The value of trading $f$ for its coefficients is that hard operations become
+easy ones. Take the [[derivative]]: differentiating $f$ term by term merely
+multiplies the $n$th pair of coefficients by $n$ and swaps sine with cosine.
 Differentiation — an operation involving limits — becomes multiplication,
 which is why Fourier reached for the series in the first place: his heat
 equation relates a time derivative to two space derivatives, and frequency by
