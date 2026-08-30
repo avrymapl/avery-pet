@@ -1,4 +1,4 @@
-import { BrainfuckIde } from "@/components/BrainfuckIde";
+import { BrainfuckIde } from "@/components/brainfuck/BrainfuckIde";
 
 export const metadata = {
   title: "brainfuck IDE — avery.pet",

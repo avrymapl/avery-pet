@@ -1,5 +1,5 @@
 import { Article } from "@/components/Article";
-import { DictionaryBrowser } from "@/components/DictionaryBrowser";
+import { DictionaryBrowser } from "@/components/kawaba/DictionaryBrowser";
 import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 
 export const metadata = {

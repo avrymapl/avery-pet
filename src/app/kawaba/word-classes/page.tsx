@@ -1,7 +1,7 @@
 import { Article } from "@/components/Article";
-import { Example } from "@/components/Example";
+import { Example } from "@/components/kawaba/Example";
 import { Callout } from "@/components/Callout";
-import { Glyphs } from "@/components/Glyphs";
+import { Glyphs } from "@/components/kawaba/Glyphs";
 import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 
 export const metadata = {
@@ -183,20 +183,6 @@ export default function KawabaWordClasses() {
       <p>
         Verbs take <em>i-</em> and predicate a state or event. Every finite clause contains exactly one verb, and a verb is all that's needed to form a sentence. Verbs are not marked for tense, aspect, mood, person, or number. The form of a verb is the same in every context.
       </p>
-      <h3>the copula</h3>
-      <p>
-        The verb prefix <em>i</em> can be used alone with no stem as <strong>the copula</strong>, the equivalent to the English verb "to be". It can be used to predicate both nouns and qualifiers.
-      </p>
-      <div className="flex flex-row gap-4">
-        <Example
-          kawaba="apunga i apun"
-          translation="dogs are animals"
-        />
-        <Example
-          kawaba="apunga i emu"
-          translation="dogs are good"
-        />
-      </div>
       <h2>operators</h2>
       <p>
         Operators take <em>o-</em> and quantify a phrase, rather than describing it. They cover quantifiers, determiners, numerals, degree words, and negation. An operator precedes the constituent it scopes over, drawing a distinction between content and logical vocabulary.

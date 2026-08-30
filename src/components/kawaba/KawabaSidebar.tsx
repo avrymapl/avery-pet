@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SidebarLink } from "./SidebarLink";
-import { PixelIcon } from "./PixelIcon";
-import { CollapsibleNav, CollapsibleNavToggle } from "./CollapsibleNav";
+import { SidebarLink } from "@/components/SidebarLink";
+import { PixelIcon } from "@/components/PixelIcon";
+import { CollapsibleNav, CollapsibleNavToggle } from "@/components/CollapsibleNav";
 import { kawabaNav } from "@/lib/kawaba/kawaba-nav";
 import { categoryIcons, searchIcon } from "@/lib/pixel-icons";
 

@@ -1,4 +1,4 @@
-import { Glyphs } from "@/components/Glyphs";
+import { Glyphs } from "@/components/kawaba/Glyphs";
 import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 import { generateGloss } from "@/lib/kawaba/dictionary";
 

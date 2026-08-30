@@ -1,5 +1,5 @@
 import { Article } from "@/components/Article";
-import { Example } from "@/components/Example";
+import { Example } from "@/components/kawaba/Example";
 import { Callout } from "@/components/Callout";
 
 export const metadata = {

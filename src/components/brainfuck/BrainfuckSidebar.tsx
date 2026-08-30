@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PixelIcon } from "./PixelIcon";
-import { CollapsibleNavToggle } from "./CollapsibleNav";
+import { PixelIcon } from "@/components/PixelIcon";
+import { CollapsibleNavToggle } from "@/components/CollapsibleNav";
 import { useBrainfuckSettings, clampTapeLength } from "@/lib/brainfuck/useSettings";
 import { MAX_TAPE_LENGTH, type CellWidth } from "@/lib/brainfuck/machine";
 import { categoryIcons } from "@/lib/pixel-icons";
