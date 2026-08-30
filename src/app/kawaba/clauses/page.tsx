@@ -3,7 +3,7 @@ import { Example } from "@/components/kawaba/Example";
 import { Callout } from "@/components/Callout";
 
 export const metadata = {
-  title: "word classes – kawaba",
+  title: "clauses",
 };
 
 export default function KawabaClauses() {

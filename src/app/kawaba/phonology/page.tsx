@@ -2,7 +2,7 @@ import { Article } from "@/components/Article";
 import { Callout } from "@/components/Callout";
 
 export const metadata = {
-  title: "phonology — kawaba",
+  title: "phonology",
 };
 
 export default function KawabaPhonology() {

@@ -3,7 +3,7 @@ import { DictionaryBrowser } from "@/components/kawaba/DictionaryBrowser";
 import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 
 export const metadata = {
-  title: "dictionary — kawaba",
+  title: "dictionary",
 };
 
 export default function KawabaDictionary() {

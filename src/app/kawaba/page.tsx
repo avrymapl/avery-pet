@@ -1,9 +1,5 @@
 import { Article } from "@/components/Article";
 
-export const metadata = {
-  title: "kawaba — avery.pet",
-};
-
 export default function KawabaIntroduction() {
   return (
     <Article>

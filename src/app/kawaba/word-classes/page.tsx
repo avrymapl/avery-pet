@@ -5,7 +5,7 @@ import { Glyphs } from "@/components/kawaba/Glyphs";
 import { getGlyphMarkup } from "@/lib/kawaba/glyphs";
 
 export const metadata = {
-  title: "word classes – kawaba",
+  title: "word classes",
 };
 
 export default function KawabaWordClasses() {
