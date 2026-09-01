@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "avery.pet",
     url: "/kawaba",
     type: "website",
-    images: [{ url: "/kawaba.png", width: 1200, height: 630, alt: "kawaba" }],
+    images: [{ url: "/kawaba.png", width: 256, height: 256, alt: "kawaba" }],
   },
   twitter: {
     card: "summary_large_image",
